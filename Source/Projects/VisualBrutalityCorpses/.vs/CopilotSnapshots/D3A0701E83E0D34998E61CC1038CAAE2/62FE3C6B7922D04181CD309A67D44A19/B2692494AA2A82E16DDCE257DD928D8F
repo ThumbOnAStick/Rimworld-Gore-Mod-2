@@ -1,0 +1,78 @@
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using Verse;
+using VisualBrutalityCorpses.Comps;
+using VisualBrutalityCorpses.Utils;
+
+namespace VisualBrutalityCorpses.VBCustomContents
+{
+    public static class VBBodyGraphic
+    {
+        private static readonly string crushDamagePath = Path.Combine("VBDamageMasksBody", "Crush");
+        //private static readonly string cutDamagePath = Path.Combine("VBDamageMasks", "Cut");
+        //private static readonly string burnDamagePath = Path.Combine("VBDamageMasks", "Burn");
+
+        private static string currentDamagePath = crushDamagePath;
+        private static string currentBodyTypePath = "Male";
+        private static string currentRotationPath = "South";
+
+        private static void SetCurrentdamagePath(DamageDef lastHitDamage)
+        {
+            if (lastHitDamage != null && lastHitDamage == DamageDefOf.Crush) currentDamagePath = crushDamagePath;
+        }
+
+        private static void SetCurrentBodyTypePath(BodyTypeDef bodyTypeDef)
+        {
+            //if (bodyTypeDef == BodyTypeDefOf.Baby)
+            //    return;
+            //if (bodyTypeDef == BodyTypeDefOf.Fat)
+            //    currentBodyTypePath = "Fat";
+            //if (bodyTypeDef == BodyTypeDefOf.Female)
+            //    currentBodyTypePath = "Female";
+            //if (bodyTypeDef == BodyTypeDefOf.Thin)
+            //    currentBodyTypePath = "Thin";
+            //if (bodyTypeDef == BodyTypeDefOf.Female)
+            //    currentBodyTypePath = "Female";
+            currentBodyTypePath = "Male";
+        }
+
+        private static void SetCurrentRotation(Rot4 rot)
+        {
+            if (rot == Rot4.South) currentRotationPath = "South";
+            if (rot == Rot4.North) currentRotationPath = "North";
+            if (rot == Rot4.East) currentRotationPath = "East";
+            if (rot == Rot4.West) currentRotationPath = "East";
+        }
+
+
+        public static Texture2D GoreMaskFor(Pawn pawn)
+        {
+            if(pawn == null) return null;
+            var recorder = pawn.TryGetComp<CompDeathRecorder>();
+            if (recorder == null) return null;
+            if (pawn.story != null)
+                SetCurrentBodyTypePath(pawn.story.bodyType);
+            else
+                currentBodyTypePath = "AnimalsAndMechs";
+            SetCurrentdamagePath(recorder.LastHitDamage);
+            SetCurrentRotation(pawn.Rotation);
+            try
+            {
+                TexUI.ArrowTex
+                return ContentFinder<Texture2D>.Get(Path.Combine(currentDamagePath, currentBodyTypePath, currentRotationPath)); 
+            }catch(Exception e)
+            {
+                VBLog.ErrorSevere(e.Message); return null;
+            }
+        }
+
+
+
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Visual Brutality</name>
+	<author>Thumb</author>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<description>Changes how the game renders corpses and adds VFX and SFX to dismemberment.</description>
+	<packageId>Thumb.GoreMod2</packageId>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+</ModMetaData>

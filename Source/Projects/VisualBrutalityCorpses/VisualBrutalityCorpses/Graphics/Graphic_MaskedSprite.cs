@@ -1,0 +1,96 @@
+﻿using RimWorld;
+using RimWorld.BaseGen;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using Verse;
+using VisualBrutalityCorpses.Comps;
+using VisualBrutalityCorpses.Utils;
+
+namespace VisualBrutalityCorpses.Graphics
+{
+    public class Graphic_MaskedSprite : Graphic
+    {
+        private readonly Graphic inner;
+        private readonly Thing targetThing;
+        private readonly bool isBody;
+        private readonly Dictionary<Rot4, MaskedSpriteRotDrawer> drawers = new Dictionary<Rot4, MaskedSpriteRotDrawer>();
+        public bool IsValid => inner != null && targetThing != null;
+
+        public Graphic_MaskedSprite(Graphic inner, Pawn pawn, Apparel apparel = null, bool isBody = true)
+        {
+            this.inner = inner;
+            if (apparel == null)
+                this.targetThing = pawn;
+            else
+                this.targetThing = apparel;
+            if (inner == null || targetThing == null)
+            {
+                return;
+            }
+
+            this.data = inner.data;
+            this.color = inner.color;
+            this.colorTwo = inner.colorTwo;
+            this.isBody = isBody;
+        }
+
+        public override string ToString() => $"Graphic_MaskedSprite({inner})";
+
+        public override Material MatSingle => inner?.MatSingle;
+
+        public override Material MatAt(Rot4 rot, Thing thing = null)
+        {
+            if (inner == null)
+            {
+                return base.MatAt(rot, thing);
+            }
+
+            try
+            {
+                var baseMat = inner.MatAt(rot, thing);
+
+                if (!isBody || targetThing == null)
+                {
+                    return baseMat;
+                }
+
+                var recorder = targetThing.TryGetComp<CompDeathRecorder>();
+                if (targetThing is Apparel apparel)
+                    recorder = apparel.Wearer.TryGetComp<CompDeathRecorder>();
+                if (recorder == null)
+                {
+                    return baseMat;
+                }
+
+                var texture = recorder.GetGoreTextureBody;
+                if (texture == null)
+                {
+                    return baseMat;
+                }
+
+                if (!drawers.TryGetValue(rot, out MaskedSpriteRotDrawer drawer))
+                {
+                    drawers[rot] = drawer = new MaskedSpriteRotDrawer();
+                }
+
+                return drawer.GetMaterial(baseMat, texture);
+            }
+            catch (Exception e)
+            {
+                string targetName = targetThing != null ? targetThing.ThingID : "None";
+                VBLog.Error($"Failed to draw maksed sprite mat for {targetName}, stacktrace: {e}");
+                return inner.MatAt(rot, thing);
+            }
+        }
+
+        public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
+        {
+            inner?.DrawWorker(loc, rot, thingDef, thing, extraRotation);
+        }
+
+    }
+}
