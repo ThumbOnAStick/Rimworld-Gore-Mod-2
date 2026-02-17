@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Compatibility;
 using VisualBrutalityCorpses.Utils;
 using VisualBrutalityCorpses.VBCustomContents;
 
@@ -21,7 +18,8 @@ namespace VisualBrutalityCorpses.Graphics
             maskCached = null;
         }
 
-        public Material GetMaterial(Material baseMat, Texture2D mask, Pawn pawn = null, Thing apparel = null)
+
+        public Material GetMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null)
         {
             if (this.materialCached != null && maskCached.Equals(mask))
             {
@@ -34,10 +32,15 @@ namespace VisualBrutalityCorpses.Graphics
             }
 
             this.maskCached = mask;
-            return this.materialCached = BuildTornMaterial(baseMat, mask);
+            return this.materialCached = BuildTornMaterial(baseMat, mask, pawn, apparel);
         }
 
-        protected Material BuildTornMaterial(Material baseMat, Texture2D mask, Pawn pawn = null, Thing apparel = null)
+        private Color GetPawnBloodColorDefault(Pawn pawn)
+        {
+            return pawn.def.race.BloodDef != null ? pawn.def.race.BloodDef.graphicData.color : Color.grey;
+        }
+
+        protected Material BuildTornMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null)
         {
             try
             {
@@ -48,8 +51,10 @@ namespace VisualBrutalityCorpses.Graphics
 
               
                 newMat.SetTexture("_Mask", mask);
-                //newMat.SetFloat("_RevealAmount", ApparelDamageVisualsMod.Settings.HoleSize);
-                newMat.SetColor("_DamageLayerColor", Color.grey);
+                float revealAmount = apparel != null? 1f : 0.9f;
+                Color color = apparel != null? Color.grey : ColorUtils.GetBloodColor(pawn);
+                newMat.SetFloat("_RevealAmount", revealAmount);
+                newMat.SetColor("_DamageLayerColor", color);
 
                 return newMat;
             }

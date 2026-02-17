@@ -1,8 +1,10 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Defs;
 using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityCorpses.VBCustomContents
@@ -12,12 +14,28 @@ namespace VisualBrutalityCorpses.VBCustomContents
     {
         private static AssetBundle bundleInt;
         private static Dictionary<string, Shader> _lookupShaders;
-        private static readonly string initialPathCrash = "VBDamageMasksBody/Crush";
-        private static readonly List<string> facingPaths = new List<string>() {"South", "North", "East" };
+        private const string NorthSuffix = "_north";
+        private const string SouthSuffix = "_south";
+        private const string EastSuffix = "_east";
+        private static readonly string torsoDestroyedMasks = "VBMasks/TorsoDestroyedMasks";
         public static readonly Shader TestUnlitShader = LoadShader(Path.Combine("Assets", "testunlit.shader"));
-        public static readonly Dictionary<BodyTypeDef, List<Texture2D>> CrushTextures = LoadTextures(initialPathCrash);
+        public static readonly List<Texture2D> TorsoDestroyedMasks = LoadAllTexturesFromFolder(torsoDestroyedMasks);
+        public static readonly List<Texture2D> Skulls = LoadSkullTextures();
 
-        
+        static VBContentDatabase()
+        {
+            try
+            {
+                VBDefOf.CutMask.Init();
+                VBDefOf.CrushMask.Init();
+
+            }
+            catch (Exception e)
+            {
+                VBLog.ErrorSevere(e.Message);
+            }
+        }
+
         public static AssetBundle CBBundle
         {
             get
@@ -30,33 +48,32 @@ namespace VisualBrutalityCorpses.VBCustomContents
             }
         }
 
-        public static Texture2D GetCrushMaskInRot(BodyTypeDef bodyType, Rot4 rot)
+        public static Texture2D GetSplitInHalfMask()
         {
-            if (!CrushTextures.ContainsKey(bodyType)) return null;
-            if (rot == Rot4.North)
-                return CrushTextures[bodyType][1];
-            if (rot == Rot4.East || rot == Rot4.West)
-                return CrushTextures[bodyType][2];
-
-            return CrushTextures[bodyType][0];
+            return TorsoDestroyedMasks[0];
         }
 
-        private static List<Texture2D> GetAllRotTextures(string initialPath, string bodyTypePath)
+
+        private static List<Texture2D> LoadAllTexturesFromFolder(string folderPath)
         {
             List<Texture2D> result = new List<Texture2D>();
-            string combinedPath = initialPath + "/" + bodyTypePath + "/";
-            foreach(var facing in facingPaths)
+            IEnumerable<Texture2D> textures = ContentFinder<Texture2D>.GetAllInFolder(folderPath);
+            if (textures != null)
             {
-                result.Add(ContentFinder<Texture2D>.Get(combinedPath + facing));
+                result.AddRange(textures);
             }
             return result;
         }
 
-        private static Dictionary<BodyTypeDef, List<Texture2D>> LoadTextures(string DamgeTypePath)
+        private static List<Texture2D> LoadSkullTextures()
         {
-            Dictionary<BodyTypeDef, List<Texture2D>> result = new Dictionary<BodyTypeDef, List<Texture2D>>();
-            result.Add(BodyTypeDefOf.Male, GetAllRotTextures(initialPathCrash, "Male"));
-
+            string path = HeadTypeDefOf.Skull.graphicPath;
+            List<Texture2D> result = new List<Texture2D>
+            {
+                ContentFinder<Texture2D>.Get(path + SouthSuffix),
+                ContentFinder<Texture2D>.Get(path + NorthSuffix),
+                ContentFinder<Texture2D>.Get(path + EastSuffix),
+            };
             return result;
         }
 

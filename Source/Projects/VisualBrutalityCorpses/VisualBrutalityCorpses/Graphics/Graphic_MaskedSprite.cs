@@ -53,7 +53,7 @@ namespace VisualBrutalityCorpses.Graphics
             {
                 var baseMat = inner.MatAt(rot, thing);
 
-                if (!isBody || targetThing == null)
+                if (targetThing == null)
                 {
                     return baseMat;
                 }
@@ -61,14 +61,15 @@ namespace VisualBrutalityCorpses.Graphics
                 var recorder = targetThing.TryGetComp<CompDeathRecorder>();
                 if (targetThing is Apparel apparel)
                     recorder = apparel.Wearer.TryGetComp<CompDeathRecorder>();
-                if (recorder == null)
+                if (recorder == null || !recorder.HasSpecialCorpseMask)
                 {
                     return baseMat;
                 }
 
-                var texture = recorder.GetGoreTextureBody;
+                var texture = isBody? recorder.GetGoreTextureBody : recorder.GetGoreTextureHead;
                 if (texture == null)
                 {
+                    VBLog.Error("Generated a null texture!!!");
                     return baseMat;
                 }
 
@@ -77,7 +78,10 @@ namespace VisualBrutalityCorpses.Graphics
                     drawers[rot] = drawer = new MaskedSpriteRotDrawer();
                 }
 
-                return drawer.GetMaterial(baseMat, texture);
+                if (targetThing is Apparel apparel1)
+                    return drawer.GetMaterial(baseMat, texture, apparel1.Wearer, apparel1);
+                return drawer.GetMaterial(baseMat, texture, (Pawn)targetThing);
+
             }
             catch (Exception e)
             {

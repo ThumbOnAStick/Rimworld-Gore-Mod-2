@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
       <VBModTitle>Visual Brutality</VBModTitle>
-      <VBErrorSevere>A severe error has occurred! Please inform the author: {0}</VBErrorSevere>
+      <VBErrorSevere>A severe error has occurred! Please paste this to the developer on workshop bug report thread: {0}</VBErrorSevere>
 </LanguageData>

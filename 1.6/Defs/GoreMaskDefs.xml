@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <VisualBrutalityCorpses.Defs.GoreMaskDef>
+        <defName>CutMask</defName>
+        <metaPath>VBMasks/Cut</metaPath>
+        <supportedBodyTypes>
+            <li>Male</li>
+        </supportedBodyTypes>
+    </VisualBrutalityCorpses.Defs.GoreMaskDef>
+
+    <VisualBrutalityCorpses.Defs.GoreMaskDef>
+        <defName>CrushMask</defName>
+        <metaPath>VBMasks/Crush</metaPath>
+        <supportedBodyTypes>
+            <li>Male</li>
+        </supportedBodyTypes>
+    </VisualBrutalityCorpses.Defs.GoreMaskDef>
+</Defs> 

@@ -1,0 +1,77 @@
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using VEF.Weapons;
+using Verse;
+using VisualBrutalityCorpses.Comps;
+using VisualBrutalityCorpses.Utils;
+
+namespace VisualBrutalityCorpses.VBCustomContents
+{
+    public static class VBBodyGraphic
+    {
+
+        private static bool TorsoCheck(Hediff h)
+        {
+            BodyPartRecord part = h.Part;
+            return ((part != null) ? part.def : null) == BodyPartDefOf.Torso;
+        }
+        private static bool ShouldSplitTorso(Pawn pawn)
+        {
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+            if (hediffs != null && hediffs.Count >= 1 && hediffs.Any(TorsoCheck))
+            {
+                float severity = hediffs.Where(TorsoCheck).MaxBy(h => h.tickAdded).Severity;
+                if (severity > (float)BodyPartDefOf.Torso.hitPoints)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static Texture2D GetGoreMask(Pawn pawn, Func<GoreMaskDef, Texture2D> getMask, Func<Texture2D> getSpecialMask = null)
+        {
+            if (pawn == null) return null;
+            var recorder = pawn.TryGetComp<CompDeathRecorder>();
+            if (recorder == null) return null;
+            if (pawn.story == null) return null;
+            try
+            {
+                if (recorder.LastHitDamage == null) return null;
+                if (getSpecialMask != null)
+                {
+                    var special = getSpecialMask();
+                    if (special != null) return special;
+                }
+                bool isCutOrStab = recorder.LastHitDamage == DamageDefOf.Stab || recorder.LastHitDamage == DamageDefOf.Cut;
+                return getMask(isCutOrStab ? VBDefOf.CutMask : VBDefOf.CrushMask);
+            }
+            catch (Exception e)
+            {
+                VBLog.ErrorSevere(e.Message); return null;
+            }
+        }
+
+        public static Texture2D BodyGoreMaskFor(Pawn pawn)
+        {
+            return GetGoreMask(
+                pawn,
+                mask => mask.GetBodyMaskInRot(pawn.story.bodyType, pawn.Rotation),
+                () => ShouldSplitTorso(pawn) ? VBContentDatabase.GetSplitInHalfMask() : null);
+        }
+
+        public static Texture2D HeadGoreMaskFor(Pawn pawn)
+        {
+            return GetGoreMask(
+                pawn,
+                mask => mask.GetHeadMaskInRot(pawn.Rotation));
+        }
+
+    }
+}

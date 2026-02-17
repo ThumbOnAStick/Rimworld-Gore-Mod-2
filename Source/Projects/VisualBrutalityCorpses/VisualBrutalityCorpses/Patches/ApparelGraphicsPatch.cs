@@ -25,7 +25,7 @@ namespace VisualBrutalityCorpses.Patches
             if (apparel.Wearer == null) return false;
             if (!apparel.Wearer.Dead) return false;
             List<BodyPartGroupDef> defs = apparel.def.apparel.bodyPartGroups;
-            bool validateParts = defs.Contains(BodyPartGroupDefOf.Torso) || defs.Contains(BodyPartGroupDefOf.FullHead) ||
+            bool validateParts = defs.Contains(BodyPartGroupDefOf.Torso) ||
                 defs.Contains(BodyPartGroupDefOf.Legs);
             return validateParts;
         }

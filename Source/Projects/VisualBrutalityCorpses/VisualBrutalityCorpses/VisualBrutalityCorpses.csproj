@@ -35,6 +35,14 @@
       <HintPath>..\..\..\Libs\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="0ModSettingsFramework">
+      <HintPath>..\..\..\Libs\0ModSettingsFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0PrepatcherAPI">
+      <HintPath>..\..\..\Libs\0PrepatcherAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\Libs\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -51,11 +59,32 @@
       <HintPath>..\..\..\Libs\ISharpZipLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="KCSG">
+      <HintPath>..\..\..\Libs\KCSG.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\..\..\Libs\Mono.Security.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MVCF">
+      <HintPath>..\..\..\Libs\MVCF.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NVorbis">
+      <HintPath>..\..\..\Libs\NVorbis.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Outposts">
+      <HintPath>..\..\..\Libs\Outposts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PipeSystem">
+      <HintPath>..\..\..\Libs\PipeSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -167,15 +196,28 @@
       <HintPath>..\..\..\Libs\UnityEngine.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="VEF">
+      <HintPath>..\..\..\Libs\VEF.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compatibility\Compatibility_VEF.cs" />
     <Compile Include="Comps\CompDeathRecorder.cs" />
     <Compile Include="Comps\CompProperties_DeathRecorder.cs" />
+    <Compile Include="Defs\GoreMaskDef.cs" />
     <Compile Include="Graphics\Graphic_MaskedSprite.cs" />
     <Compile Include="Graphics\MaskedSpriteRotDrawer.cs" />
     <Compile Include="Patches\ApparelGraphicsPatch.cs" />
     <Compile Include="Patches\BodyRenderPatch.cs" />
+    <Compile Include="Patches\FurRenderPatch.cs" />
+    <Compile Include="Patches\HeadRenderPatch.cs" />
     <Compile Include="Patches\MetaPatches.cs" />
+    <Compile Include="RenderNode\PawnRenderNodeWorker_Skull.cs" />
+    <Compile Include="RenderNode\PawnRenderNode_Skeleton.cs" />
+    <Compile Include="RenderNode\PawnRenderNode_Skull.cs" />
+    <Compile Include="Utils\ColorUtils.cs" />
+    <Compile Include="Utils\VBDefOf.cs" />
     <Compile Include="Utils\VBLog.cs" />
     <Compile Include="VBCustomContents\VBBodyGraphic.cs" />
     <Compile Include="VBSettings.cs" />

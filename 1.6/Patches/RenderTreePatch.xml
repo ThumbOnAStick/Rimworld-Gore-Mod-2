@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children</xpath>
+        <value>
+            <li>
+                <debugLabel>Skeleton</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_Skeleton</nodeClass>
+                <workerClass>PawnRenderNodeWorker_Body</workerClass>
+                <useRottenColor>true</useRottenColor>
+                <baseLayer>-1</baseLayer>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>
+            /Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[debugLabel="Head"]/children</xpath>
+        <value>
+            <li>
+                <debugLabel>Skull</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_Skull</nodeClass>
+                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                <useRottenColor>true</useRottenColor>
+                <rotDrawMode>Fresh, Rotting</rotDrawMode>
+                <baseLayer>49</baseLayer>
+            </li>
+        </value>
+    </Operation>
+</Patch>
