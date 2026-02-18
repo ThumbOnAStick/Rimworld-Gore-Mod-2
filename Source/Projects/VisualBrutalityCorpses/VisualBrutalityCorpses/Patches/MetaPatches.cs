@@ -28,6 +28,8 @@ namespace VisualBrutalityCorpses.Patches
                 BodyRenderPatch.PatchHarmony();
                 FurRenderPatch.PatchHarmony();  
                 HeadRenderPatch.PatchHarmony();
+                AnimalBodyRenderPatch.PatchHarmony();
+                CorpseBurntPatch.PatchHarmony();
             }
             catch (Exception e)
             {

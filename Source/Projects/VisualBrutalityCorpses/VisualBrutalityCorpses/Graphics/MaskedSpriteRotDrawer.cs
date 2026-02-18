@@ -1,7 +1,10 @@
-﻿using System;
+﻿using RimWorld;
+using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Verse;
 using VisualBrutalityCorpses.Compatibility;
+using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Utils;
 using VisualBrutalityCorpses.VBCustomContents;
 
@@ -21,7 +24,12 @@ namespace VisualBrutalityCorpses.Graphics
 
         public Material GetMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null, bool isBody = true)
         {
-            if (this.materialCached != null && maskCached.Equals(mask))
+            if (mask == null)
+            {
+                return baseMat;
+            }
+
+            if (this.materialCached != null && mask.Equals(maskCached))
             {
                 return this.materialCached;
             }
@@ -35,30 +43,25 @@ namespace VisualBrutalityCorpses.Graphics
             return this.materialCached = BuildTornMaterial(baseMat, mask, pawn, apparel, isBody);
         }
 
-        private Color GetPawnBloodColorDefault(Pawn pawn)
-        {
-            return pawn.def.race.BloodDef != null ? pawn.def.race.BloodDef.graphicData.color : Color.grey;
-        }
-
         protected Material BuildTornMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null, bool isBody = true)
         {
             try
             {
                 bool isHead = isBody == false && apparel == null;
+                bool shoudDrawSkull = isHead && VisualBrutalityMod.Settings.DrawSkeleton;
                 var newMat = new Material(baseMat)
                 {
-                    shader = isHead ? VBContentDatabase.TestUnlitMixerShader : VBContentDatabase.TestUnlitShader
+                    shader = shoudDrawSkull ? VBContentDatabase.TestUnlitMixerShader : VBContentDatabase.TestUnlitShader,
+                    mainTextureScale = baseMat.mainTextureScale,
+                    mainTextureOffset = baseMat.mainTextureOffset
                 };
-
-              
                 newMat.SetTexture("_Mask", mask);
                 float revealAmount = apparel != null? 1f : 0.9f;
                 Color color = apparel != null? Color.grey : ColorUtils.GetBloodColor(pawn);
                 newMat.SetFloat("_RevealAmount", revealAmount);
                 newMat.SetColor("_DamageLayerColor", color);
-                VBLog.Message($"{pawn.Name} rotation: {pawn.Rotation}");
-                if (isHead) newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkullTexture(pawn.Rotation));
-
+                Rot4 rot = ((pawn.GetPosture() == PawnPosture.Standing) ? pawn.Rotation : pawn.Drawer.renderer.LayingFacing());
+                if (shoudDrawSkull) newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkullTexture(rot));
                 return newMat;
             }
             catch (Exception ex)

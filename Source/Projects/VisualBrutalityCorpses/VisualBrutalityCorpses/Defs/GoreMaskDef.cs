@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityCorpses.Defs
 {
@@ -19,6 +20,8 @@ namespace VisualBrutalityCorpses.Defs
         private static readonly List<string> facingPaths = new List<string>() { "South", "North", "East" };
      
         private List<Texture2D> headTextures;
+
+        private List<Texture2D> animalTextures;
 
         private Dictionary<BodyTypeDef, List<Texture2D>> bodyTextureDict;
 
@@ -43,6 +46,14 @@ namespace VisualBrutalityCorpses.Defs
             headTextures = LoadHeadTextures();
 
             bodyTextureDict = LoadBodyTextures();
+
+            animalTextures = LoadAnimalTextures();
+
+            if(animalTextures.Any(x => x.NullOrBad()))
+            {
+                VBLog.ErrorSevere($"{defName} mask has bad animal textures!");
+            }
+
         }
 
         private List<Texture2D> LoadDirections(string path)
@@ -58,6 +69,11 @@ namespace VisualBrutalityCorpses.Defs
                 result.Add(ContentFinder<Texture2D>.Get(path + facing));
             }
             return result;
+        }
+
+        private List<Texture2D> LoadAnimalTextures()
+        {
+            return LoadDirections(metaPath + "/Animals/");
         }
 
         private List<Texture2D> LoadHeadTextures()
@@ -77,26 +93,31 @@ namespace VisualBrutalityCorpses.Defs
             
         }
 
+        private Texture2D GetTextureForRot(List<Texture2D> textures, Rot4 rot)
+        {
+            if (textures.Count <= 2) return null;
+            if (rot == Rot4.North)
+                return textures[1];
+            if (rot == Rot4.East || rot == Rot4.West)
+                return textures[2];
+            return textures[0];
+        }
+
         public Texture2D GetBodyMaskInRot(BodyTypeDef bodyType, Rot4 rot)
         {
-            if (!bodyTextureDict.ContainsKey(bodyType) || bodyTextureDict[bodyType].Count <= 2) return GetBodyMaskInRot(BodyTypeDefOf.Male, rot);
-            if (rot == Rot4.North)
-                return bodyTextureDict[bodyType][1];
-            if (rot == Rot4.East || rot == Rot4.West)
-                return bodyTextureDict[bodyType][2];
-
-            return bodyTextureDict[bodyType][0];
+            if (!bodyTextureDict.ContainsKey(bodyType) || bodyTextureDict[bodyType].Count <= 2)
+                return GetBodyMaskInRot(BodyTypeDefOf.Male, rot);
+            return GetTextureForRot(bodyTextureDict[bodyType], rot);
         }
 
         public Texture2D GetHeadMaskInRot(Rot4 rot)
         {
-            if (headTextures.Count <= 2) return null;
-            if (rot == Rot4.North)
-                return headTextures[1];
-            if (rot == Rot4.East || rot == Rot4.West)
-                return headTextures[2];
+            return GetTextureForRot(headTextures, rot);
+        }
 
-            return headTextures[0];
+        public Texture2D GetAnimalCorpseMaskInRot(Rot4 rot)
+        {
+            return GetTextureForRot(animalTextures, rot);
         }
     }
 }

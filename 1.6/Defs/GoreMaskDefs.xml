@@ -15,4 +15,13 @@
             <li>Male</li>
         </supportedBodyTypes>
     </VisualBrutalityCorpses.Defs.GoreMaskDef>
+
+    
+    <VisualBrutalityCorpses.Defs.GoreMaskDef>
+        <defName>ShotMask</defName>
+        <metaPath>VBMasks/Shot</metaPath>
+        <supportedBodyTypes>
+            <li>Male</li>
+        </supportedBodyTypes>
+    </VisualBrutalityCorpses.Defs.GoreMaskDef>
 </Defs> 

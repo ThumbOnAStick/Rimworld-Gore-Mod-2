@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using VEF.Weapons;
 using Verse;
 using VisualBrutalityCorpses.Defs;
 using VisualBrutalityCorpses.Utils;
@@ -22,6 +23,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
         public static readonly Shader TestUnlitMixerShader = LoadShader(Path.Combine("Assets", "testunlitmixer.shader"));
         public static readonly List<Texture2D> TorsoDestroyedMasks = LoadAllTexturesFromFolder(torsoDestroyedMasks);
         public static readonly List<Texture2D> Skulls = LoadSkullTextures();
+        //public static readonly Texture2D BurnedOverlay = LoadBurnedOverlay();
 
         static VBContentDatabase()
         {
@@ -29,7 +31,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
             {
                 VBDefOf.CutMask.Init();
                 VBDefOf.CrushMask.Init();
-
+                VBDefOf.ShotMask.Init();
             }
             catch (Exception e)
             {
@@ -104,6 +106,12 @@ namespace VisualBrutalityCorpses.VBCustomContents
             if (shader != null) return shader;
             VBLog.ErrorSevere("Could not load shader: " + shaderName);
             return ShaderDatabase.DefaultShader;
+        }
+
+        private static Texture2D LoadBurnedOverlay()
+        {
+            return ContentFinder<Texture2D>.Get("VBMasks/BurnedOverlay");
+
         }
     }
 }

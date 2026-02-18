@@ -5,26 +5,24 @@
         <value>
             <li>
                 <debugLabel>Skeleton</debugLabel>
-                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_Skeleton</nodeClass>
-                <workerClass>PawnRenderNodeWorker_Body</workerClass>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_HumanSkeleton</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_Skeleton</workerClass>
                 <useRottenColor>true</useRottenColor>
                 <baseLayer>-1</baseLayer>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
             </li>
         </value>
     </Operation>
-
     <!-- <Operation Class="PatchOperationAdd">
-        <xpath>
-            /Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[debugLabel="Head"]/children</xpath>
+        <xpath>/Defs/PawnRenderTreeDef[defName="Animal"]/root/children</xpath>
         <value>
             <li>
-                <debugLabel>Skull</debugLabel>
-                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_Skull</nodeClass>
-                <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+                <debugLabel>Skeleton</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_AnimalSkeleton</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_Skeleton</workerClass>
                 <useRottenColor>true</useRottenColor>
+                <baseLayer>-1</baseLayer>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
-                <baseLayer>49</baseLayer>
             </li>
         </value>
     </Operation> -->

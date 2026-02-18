@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using MVCF.Features;
+using RimWorld;
 using RimWorld.BaseGen;
 using System;
 using System.Collections.Generic;
@@ -6,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using VEF.Weapons;
 using Verse;
 using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Utils;
+using VisualBrutalityCorpses.VBCustomContents;
 
 namespace VisualBrutalityCorpses.Graphics
 {
@@ -36,11 +39,34 @@ namespace VisualBrutalityCorpses.Graphics
             this.color = inner.color;
             this.colorTwo = inner.colorTwo;
             this.isBody = isBody;
+            this.drawSize = inner.drawSize;
         }
 
         public override string ToString() => $"Graphic_MaskedSprite({inner})";
 
         public override Material MatSingle => inner?.MatSingle;
+
+        private Material EvaluateBurntMaterials(Material baseMat,
+            Rot4 rot,
+            Thing thing)
+        {
+            if (thing is Apparel apparel1)
+            {
+                if (!drawers.TryGetValue(rot, out MaskedSpriteRotDrawer drawer))
+                {
+                    drawers[rot] = drawer = new MaskedSpriteRotDrawer();
+                }
+                var mat = drawer.GetMaterial(baseMat, VBContentDatabase.GetSplitInHalfMask(), apparel1.Wearer, apparel1);
+                mat.color = new Color(.1f, .1f, .1f);
+                return mat;
+            }
+
+            var burnedMat = new Material(baseMat)
+            {
+                color = new Color(.1f, .1f, .1f)
+            };
+            return burnedMat;
+        }
 
         public override Material MatAt(Rot4 rot, Thing thing = null)
         {
@@ -65,8 +91,20 @@ namespace VisualBrutalityCorpses.Graphics
                 {
                     return baseMat;
                 }
+                if (recorder.Burnt) return EvaluateBurntMaterials(baseMat, rot, targetThing);
 
-                var texture = isBody? recorder.GetGoreTextureBody : recorder.GetGoreTextureHead;
+                    Texture2D texture;
+                bool isAnimal = (thing != null && thing.def.race?.Animal == true) || 
+                                (thing is Corpse corpse && corpse.InnerPawn?.def.race?.Animal == true) ||
+                                (targetThing is Pawn pawnTarget && pawnTarget.def.race?.Animal == true);
+                if (isAnimal)
+                {
+                    texture = recorder.GetGoreMaskAnimal;
+                }
+                else
+                {
+                    texture = isBody? recorder.GetGoreTextureBody : recorder.GetGoreTextureHead;
+                }
                 if (texture == null)
                 {
                     VBLog.Error("Generated a null texture!!!");

@@ -9,6 +9,7 @@ namespace VisualBrutalityCorpses.Utils
     {
         public static GoreMaskDef CutMask;
         public static GoreMaskDef CrushMask;
+        public static GoreMaskDef ShotMask;
 
     }
 }

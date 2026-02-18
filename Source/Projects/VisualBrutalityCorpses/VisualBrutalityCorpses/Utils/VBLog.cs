@@ -16,6 +16,11 @@ namespace VisualBrutalityCorpses.Utils
             Log.Message(Tag + message);
         }
 
+        public static void Warning(string message)
+        {
+            Log.Warning(Tag + message);
+        }
+
         public static void Error(string message)
         {
             Log.Error(Tag + message);

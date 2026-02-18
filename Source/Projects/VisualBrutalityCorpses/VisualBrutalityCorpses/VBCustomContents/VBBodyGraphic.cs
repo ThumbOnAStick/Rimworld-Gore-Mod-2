@@ -36,14 +36,20 @@ namespace VisualBrutalityCorpses.VBCustomContents
             return false;
         }
 
-        private static Texture2D GetGoreMask(Pawn pawn, Func<GoreMaskDef, Texture2D> getMask, Func<Texture2D> getSpecialMask = null)
+        private static Rot4 GetRealRotation(Pawn pawn)
+        {
+            return pawn.Corpse != null ? pawn.Drawer.renderer.LayingFacing() : pawn.Rotation;
+        }
+
+        private static Texture2D GetGoreMask(Pawn pawn, Func<GoreMaskDef, Texture2D> getMask, Func<Texture2D> getSpecialMask = null, bool requireStory = true)
         {
             if (pawn == null) return null;
             var recorder = pawn.TryGetComp<CompDeathRecorder>();
             if (recorder == null) return null;
-            if (pawn.story == null) return null;
+            if (requireStory && pawn.story == null) return null;
             try
             {
+                if (recorder.Burnt) return null;
                 if (recorder.LastHitDamage == null) return null;
                 if (getSpecialMask != null)
                 {
@@ -51,7 +57,12 @@ namespace VisualBrutalityCorpses.VBCustomContents
                     if (special != null) return special;
                 }
                 bool isCutOrStab = recorder.LastHitDamage == DamageDefOf.Stab || recorder.LastHitDamage == DamageDefOf.Cut;
-                return getMask(isCutOrStab ? VBDefOf.CutMask : VBDefOf.CrushMask);
+                if(isCutOrStab) 
+                    return getMask(VBDefOf.CutMask);
+                if(recorder.LastHitDamage == DamageDefOf.Bullet)
+                    return getMask(VBDefOf.ShotMask);
+                return getMask(VBDefOf.CrushMask);
+
             }
             catch (Exception e)
             {
@@ -59,11 +70,12 @@ namespace VisualBrutalityCorpses.VBCustomContents
             }
         }
 
+
         public static Texture2D BodyGoreMaskFor(Pawn pawn)
         {
             return GetGoreMask(
                 pawn,
-                mask => mask.GetBodyMaskInRot(pawn.story.bodyType, pawn.Rotation),
+                mask => mask.GetBodyMaskInRot(pawn.story.bodyType, GetRealRotation(pawn)),
                 () => ShouldSplitTorso(pawn) ? VBContentDatabase.GetSplitInHalfMask() : null);
         }
 
@@ -71,8 +83,16 @@ namespace VisualBrutalityCorpses.VBCustomContents
         {
             return GetGoreMask(
                 pawn,
-                mask => mask.GetHeadMaskInRot(pawn.Rotation));
+                mask => mask.GetHeadMaskInRot(GetRealRotation(pawn)));
         }
 
+        public static Texture2D AnimalGoreMaskFor(Pawn pawn)
+        {
+            return GetGoreMask(
+                pawn,
+                mask => mask.GetAnimalCorpseMaskInRot(GetRealRotation(pawn)),
+                null,
+                requireStory: false);
+        }
     }
 }

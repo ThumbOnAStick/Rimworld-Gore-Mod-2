@@ -1,21 +1,25 @@
 ﻿using RimWorld;
 using UnityEngine;
+using VEF.Weapons;
 using Verse;
 using VisualBrutalityCorpses.VBCustomContents;
 
 namespace VisualBrutalityCorpses.Comps
 {
-    public class CompDeathRecorder: ThingComp
+    public class CompDeathRecorder : ThingComp
     {
         private DamageDef lastHitDamage = DamageDefOf.Blunt;
         private float lasthitDamageAmount = 0;
-        public Pawn SelfPawn => (Pawn)this.parent;
+        private bool burnt = false;
 
+        public bool Burnt => burnt;
+        public Pawn SelfPawn => (Pawn)this.parent;
         public DamageDef LastHitDamage => this.lastHitDamage;
 
         public bool HasSpecialGoreTexture
         {
-            get {
+            get
+            {
                 return SelfPawn != null && SelfPawn.Dead;
             }
         }
@@ -37,17 +41,26 @@ namespace VisualBrutalityCorpses.Comps
                 return VBBodyGraphic.HeadGoreMaskFor(SelfPawn);
             }
         }
+
+        public Texture2D GetGoreMaskAnimal
+        {
+            get
+            {
+                return VBBodyGraphic.AnimalGoreMaskFor(SelfPawn);
+            }
+        }
         public bool HasSpecialCorpseMask
         {
             get
             {
-                if (lasthitDamageAmount > 50) return true;
+                if (lasthitDamageAmount > 50 || burnt) return true;
                 return lastHitDamage == DamageDefOf.Crush ||
                     lastHitDamage == DamageDefOf.Bite ||
-                    lastHitDamage == DamageDefOf.Flame ||
+                    lastHitDamage == DamageDefOf.Burn ||
                     lastHitDamage == DamageDefOf.AcidBurn ||
                     lastHitDamage == DamageDefOf.Bomb ||
                     lastHitDamage == DamageDefOf.Cut ||
+                    lastHitDamage == DamageDefOf.Bullet ||
                     lastHitDamage == DamageDefOf.Stab;
             }
         }
@@ -60,18 +73,27 @@ namespace VisualBrutalityCorpses.Comps
             lasthitDamageAmount = dinfo.Amount;
         }
 
+
         public override void PostExposeData()
         {
             base.PostExposeData();
             Scribe_Defs.Look(ref lastHitDamage, "lastHitDamage");
             Scribe_Values.Look(ref lasthitDamageAmount, "lasthitDamageAmount");
+            Scribe_Values.Look(ref burnt, "burnt");
         }
 
-        public void OnCorpseBurnt(DamageInfo info)
+        public void SetBurnt(bool _burnt)
         {
-            if(info.Def == DamageDefOf.Burn || info.Def == DamageDefOf.Flame)
-            this.lastHitDamage = info.Def;
+            this.burnt = _burnt;
+            if(burnt) 
+            this.SelfPawn?.Corpse?.TryGetComp<CompRottable>()?.RotImmediately(stage: RotStage.Dessicated);
         }
-  
+
+        public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
+        {
+            base.Notify_Killed(prevMap, dinfo);
+            this.SetBurnt(false); // Reset burn status everytime pawn dies.
+        }
+
     }
 }

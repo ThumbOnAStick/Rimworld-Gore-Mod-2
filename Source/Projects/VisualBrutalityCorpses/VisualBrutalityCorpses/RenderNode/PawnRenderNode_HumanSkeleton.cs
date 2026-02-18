@@ -11,9 +11,9 @@ using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityCorpses.RenderNode
 {
-    internal class PawnRenderNode_Skeleton : PawnRenderNode
+    internal class PawnRenderNode_HumanSkeleton : PawnRenderNode
     {
-        public PawnRenderNode_Skeleton(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
+        public PawnRenderNode_HumanSkeleton(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
             : base(pawn, props, tree)
         {
         }

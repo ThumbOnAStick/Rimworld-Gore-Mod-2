@@ -7,9 +7,9 @@ namespace VisualBrutalityCorpses
 {
     public class VisualBrutalityMod : Mod
     {
-        public static VisualBrutalityMod Instance { get; private set; }
-
         private readonly VBSettings settings;
+
+        public static VisualBrutalityMod Instance { get; private set; }
 
         public AssetBundle MainBundle{
             get
