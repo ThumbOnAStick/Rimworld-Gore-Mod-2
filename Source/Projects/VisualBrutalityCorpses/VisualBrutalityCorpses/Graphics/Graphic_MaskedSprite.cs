@@ -80,7 +80,7 @@ namespace VisualBrutalityCorpses.Graphics
 
                 if (targetThing is Apparel apparel1)
                     return drawer.GetMaterial(baseMat, texture, apparel1.Wearer, apparel1);
-                return drawer.GetMaterial(baseMat, texture, (Pawn)targetThing);
+                return drawer.GetMaterial(baseMat, texture, (Pawn)targetThing, null, isBody);
 
             }
             catch (Exception e)

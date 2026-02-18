@@ -1,20 +1,21 @@
 ManifestFileVersion: 0
-CRC: 2573203341
+CRC: 594974119
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 722922b4d457add39234df04026cf919
+    Hash: 03af8192764a06796cc98bb8a7c04a98
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0df1dec30b5d061d422d3e6493d27647
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 722922b4d457add39234df04026cf919
+    Hash: 03af8192764a06796cc98bb8a7c04a98
 HashAppended: 0
 ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/TestunlitMixer.shader
 - Assets/Testunlit.shader
 Dependencies: []

@@ -30,7 +30,7 @@ namespace VisualBrutalityCorpses.Utils
         public static Color GetSkeletonColor(Pawn pawn)
         {
             var result = GetBloodColor(pawn);
-            return result * 1.5f;
+            return result * 2f;
         }
 
         public static Color GetBloodColor(Pawn pawn)

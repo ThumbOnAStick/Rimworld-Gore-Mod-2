@@ -19,6 +19,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
         private const string EastSuffix = "_east";
         private static readonly string torsoDestroyedMasks = "VBMasks/TorsoDestroyedMasks";
         public static readonly Shader TestUnlitShader = LoadShader(Path.Combine("Assets", "testunlit.shader"));
+        public static readonly Shader TestUnlitMixerShader = LoadShader(Path.Combine("Assets", "testunlitmixer.shader"));
         public static readonly List<Texture2D> TorsoDestroyedMasks = LoadAllTexturesFromFolder(torsoDestroyedMasks);
         public static readonly List<Texture2D> Skulls = LoadSkullTextures();
 
@@ -75,6 +76,19 @@ namespace VisualBrutalityCorpses.VBCustomContents
                 ContentFinder<Texture2D>.Get(path + EastSuffix),
             };
             return result;
+        }
+
+        public static Texture2D GetSkullTexture(Rot4 rot)
+        {
+            if(rot == Rot4.South)
+            {
+                return Skulls[0];
+            }
+            if(rot == Rot4.North)
+            {
+                return Skulls[1];
+            }
+            return Skulls[2];
         }
 
         private static Shader LoadShader(string shaderName)

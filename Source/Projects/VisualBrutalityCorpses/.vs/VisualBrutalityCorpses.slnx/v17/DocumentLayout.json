@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\rimworld-gore-mod-2\\source\\projects\\visualbrutalitycorpses\\visualbrutalitycorpses\\graphics\\maskedspriterotdrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\graphics\\maskedspriterotdrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\vbcustomcontents\\vbcontentdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\vbcustomcontents\\vbcontentdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\rimworld-gore-mod-2\\source\\projects\\visualbrutalitycorpses\\visualbrutalitycorpses\\vbcustomcontents\\vbbodygraphic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\vbcustomcontents\\vbbodygraphic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\rimworld-gore-mod-2\\source\\projects\\visualbrutalitycorpses\\visualbrutalitycorpses\\graphics\\graphic_maskedsprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\graphics\\graphic_maskedsprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\rimworld-gore-mod-2\\source\\projects\\visualbrutalitycorpses\\visualbrutalitycorpses\\utils\\colorutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\utils\\colorutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\patches\\furrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\patches\\furrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\patches\\headrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\patches\\headrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\patches\\apparelgraphicspatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\patches\\apparelgraphicspatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\visualbrutalitymod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\visualbrutalitymod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Graphic_MaskedSprite.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Graphics\\Graphic_MaskedSprite.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Graphics\\Graphic_MaskedSprite.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Graphics\\Graphic_MaskedSprite.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\Graphics\\Graphic_MaskedSprite.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAjwEQAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T11:08:14.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ColorUtils.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Utils\\ColorUtils.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Utils\\ColorUtils.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Utils\\ColorUtils.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\Utils\\ColorUtils.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T10:40:10.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VBBodyGraphic.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\VBCustomContents\\VBBodyGraphic.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\VBCustomContents\\VBBodyGraphic.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\VBCustomContents\\VBBodyGraphic.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\VBCustomContents\\VBBodyGraphic.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwD0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T10:39:49.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MaskedSpriteRotDrawer.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Graphics\\MaskedSpriteRotDrawer.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Graphics\\MaskedSpriteRotDrawer.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Graphics\\MaskedSpriteRotDrawer.cs*",
+              "RelativeToolTip": "VisualBrutalityCorpses\\Graphics\\MaskedSpriteRotDrawer.cs*",
+              "ViewState": "AgIAACkAAADAzMzMzGwwwDkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T08:20:46.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VBContentDatabase.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\VBCustomContents\\VBContentDatabase.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\VBCustomContents\\VBContentDatabase.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\VBCustomContents\\VBContentDatabase.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\VBCustomContents\\VBContentDatabase.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAwwFIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T08:18:31.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FurRenderPatch.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\FurRenderPatch.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Patches\\FurRenderPatch.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\FurRenderPatch.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\Patches\\FurRenderPatch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T08:19:16.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HeadRenderPatch.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T08:19:21.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApparelGraphicsPatch.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\ApparelGraphicsPatch.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Patches\\ApparelGraphicsPatch.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\ApparelGraphicsPatch.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\Patches\\ApparelGraphicsPatch.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T08:19:11.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VisualBrutalityMod.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\VisualBrutalityMod.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityCorpses\\VisualBrutalityMod.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\VisualBrutalityMod.cs",
+              "RelativeToolTip": "VisualBrutalityCorpses\\VisualBrutalityMod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T08:18:09.592Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
