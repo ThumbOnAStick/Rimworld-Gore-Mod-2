@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using Verse;
+
+namespace VisualBrutalityHead
+{
+    public class HeadGraphics
+    {
+        private static Graphic_Multi GetDefaultHeadGraphic(HeadTypeDef headType, Color color)
+        {
+            Shader shader = ShaderDatabase.Cutout;
+             Graphic_Multi graphic_Multi = (Graphic_Multi)GraphicDatabase.Get<Graphic_Multi>(headType.graphicPath, shader, Vector2.one, color);
+            return graphic_Multi;
+        }
+
+        public static Graphic GetFlyingHeadGraphic(HeadInfo headInfo)
+        {
+            Pawn pawn = headInfo.Pawn;
+            bool hasHead = pawn != null && pawn.Drawer.renderer.renderTree.HeadGraphic != null;
+            Graphic graphic;
+            try
+            {
+                if (hasHead)
+                {
+                    graphic = pawn.story.headType.GetGraphic(pawn, headInfo.SkinColor);
+                }
+                else
+                {
+                    graphic = GetDefaultHeadGraphic(headInfo.HeadTypeDef, headInfo.SkinColor);
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error($"GUD: Exception while generating flying head:{e}");
+                return null;
+            }
+
+            return graphic;
+        }
+
+    }
+}

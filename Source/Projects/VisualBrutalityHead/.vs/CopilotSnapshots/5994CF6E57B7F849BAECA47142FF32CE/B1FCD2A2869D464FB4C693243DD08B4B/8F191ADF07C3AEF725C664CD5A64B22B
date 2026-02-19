@@ -1,0 +1,89 @@
+﻿using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+using Verse;
+
+namespace VisualBrutalityHead
+{
+    public class HeadItem : ThingWithComps
+    {
+        private HeadInfo headInfo;
+        public HeadItem()
+        {
+            
+        }
+
+        public HeadItem(HeadInfo headInfo)
+        {
+            this.headInfo = new HeadInfo(headInfo);
+        }
+
+        public override string Label => "VBHead".Translate(headInfo?.PawnName);
+
+
+        void DrawHead(Vector3 drawLoc)
+        {
+            Graphic headGraphic = this.Graphic;
+            if (headGraphic == null)
+            {
+                return;
+            }
+
+            Vector3 vector = drawLoc + new Vector3(0f, -0.01f, 1f);
+            Quaternion rotation = this.Rotation.AsQuat;
+            headGraphic.drawSize = this.DrawSize;
+            headGraphic.Draw(vector, this.headInfo.Facing, this, rotation.eulerAngles.y);
+        }
+
+        void DrawHair(Vector3 drawLoc)
+        {
+            var pawn = headInfo.Pawn;
+            if (pawn != null)
+            {
+                Vector3 hairDrawLoc = drawLoc + new Vector3(0f, 0f, 1f);
+
+                Quaternion exactRotation = this.Rotation.AsQuat;
+
+                if (pawn.story.hairDef != HairDefOf.Bald)
+                {
+                    string text = pawn.story.hairDef.texPath;
+                    Graphic graphic = GraphicDatabase.Get<Graphic_Multi>(text, ShaderDatabase.CutoutHair, Vector2.one, pawn.story.HairColor);
+                    graphic.drawSize = this.DrawSize;
+                    graphic.Draw(hairDrawLoc, this.headInfo.Facing, this, exactRotation.eulerAngles.y);
+                }
+
+                if (pawn.style.beardDef != BeardDefOf.NoBeard)
+                {
+                    string text2 = pawn.style.beardDef.texPath;
+                    Graphic graphic2 = GraphicDatabase.Get<Graphic_Multi>(text2, ShaderDatabase.CutoutHair, Vector2.one, pawn.story.HairColor);
+                    graphic2.drawSize = this.DrawSize;
+                    graphic2.Draw(hairDrawLoc, this.headInfo.Facing, this, exactRotation.eulerAngles.y);
+                }
+            }
+            else
+            {
+
+            }
+        }
+        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+
+            // Head
+            DrawHead(drawLoc);
+
+            // Hair
+            DrawHair(drawLoc);
+        }
+
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Deep.Look(ref headInfo, "headInfo");
+        }
+    }
+}

@@ -1,0 +1,134 @@
+﻿using RimWorld;
+using UnityEngine;
+using Verse;
+using VisualBrutalityCorpses.Utils;
+
+namespace VisualBrutalityHead
+{
+    public class HeadInfo : IExposable
+    {
+        private Gender gender;
+        private Rot4 facing;
+        private Map headMap;
+        private Color skinColor;
+        private Pawn pawn;
+        private HeadTypeDef headtypeDef;
+        private HairDef hairDef;
+        private Color hairColor;
+        private BeardDef beardDef;
+        private Color beardColor;
+        private string pawnName;
+
+        public Gender Gender
+        {
+            get => gender;
+            set => gender = value;
+        }
+
+        public Map HeadMap
+        {
+            get => headMap;
+            set => headMap = value;
+        }
+
+        public Color SkinColor
+        {
+            get => skinColor;
+            set => skinColor = value;
+        }
+
+        public Pawn Pawn
+        {
+            get => pawn;
+            set => pawn = value;
+        }
+
+        public HeadTypeDef HeadTypeDef
+        {
+            get => headtypeDef;
+            set => headtypeDef = value;
+        }
+
+        public Rot4 Facing
+        {
+            get => facing;
+            set => facing = value;
+        }
+
+        public string PawnName
+        {
+            get => pawnName;
+            set => pawnName = value;
+        }
+
+        public HairDef HairDef
+        {
+            get => hairDef;
+            set => hairDef = value;
+        }
+
+        public Color HairColor
+        {
+            get => hairColor;
+            set => hairColor = value;
+        }
+
+        public BeardDef BeardDef
+        {
+            get => beardDef;
+            set => beardDef = value;
+        }
+
+        public Color BeardColor
+        {
+            get => beardColor;
+            set => beardColor = value;
+        }
+
+        public HeadInfo()
+        {
+        }
+        public HeadInfo(HeadInfo headInfo)
+        {
+            this.gender = headInfo.gender;
+            this.headMap = headInfo.headMap;
+            this.skinColor = headInfo.skinColor;
+            this.pawn = headInfo.pawn;
+            this.headtypeDef = headInfo.headtypeDef;
+            this.pawnName = headInfo.pawnName;
+            this.hairDef = headInfo.hairDef;
+            this.hairColor = headInfo.hairColor;
+            this.beardDef = headInfo.beardDef;
+            this.beardColor = headInfo.beardColor;
+            this.facing = headInfo.facing;
+        }
+        public HeadInfo(Gender gender, Map headMap, Color skinColor, Pawn pawn, HeadTypeDef headtypeDef)
+        {
+            this.gender = gender;
+            this.headMap = headMap;
+            this.skinColor = skinColor;
+            this.pawn = pawn;
+            this.headtypeDef = headtypeDef;
+            this.pawnName = pawn.Label;
+            this.hairDef = pawn.story?.hairDef;
+            this.hairColor = pawn.story?.HairColor ?? default;
+            this.beardDef = pawn.style?.beardDef;
+            this.beardColor = pawn.story?.HairColor ?? default;
+        }
+
+        public void ExposeData()
+        {
+            Scribe_References.Look(ref headMap, "headMap");
+            Scribe_References.Look(ref pawn, "pawn");
+            Scribe_Values.Look(ref gender, "gender", Gender.None);
+            Scribe_Values.Look(ref skinColor, "skinColor", default);
+            Scribe_Values.Look(ref pawnName, "pawnName");
+            Scribe_Values.Look(ref hairColor, "hairColor", default);
+            Scribe_Values.Look(ref beardColor, "beardColor", default);
+            Scribe_Values.Look(ref facing, "facing", default);
+            Scribe_Defs.Look(ref headtypeDef, "headType");
+            Scribe_Defs.Look(ref hairDef, "hairDef");
+            Scribe_Defs.Look(ref beardDef, "beardDef");
+        }
+    }
+}

@@ -2,4 +2,5 @@
 <LanguageData>
       <VBModTitle>残暴可见化</VBModTitle>
       <VBErrorSevere>发生严重错误！请告知作者：{0}</VBErrorSevere>
+      <VBHead>{0}的头</VBHead>
 </LanguageData>

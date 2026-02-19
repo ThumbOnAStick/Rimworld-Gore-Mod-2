@@ -1,0 +1,67 @@
+﻿using RimWorld;
+using UnityEngine;
+using Verse;
+
+namespace VisualBrutalityHead
+{
+    public class HeadInfo : IExposable
+    {
+        private Gender gender;
+        private Map headMap;
+        private Color skinColor;
+        private Pawn pawn;
+        private HeadTypeDef headtypeDef;
+
+        public Gender Gender
+        {
+            get => gender;
+            set => gender = value;
+        }
+
+        public Map HeadMap
+        {
+            get => headMap;
+            set => headMap = value;
+        }
+
+        public Color SkinColor
+        {
+            get => skinColor;
+            set => skinColor = value;
+        }
+
+        public Pawn Pawn
+        {
+            get => pawn;
+            set => pawn = value;
+        }
+
+        public HeadTypeDef HeadTypeDef
+        {
+            get => headtypeDef;
+            set => headtypeDef = value;
+        }
+
+        public HeadInfo()
+        {
+        }
+
+        public HeadInfo(Gender gender, Map headMap, Color skinColor, Pawn pawn, HeadTypeDef headtypeDef)
+        {
+            this.gender = gender;
+            this.headMap = headMap;
+            this.skinColor = skinColor;
+            this.pawn = pawn;
+            this.headtypeDef = headtypeDef;
+        }
+
+        public void ExposeData()
+        {
+            Scribe_References.Look(ref headMap, "headMap");
+            Scribe_References.Look(ref pawn, "pawn");
+            Scribe_Values.Look(ref gender, "gender", Gender.None);
+            Scribe_Values.Look(ref skinColor, "skinColor", default(Color));
+            Scribe_Defs.Look(ref headtypeDef, "headType");
+        }
+    }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef>
+        <defName>HeadProjectile</defName>
+        <label>head projectile</label>
+        <category>Projectile</category>
+        <thingClass>VisualBrutalityHead.HeadProjectile</thingClass>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <shaderType>Transparent</shaderType>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.5,1.5)</drawSize>
+        </graphicData>
+        <projectile>
+            <useGraphicClass>False</useGraphicClass>
+            <speed>5</speed>
+        </projectile>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>HeadItem</defName>
+        <label>head</label>
+        <thingClass>VisualBrutalityHead.HeadItem</thingClass>
+        <useHitPoints>true</useHitPoints>
+        <tickerType>Normal</tickerType>
+        <alwaysHaulable>true</alwaysHaulable>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <category>Item</category>    
+        <thingCategories>
+            <li>Items</li>
+        </thingCategories>
+        <selectable>true</selectable>
+        <statBases>
+            <DeteriorationRate>1.0</DeteriorationRate>
+            <MarketValue>0</MarketValue>
+            <Mass>1</Mass>
+            <Flammability>0.2</Flammability>
+            <MaxHitPoints>60</MaxHitPoints>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Pawn/Humanlike/Heads/Male/Male_Average_Normal_south</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.5,1.5)</drawSize>
+        </graphicData>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>5</daysToRotStart>
+                <daysToDessicated>7</daysToDessicated>
+            </li>
+            <li Class="CompProperties_Forbiddable" />
+        </comps>
+    </ThingDef>
+</Defs>

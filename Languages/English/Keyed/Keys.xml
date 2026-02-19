@@ -2,4 +2,5 @@
 <LanguageData>
       <VBModTitle>Visual Brutality</VBModTitle>
       <VBErrorSevere>A severe error has occurred! Please paste this to the developer on workshop bug report thread: {0}</VBErrorSevere>
+      <VBHead>{0}'s head</VBHead>
 </LanguageData>
