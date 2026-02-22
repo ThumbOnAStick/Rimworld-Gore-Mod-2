@@ -1,0 +1,113 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\flyingflesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\flyingflesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\dismembermentutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\dismembermentutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\metapatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\metapatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\dismemberpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\dismemberpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\vbfragmentsdefof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\vbfragmentsdefof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VBFragmentsDefOf.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\VBFragmentsDefOf.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityFragments\\VBFragmentsDefOf.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\VBFragmentsDefOf.cs",
+              "RelativeToolTip": "VisualBrutalityFragments\\VBFragmentsDefOf.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T09:56:09.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FlyingFlesh.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\FlyingFlesh.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityFragments\\FlyingFlesh.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\FlyingFlesh.cs",
+              "RelativeToolTip": "VisualBrutalityFragments\\FlyingFlesh.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAmwDoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T09:46:41.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DismembermentUtils.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismembermentUtils.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityFragments\\DismembermentUtils.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismembermentUtils.cs",
+              "RelativeToolTip": "VisualBrutalityFragments\\DismembermentUtils.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwCoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T09:43:27.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DismemberPatch.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismemberPatch.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityFragments\\DismemberPatch.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismemberPatch.cs",
+              "RelativeToolTip": "VisualBrutalityFragments\\DismemberPatch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T09:43:18.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MetaPatches.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\MetaPatches.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityFragments\\MetaPatches.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\MetaPatches.cs",
+              "RelativeToolTip": "VisualBrutalityFragments\\MetaPatches.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T09:40:52.52Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

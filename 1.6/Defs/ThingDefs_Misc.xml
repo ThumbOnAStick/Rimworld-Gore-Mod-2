@@ -30,7 +30,7 @@
         <tickerType>Normal</tickerType>
         <alwaysHaulable>true</alwaysHaulable>
         <drawGUIOverlay>true</drawGUIOverlay>
-        <category>Item</category>    
+        <category>Item</category>
         <thingCategories>
             <li>Items</li>
         </thingCategories>
@@ -54,5 +54,27 @@
             </li>
             <li Class="CompProperties_Forbiddable" />
         </comps>
+    </ThingDef>
+
+    <ThingDef>
+        <defName>FlyingFlesh</defName>
+        <label>flying flesh</label>
+        <category>Projectile</category>
+        <thingClass>VisualBrutalityFragments.FlyingFlesh</thingClass>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <shaderType>Transparent</shaderType>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1.5,1.5)</drawSize>
+        </graphicData>
+        <projectile>
+            <useGraphicClass>False</useGraphicClass>
+            <speed>3</speed>
+        </projectile>
+        <tickerType>Normal</tickerType>
     </ThingDef>
 </Defs>
