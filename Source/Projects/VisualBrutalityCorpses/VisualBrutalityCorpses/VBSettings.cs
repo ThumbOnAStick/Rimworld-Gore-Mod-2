@@ -10,10 +10,17 @@ namespace VisualBrutalityCorpses
     public class VBSettings : ModSettings
     {
 
-        public bool DrawSkeleton;
+        public bool DrawSkeleton = false;
+        public bool PlaySounds = false;
+        public bool GenerateHeads = true;
+        public bool GenerateFlesh = true;
+
         public override void ExposeData()
         {
             Scribe_Values.Look(ref DrawSkeleton, "DrawSkeleton", false);
+            Scribe_Values.Look(ref PlaySounds, "PlaySounds", false);
+            Scribe_Values.Look(ref GenerateFlesh, "GenerateFlesh", true);
+            Scribe_Values.Look(ref GenerateHeads, "GenerateHeads", true);
             base.ExposeData();
         }
     }

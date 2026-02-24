@@ -54,5 +54,17 @@ namespace VisualBrutalityCorpses
         {
             return "VBModTitle".Translate();
         }
+
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            base.DoSettingsWindowContents(inRect);
+            Listing_Standard listing_Standard = new Listing_Standard();
+            listing_Standard.Begin(inRect);
+            listing_Standard.CheckboxLabeled("DrawSkeleton".Translate(), ref settings.DrawSkeleton, tooltip: "DrawSkeleton.Explained".Translate());
+            listing_Standard.CheckboxLabeled("GenerateFlesh".Translate(), ref settings.GenerateFlesh);
+            listing_Standard.CheckboxLabeled("GenerateHeads".Translate(), ref settings.GenerateHeads);
+            listing_Standard.End();
+            settings.Write();
+        }
     }
 }

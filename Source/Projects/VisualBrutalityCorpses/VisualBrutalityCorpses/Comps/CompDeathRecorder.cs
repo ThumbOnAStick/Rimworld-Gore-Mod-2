@@ -61,7 +61,8 @@ namespace VisualBrutalityCorpses.Comps
                     lastHitDamage == DamageDefOf.Bomb ||
                     lastHitDamage == DamageDefOf.Cut ||
                     lastHitDamage == DamageDefOf.Bullet ||
-                    lastHitDamage == DamageDefOf.Stab;
+                    lastHitDamage == DamageDefOf.Stab ||
+                    lastHitDamage == DamageDefOf.Scratch;
             }
         }
 

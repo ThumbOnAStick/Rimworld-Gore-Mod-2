@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Compatibility;
 using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Graphics;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityCorpses.Patches
 {
@@ -25,6 +27,10 @@ namespace VisualBrutalityCorpses.Patches
         {
             if (__args[0] == null) return;
             if (!(__args[0] is Pawn pawn) || !pawn.Dead) return;
+            if (Compatibility_HAR.IsHARActive() && Compatibility_HAR.IsPawnAlien(pawn))
+            {
+                Compatibility_HAR.ApplyHARBodyPrefix(ref __result, __instance, pawn);
+            }
             CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>();
             if (compDeathRecorder == null) return;
             __result =  new Graphic_MaskedSprite(__result, pawn);

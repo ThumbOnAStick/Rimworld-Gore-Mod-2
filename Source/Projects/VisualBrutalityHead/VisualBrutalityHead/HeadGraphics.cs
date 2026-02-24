@@ -2,37 +2,49 @@
 using RimWorld;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Compatibility;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityHead
 {
     public class HeadGraphics
     {
-        private static Graphic_Multi GetDefaultHeadGraphic(HeadTypeDef headType, Color color)
+        private static Graphic_Multi GetDefaultHeadGraphic(HeadInfo headInfo, Color color)
         {
             Shader shader = ShaderDatabase.Cutout;
-             Graphic_Multi graphic_Multi = (Graphic_Multi)GraphicDatabase.Get<Graphic_Multi>(headType.graphicPath, shader, Vector2.one, color);
+            Graphic_Multi graphic_Multi = (Graphic_Multi)GraphicDatabase.Get<Graphic_Multi>(headInfo.HeadTypeDef.graphicPath, shader, headInfo.DrawSize, color);
             return graphic_Multi;
         }
-
+        private static Graphic_Multi GetHARtHeadGraphic(HeadInfo headInfo, Color color)
+        {
+            Shader shader = ShaderDatabase.Cutout;
+            try
+            {
+                Graphic_Multi graphic_Multi = (Graphic_Multi)GraphicDatabase.Get<Graphic_Multi>(headInfo.HARPath, shader, headInfo.DrawSize, color);
+                return graphic_Multi;
+            } catch (Exception e)
+            {
+                VBLog.Error($"Failed to get har head graphic: {e}");
+                return GetDefaultHeadGraphic(headInfo, color);
+            }
+        }
         public static Graphic GetFlyingHeadGraphic(HeadInfo headInfo)
         {
-            Pawn pawn = headInfo.Pawn;
-            bool hasHead = pawn != null && pawn.Drawer.renderer.renderTree.HeadGraphic != null;
             Graphic graphic;
             try
             {
-                if (hasHead)
+                if (Compatibility_HAR.IsHARActive() && headInfo.HARPath != null)
                 {
-                    graphic = pawn.story.headType.GetGraphic(pawn, headInfo.SkinColor);
+                    graphic = GetHARtHeadGraphic(headInfo, headInfo.SkinColor);
                 }
                 else
                 {
-                    graphic = GetDefaultHeadGraphic(headInfo.HeadTypeDef, headInfo.SkinColor);
+                    graphic = GetDefaultHeadGraphic(headInfo, headInfo.SkinColor);
                 }
             }
             catch (Exception e)
             {
-                Log.Error($"GUD: Exception while generating flying head:{e}");
+                Log.Error($"GUD: Exception while generating head graphic:{e}");
                 return null;
             }
 

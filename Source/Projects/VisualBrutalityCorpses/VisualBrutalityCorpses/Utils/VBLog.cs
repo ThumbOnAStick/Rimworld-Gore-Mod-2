@@ -28,8 +28,9 @@ namespace VisualBrutalityCorpses.Utils
 
         public static void ErrorSevere(string message)
         {
-            TaggedString fullMsg = (Tag + "VBErrorSevere".Translate(message)).Colorize(Color.red);
-            Find.WindowStack.Add(new Dialog_MessageBox(fullMsg));
+            Error(message);
+            //TaggedString fullMsg = (Tag + "VBErrorSevere".Translate(message)).Colorize(Color.red);
+            //Find.WindowStack.Add(new Dialog_MessageBox(fullMsg));
         }
     }
 }

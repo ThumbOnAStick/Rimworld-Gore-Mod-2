@@ -43,6 +43,10 @@
       <HintPath>..\..\..\Libs\0PrepatcherAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="AlienRace">
+      <HintPath>..\..\..\Libs\AlienRace.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\Libs\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -202,6 +206,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compatibility\Compatibility_HAR.cs" />
     <Compile Include="Compatibility\Compatibility_VEF.cs" />
     <Compile Include="Comps\CompDeathRecorder.cs" />
     <Compile Include="Comps\CompProperties_DeathRecorder.cs" />

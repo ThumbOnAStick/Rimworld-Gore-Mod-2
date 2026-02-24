@@ -6,6 +6,8 @@ using System.Security.Permissions;
 using UnityEngine;
 using VEF.Graphics;
 using Verse;
+using VisualBrutalityCorpses;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityHead
 {
@@ -34,13 +36,24 @@ namespace VisualBrutalityHead
             }
         }
 
-
-        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
-            HeadItem projectile_FlyingHead = (HeadItem)GenSpawn.Spawn(VBHeadDefOf.HeadItem, this.Position, this.MapHeld, WipeMode.Vanish);
-            projectile_FlyingHead.HeadInfoo = new HeadInfo(this.headInfo);
-            projectile_FlyingHead.Rotation = Rot4.Random;
-            base.Impact(hitThing, blockedByShield);
+            try
+            {
+                if (VisualBrutalityMod.Settings.GenerateHeads &&
+                    GenSpawn.TrySpawn(VBHeadDefOf.HeadItem, this.Position, this.MapHeld, out Thing thing))
+                {
+                    HeadItem headItem = (HeadItem)thing;
+                    headItem.HeadInfoo = new HeadInfo(this.headInfo);
+                    headItem.Rotation = Rot4.Random;
+                    headItem.SetForbidden(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                VBLog.Error($"Failed to generate head. {ex}");
+            }
+            base.Destroy(mode);
         }
 
 
@@ -96,7 +109,7 @@ namespace VisualBrutalityHead
             return Mathf.Max(1, 2f - (distanceFrom05 * 2f));
         }
 
-        public override Vector2 DrawSize => headInfo.Pawn != null ? headInfo.Pawn.DrawSize * GetSizeMultiplier() : Vector2.one * GetSizeMultiplier();
+        public override Vector2 DrawSize => headInfo.DrawSize * GetSizeMultiplier();
 
         public override Material DrawMat
         {

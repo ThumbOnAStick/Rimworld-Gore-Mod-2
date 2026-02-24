@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses;
 
 namespace VisualBrutalityFragments
 {
@@ -37,8 +38,11 @@ namespace VisualBrutalityFragments
 
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
-            GenSpawn.TrySpawn(this.FleshDef, this.Position, MapHeld, Rot4.Random, out Thing flesh);
-            flesh?.SetForbidden(true);
+            if (VisualBrutalityMod.Settings.GenerateFlesh)
+            {
+                GenSpawn.TrySpawn(this.FleshDef, this.Position, MapHeld, Rot4.Random, out Thing flesh);
+                flesh?.SetForbidden(true);
+            }
             base.Destroy(mode);
         }
 

@@ -18,6 +18,8 @@ namespace VisualBrutalityHead
         private BeardDef beardDef;
         private Color beardColor;
         private string pawnName;
+        private string harHeadPath;
+        private Vector2 drawSize;
 
         public Gender Gender
         {
@@ -85,6 +87,18 @@ namespace VisualBrutalityHead
             set => beardColor = value;
         }
 
+        public string HARPath
+        {
+            get => harHeadPath;
+            set => harHeadPath = value;
+        }
+
+        public Vector2 DrawSize
+        {
+            get => drawSize;
+            set => drawSize = value;    
+        }
+
         public HeadInfo()
         {
         }
@@ -101,8 +115,10 @@ namespace VisualBrutalityHead
             this.beardDef = headInfo.beardDef;
             this.beardColor = headInfo.beardColor;
             this.facing = headInfo.facing;
+            this.harHeadPath = headInfo.harHeadPath;
+            this.drawSize = headInfo.drawSize;
         }
-        public HeadInfo(Gender gender, Map headMap, Color skinColor, Pawn pawn, HeadTypeDef headtypeDef)
+        public HeadInfo(Gender gender, Map headMap, Color skinColor, Pawn pawn, HeadTypeDef headtypeDef, Vector2 drawSize, string harHeadPath = null)
         {
             this.gender = gender;
             this.headMap = headMap;
@@ -114,6 +130,8 @@ namespace VisualBrutalityHead
             this.hairColor = pawn.story?.HairColor ?? default;
             this.beardDef = pawn.style?.beardDef;
             this.beardColor = pawn.story?.HairColor ?? default;
+            this.harHeadPath = harHeadPath;
+            this.drawSize = this.pawn.DrawSize * drawSize;
         }
 
         public void ExposeData()
@@ -123,9 +141,11 @@ namespace VisualBrutalityHead
             Scribe_Values.Look(ref gender, "gender", Gender.None);
             Scribe_Values.Look(ref skinColor, "skinColor", default);
             Scribe_Values.Look(ref pawnName, "pawnName");
+            Scribe_Values.Look(ref drawSize, "drawSize", Vector2.one);
             Scribe_Values.Look(ref hairColor, "hairColor", default);
             Scribe_Values.Look(ref beardColor, "beardColor", default);
             Scribe_Values.Look(ref facing, "facing", default);
+            Scribe_Values.Look(ref harHeadPath, "harHeadPath", null);
             Scribe_Defs.Look(ref headtypeDef, "headType");
             Scribe_Defs.Look(ref hairDef, "hairDef");
             Scribe_Defs.Look(ref beardDef, "beardDef");

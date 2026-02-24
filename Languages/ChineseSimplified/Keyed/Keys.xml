@@ -3,4 +3,9 @@
       <VBModTitle>残暴可见化</VBModTitle>
       <VBErrorSevere>发生严重错误！请告知作者：{0}</VBErrorSevere>
       <VBHead>{0}的头</VBHead>
+      <VBTwist>旋转</VBTwist>
+      <DrawSkeleton>绘制骨骼</DrawSkeleton>
+      <DrawSkeleton.Explained>破坏的角色身体显示骨骼。</DrawSkeleton.Explained>
+      <GenerateFlesh>生成肉体</GenerateFlesh>
+      <GenerateHeads>生成头部</GenerateHeads>
 </LanguageData>

@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using VEF.Weapons;
 using Verse;
+using VisualBrutalityCorpses.Compatibility;
 using VisualBrutalityCorpses.Defs;
 using VisualBrutalityCorpses.Utils;
 
@@ -32,6 +33,11 @@ namespace VisualBrutalityCorpses.VBCustomContents
                 VBDefOf.CutMask.Init();
                 VBDefOf.CrushMask.Init();
                 VBDefOf.ShotMask.Init();
+                // Initialize HAR 
+                if (Compatibility_HAR.IsHARActive())
+                {
+                    Compatibility_HAR.AddCompInAlienDefs();
+                }
             }
             catch (Exception e)
             {
@@ -106,12 +112,6 @@ namespace VisualBrutalityCorpses.VBCustomContents
             if (shader != null) return shader;
             VBLog.ErrorSevere("Could not load shader: " + shaderName);
             return ShaderDatabase.DefaultShader;
-        }
-
-        private static Texture2D LoadBurnedOverlay()
-        {
-            return ContentFinder<Texture2D>.Get("VBMasks/BurnedOverlay");
-
         }
     }
 }

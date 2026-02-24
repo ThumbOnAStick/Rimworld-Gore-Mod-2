@@ -3,4 +3,9 @@
       <VBModTitle>Visual Brutality</VBModTitle>
       <VBErrorSevere>A severe error has occurred! Please paste this to the developer on workshop bug report thread: {0}</VBErrorSevere>
       <VBHead>{0}'s head</VBHead>
+      <VBTwist>Twist</VBTwist>
+      <DrawSkeleton>Draw skeleton</DrawSkeleton>
+      <DrawSkeleton.Explained>Destroyed pawn body reveals skeleton.</DrawSkeleton.Explained>
+      <GenerateFlesh>Generate flesh</GenerateFlesh>
+      <GenerateHeads>Generate heads</GenerateHeads>
 </LanguageData>

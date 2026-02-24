@@ -6,7 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Compatibility;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityHead
 {
@@ -34,7 +37,14 @@ namespace VisualBrutalityHead
             {
                 LocalTargetInfo localTargetInfo = new LocalTargetInfo(intVec);
                 HeadProjectile projectile_FlyingHead = (HeadProjectile)GenSpawn.Spawn(VBHeadDefOf.HeadProjectile, pawn.Position, pawn.Map, WipeMode.Vanish);
-                projectile_FlyingHead.HeadInfoo = new HeadInfo(pawn.gender, pawn.Map, pawn.story.SkinColor, pawn, pawn.story.headType);
+                projectile_FlyingHead.HeadInfoo = new HeadInfo(pawn.gender, pawn.Map, pawn.story.SkinColor, pawn, pawn.story.headType, Vector2.one);
+                if(Compatibility_HAR.HasHeadGraphics(pawn, out string path, out Vector2 drawSize))
+                {
+                    VBLog.Message($"HAR head graphic found, path: {path}");
+                    projectile_FlyingHead.HeadInfoo.HARPath = path;
+                    projectile_FlyingHead.HeadInfoo.DrawSize = drawSize * pawn.DrawSize;
+
+                }
                 projectile_FlyingHead.Launch(pawn, localTargetInfo, localTargetInfo, ProjectileHitFlags.None, false, null);
             }
         }

@@ -33,6 +33,7 @@
         <category>Item</category>
         <thingCategories>
             <li>Items</li>
+            <li>MeatRaw</li>
         </thingCategories>
         <selectable>true</selectable>
         <statBases>

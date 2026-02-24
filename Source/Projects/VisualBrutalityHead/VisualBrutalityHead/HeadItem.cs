@@ -30,6 +30,16 @@ namespace VisualBrutalityHead
         public override string Label => "VBHead".Translate(headInfo?.PawnName);
         public CompRottable CompRottable => this.TryGetComp<CompRottable>();
 
+        private bool Rotting
+        {
+            get
+            {
+                if (CompRottable == null) return false;
+                return CompRottable.Stage == RotStage.Rotting;
+            }
+        }
+
+        public override Color DrawColor { get => this.Rotting ? new Color(.1f, .5f, 0f) : base.DrawColor; set => base.DrawColor = value; }
 
         public override Graphic Graphic
         {
@@ -54,15 +64,24 @@ namespace VisualBrutalityHead
 
             Vector3 vector = drawLoc + new Vector3(0f, -0.01f, 0f);
             Quaternion rotation = this.Rotation.AsQuat;
-            headGraphic.drawSize = this.DrawSize;
+            headGraphic.drawSize = this.headInfo.DrawSize * this.DrawSize;
             headGraphic.Draw(vector, this.headInfo.Facing, this, rotation.eulerAngles.y);
+        }
+
+        protected override void TickInterval(int delta)
+        {
+            base.TickInterval(delta);
+            if (Rotting)
+            {
+                GasUtility.AddGas(Position, Map, GasType.RotStink, 1);
+            }
         }
 
         void DrawHair(Vector3 drawLoc)
         {
             Vector3 hairDrawLoc = drawLoc + new Vector3(0f, 0f, 0f);
             Quaternion exactRotation = this.Rotation.AsQuat;
-            HeadGraphics.DrawHairAndBeard(headInfo, this, hairDrawLoc, this.DrawSize, exactRotation.eulerAngles.y);
+            HeadGraphics.DrawHairAndBeard(headInfo, this, hairDrawLoc, this.headInfo.DrawSize * this.DrawSize, exactRotation.eulerAngles.y);
         }
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
@@ -73,6 +92,26 @@ namespace VisualBrutalityHead
             // Hair
             if (this.CompRottable?.Stage == RotStage.Dessicated) return;
             DrawHair(drawLoc);
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (var gizmos in base.GetGizmos())
+            {
+                yield return gizmos;
+
+            }
+            yield return new Command_Action()
+            {
+                defaultLabel = "VBTwist".Translate(),
+                icon = TexUI.RotRightTex,
+                action = () =>
+                {
+                    Rot4 rot = this.headInfo.Facing;
+                    rot.Rotate(RotationDirection.Clockwise);
+                    this.headInfo.Facing = rot;
+                }
+            };
         }
 
 

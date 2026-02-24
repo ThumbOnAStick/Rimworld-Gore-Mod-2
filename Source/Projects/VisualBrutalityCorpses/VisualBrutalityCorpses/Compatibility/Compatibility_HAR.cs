@@ -1,0 +1,78 @@
+﻿using AlienRace;
+using HarmonyLib;
+using System.Reflection;
+using UnityEngine;
+using Verse;
+using VisualBrutalityCorpses.Comps;
+using VisualBrutalityCorpses.Graphics;
+using VisualBrutalityCorpses.Patches;
+using VisualBrutalityCorpses.Utils;
+
+namespace VisualBrutalityCorpses.Compatibility
+{
+    public static class Compatibility_HAR
+    {
+        public static bool IsHARActive()
+        {
+            if (!ModsConfig.IsActive("erdelf.HumanoidAlienRaces")) return false;
+            return true;
+        }
+
+        public static bool IsPawnAlien(Pawn pawn)
+        {
+            return pawn.def is ThingDef_AlienRace;
+        }
+
+        public static void ApplyHARBodyPrefix(ref Graphic g, PawnRenderNode_Body instance, Pawn pawn)
+        {
+            AlienRenderTreePatches.BodyGraphicForPrefix(instance, pawn, ref g);
+        }
+
+        public static void ApplyHARHeadPrefix(ref Graphic g, PawnRenderNode_Head instance, Pawn pawn)
+        {
+            AlienRenderTreePatches.HeadGraphicForPrefix(instance, pawn, ref g);
+        }
+
+        public static bool HasHeadGraphics(Pawn pawn, out string path, out Vector2 drawSize)
+        {
+            path = null;
+            drawSize = Vector2.one;
+            if (!(pawn.def is ThingDef_AlienRace alienRaceDef))
+            {
+                return false;
+            }
+            int savedIndex = pawn.HashOffset();
+            drawSize = Vector2.one;
+            if(alienRaceDef != null)
+            {
+                var headDrawSize = alienRaceDef.alienRace.generalSettings.alienPartGenerator.customHeadDrawSize;
+                drawSize = headDrawSize != Vector2.one? headDrawSize : alienRaceDef.alienRace.generalSettings.alienPartGenerator.customDrawSize;
+            }
+            VBLog.Message($"Draw size for {pawn.Label} is {drawSize}");
+            path = alienRaceDef.alienRace.graphicPaths.head.GetPath(pawn, ref savedIndex);
+            return path != null;
+        }
+
+
+        public static void AddCompInAlienDefs()
+        {
+            var alienDefs = DefDatabase<ThingDef_AlienRace>.AllDefs;
+            foreach (var alienDef in alienDefs)
+            {
+                if(alienDef.alienRace.graphicPaths.body != null)
+                {
+                    AddCompInAlienDef(alienDef);
+                }
+            }
+        }
+
+        static void AddCompInAlienDef(ThingDef alienDef)
+        {
+            if(alienDef.comps.Any(x => x is CompProperties_DeathRecorder))
+            {
+                return;
+            }
+            alienDef.comps.Add(new CompProperties_DeathRecorder());
+        }
+    }
+}
