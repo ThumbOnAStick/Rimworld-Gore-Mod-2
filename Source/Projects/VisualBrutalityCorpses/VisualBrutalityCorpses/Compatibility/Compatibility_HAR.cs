@@ -20,7 +20,7 @@ namespace VisualBrutalityCorpses.Compatibility
 
         public static bool IsPawnAlien(Pawn pawn)
         {
-            return pawn.def is ThingDef_AlienRace;
+            return pawn?.def?.GetType().Name == "ThingDef_AlienRace";
         }
 
         public static void ApplyHARBodyPrefix(ref Graphic g, PawnRenderNode_Body instance, Pawn pawn)
@@ -37,18 +37,15 @@ namespace VisualBrutalityCorpses.Compatibility
         {
             path = null;
             drawSize = Vector2.one;
-            if (!(pawn.def is ThingDef_AlienRace alienRaceDef))
-            {
-                return false;
-            }
+            if (!IsPawnAlien(pawn)) return false;
+
+            ThingDef_AlienRace alienRaceDef = pawn.def as ThingDef_AlienRace;
+            if (alienRaceDef?.alienRace?.graphicPaths?.head == null) return false;
+
+            var gen = alienRaceDef.alienRace.generalSettings.alienPartGenerator;
+            var headDrawSize = gen.customHeadDrawSize;
+            drawSize = headDrawSize != Vector2.one ? headDrawSize : gen.customDrawSize;
             int savedIndex = pawn.HashOffset();
-            drawSize = Vector2.one;
-            if(alienRaceDef != null)
-            {
-                var headDrawSize = alienRaceDef.alienRace.generalSettings.alienPartGenerator.customHeadDrawSize;
-                drawSize = headDrawSize != Vector2.one? headDrawSize : alienRaceDef.alienRace.generalSettings.alienPartGenerator.customDrawSize;
-            }
-            VBLog.Message($"Draw size for {pawn.Label} is {drawSize}");
             path = alienRaceDef.alienRace.graphicPaths.head.GetPath(pawn, ref savedIndex);
             return path != null;
         }
@@ -68,10 +65,8 @@ namespace VisualBrutalityCorpses.Compatibility
 
         static void AddCompInAlienDef(ThingDef alienDef)
         {
-            if(alienDef.comps.Any(x => x is CompProperties_DeathRecorder))
-            {
-                return;
-            }
+            if (alienDef.comps == null) return;
+            if (alienDef.comps.Any(x => x is CompProperties_DeathRecorder)) return;
             alienDef.comps.Add(new CompProperties_DeathRecorder());
         }
     }

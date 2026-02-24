@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\visualbrutalityhead\\headitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityhead\\visualbrutalityhead\\headitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|solutionrelative:visualbrutalityhead\\headitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|solutionrelative:visualbrutalityhead\\decapitationutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\visualbrutalityhead\\headgraphics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|solutionrelative:visualbrutalityhead\\headgraphics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\visualbrutalityhead\\headinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|solutionrelative:visualbrutalityhead\\headinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityhead\\visualbrutalityhead\\headprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\visualbrutalityhead\\headprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|solutionrelative:visualbrutalityhead\\headprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\visualbrutalityhead\\headgraphics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|solutionrelative:visualbrutalityhead\\headgraphics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{76A6245A-5FB5-42F3-BAC4-A467510BC46E}|VisualBrutalityHead\\VisualBrutalityHead.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\visualbrutalityhead\\metapatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -60,27 +60,27 @@
               "RelativeDocumentMoniker": "VisualBrutalityHead\\HeadItem.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\VisualBrutalityHead\\HeadItem.cs",
               "RelativeToolTip": "VisualBrutalityHead\\HeadItem.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAuwFAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAIA9wDkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-19T11:03:21.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HeadInfo.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\VisualBrutalityHead\\HeadInfo.cs",
               "RelativeDocumentMoniker": "VisualBrutalityHead\\HeadInfo.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\VisualBrutalityHead\\HeadInfo.cs",
               "RelativeToolTip": "VisualBrutalityHead\\HeadInfo.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAAwIUAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAuwIUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-19T10:30:11.056Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "HeadGraphics.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\VisualBrutalityHead\\HeadGraphics.cs",
               "RelativeDocumentMoniker": "VisualBrutalityHead\\HeadGraphics.cs",
@@ -93,13 +93,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HeadProjectile.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\VisualBrutalityHead\\HeadProjectile.cs",
               "RelativeDocumentMoniker": "VisualBrutalityHead\\HeadProjectile.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\VisualBrutalityHead\\HeadProjectile.cs",
               "RelativeToolTip": "VisualBrutalityHead\\HeadProjectile.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAcwG8AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAA0wG8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-19T09:59:29.85Z",
               "EditorCaption": ""
@@ -112,7 +112,7 @@
               "RelativeDocumentMoniker": "VisualBrutalityHead\\DecapitationUtility.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityHead\\VisualBrutalityHead\\DecapitationUtility.cs",
               "RelativeToolTip": "VisualBrutalityHead\\DecapitationUtility.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAWwCsAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAIAywCMAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-19T09:46:10.46Z",
               "EditorCaption": ""
@@ -127,8 +127,7 @@
               "RelativeToolTip": "VisualBrutalityHead\\MissingNeckPatch.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T09:34:26.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T09:34:26.705Z"
             },
             {
               "$type": "Document",
@@ -140,8 +139,7 @@
               "RelativeToolTip": "VisualBrutalityHead\\VBHeadDefOf.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T10:10:24.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T10:10:24.867Z"
             },
             {
               "$type": "Document",
@@ -153,8 +151,7 @@
               "RelativeToolTip": "VisualBrutalityHead\\MetaPatches.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T09:34:00.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-19T09:34:00.641Z"
             }
           ]
         }

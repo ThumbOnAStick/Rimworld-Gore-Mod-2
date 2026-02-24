@@ -51,17 +51,14 @@ namespace VisualBrutalityHead
         private Graphic GetSkullGraphic()
         {
             var skullType = HeadTypeDefOf.Skull;
-            Graphic_Multi graphic_Multi = (Graphic_Multi)GraphicDatabase.Get<Graphic_Multi>(skullType.graphicPath, ShaderDatabase.Cutout, Vector2.one, Color.white);
-            return graphic_Multi;
+            if (skullType == null) return null;
+            return (Graphic_Multi)GraphicDatabase.Get<Graphic_Multi>(skullType.graphicPath, ShaderDatabase.Cutout, Vector2.one, Color.white);
         }
         void DrawHead(Vector3 drawLoc)
         {
+            if (headInfo == null) return;
             Graphic headGraphic = this.Graphic;
-            if (headGraphic == null)
-            {
-                return;
-            }
-
+            if (headGraphic == null) return;
             Vector3 vector = drawLoc + new Vector3(0f, -0.01f, 0f);
             Quaternion rotation = this.Rotation.AsQuat;
             headGraphic.drawSize = this.headInfo.DrawSize * this.DrawSize;

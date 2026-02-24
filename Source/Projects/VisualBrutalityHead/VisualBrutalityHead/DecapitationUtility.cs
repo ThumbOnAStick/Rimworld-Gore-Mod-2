@@ -1,11 +1,6 @@
 ﻿using LudeonTK;
 using RimWorld;
-using RimWorld.Planet;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 using VisualBrutalityCorpses.Compatibility;
@@ -28,24 +23,30 @@ namespace VisualBrutalityHead
 
         public static void LaunchHead(Pawn pawn)
         {
-            IntRange intRange = new IntRange(3, 5);
-            int randomInRange = intRange.RandomInRange;
-            if (pawn == null) return;
-            if (pawn.Map == null || pawn.MapHeld == null) return;
-            bool flag = !CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, randomInRange, x => (x - pawn.Position).LengthHorizontalSquared >= 3, out IntVec3 intVec, 10);
-            if (!flag)
+            if (pawn?.Map == null || pawn.MapHeld == null || pawn.story == null) return;
+            try
             {
-                LocalTargetInfo localTargetInfo = new LocalTargetInfo(intVec);
-                HeadProjectile projectile_FlyingHead = (HeadProjectile)GenSpawn.Spawn(VBHeadDefOf.HeadProjectile, pawn.Position, pawn.Map, WipeMode.Vanish);
-                projectile_FlyingHead.HeadInfoo = new HeadInfo(pawn.gender, pawn.Map, pawn.story.SkinColor, pawn, pawn.story.headType, Vector2.one);
-                if(Compatibility_HAR.HasHeadGraphics(pawn, out string path, out Vector2 drawSize))
+                IntRange intRange = new IntRange(3, 5);
+                int randomInRange = intRange.RandomInRange;
+                bool flag = !CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, randomInRange, x => (x - pawn.Position).LengthHorizontalSquared >= 3, out IntVec3 intVec, 10);
+                if (!flag)
                 {
-                    VBLog.Message($"HAR head graphic found, path: {path}");
-                    projectile_FlyingHead.HeadInfoo.HARPath = path;
-                    projectile_FlyingHead.HeadInfoo.DrawSize = drawSize * pawn.DrawSize;
-
+                    LocalTargetInfo localTargetInfo = new LocalTargetInfo(intVec);
+                    Thing spawned = GenSpawn.Spawn(VBHeadDefOf.HeadProjectile, pawn.Position, pawn.Map, WipeMode.Vanish);
+                    if (!(spawned is HeadProjectile projectile_FlyingHead)) return;
+                    projectile_FlyingHead.HeadInfoo = new HeadInfo(pawn.gender, pawn.Map, pawn.story.SkinColor, pawn, pawn.story.headType, Vector2.one);
+                    if (Compatibility_HAR.IsHARActive() && Compatibility_HAR.HasHeadGraphics(pawn, out string path, out Vector2 drawSize))
+                    {
+                        VBLog.Message($"HAR head graphic found, path: {path}");
+                        projectile_FlyingHead.HeadInfoo.HARPath = path;
+                        projectile_FlyingHead.HeadInfoo.DrawSize = drawSize * pawn.DrawSize;
+                    }
+                    projectile_FlyingHead.Launch(pawn, localTargetInfo, localTargetInfo, ProjectileHitFlags.None, false, null);
                 }
-                projectile_FlyingHead.Launch(pawn, localTargetInfo, localTargetInfo, ProjectileHitFlags.None, false, null);
+            }
+            catch (Exception ex)
+            {
+                VBLog.Error($"Failed to launch head for {pawn?.LabelShort}: {ex}");
             }
         }
     }

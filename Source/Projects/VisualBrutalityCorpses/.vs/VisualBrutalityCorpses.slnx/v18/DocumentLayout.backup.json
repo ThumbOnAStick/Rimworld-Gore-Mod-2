@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\patches\\headrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalitycorpses\\visualbrutalitycorpses\\patches\\headrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\patches\\headrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\compatibility\\compatibility_har.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\compatibility\\compatibility_har.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\patches\\bodyrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,15 +19,11 @@
       "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\patches\\furrenderpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\compatibility\\compatibility_har.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\compatibility\\compatibility_har.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\compatibility\\compatibility_vef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\compatibility\\compatibility_vef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalitycorpses\\visualbrutalitycorpses\\vbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\visualbrutalitycorpses\\vbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7FDB90B2-595D-4EB8-8264-4E8380A585A9}|VisualBrutalityCorpses\\VisualBrutalityCorpses.csproj|solutionrelative:visualbrutalitycorpses\\vbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -142,13 +142,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BodyRenderPatch.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\BodyRenderPatch.cs",
               "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Patches\\BodyRenderPatch.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\BodyRenderPatch.cs",
               "RelativeToolTip": "VisualBrutalityCorpses\\Patches\\BodyRenderPatch.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAjwBkAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAjwB0AAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-09T13:47:23.109Z",
               "EditorCaption": ""
@@ -159,9 +159,9 @@
               "Title": "HeadRenderPatch.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
               "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
-              "RelativeToolTip": "VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAtwCQAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs*",
+              "RelativeToolTip": "VisualBrutalityCorpses\\Patches\\HeadRenderPatch.cs*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-13T08:45:40.931Z",
               "EditorCaption": ""
@@ -176,8 +176,7 @@
               "RelativeToolTip": "VisualBrutalityCorpses\\VBSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T01:14:51.792Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-09T01:14:51.792Z"
             },
             {
               "$type": "Document",
@@ -189,25 +188,24 @@
               "RelativeToolTip": "VisualBrutalityCorpses\\Compatibility\\Compatibility_VEF.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T01:00:18.865Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-10T01:00:18.865Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Compatibility_HAR.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Compatibility\\Compatibility_HAR.cs",
               "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Compatibility\\Compatibility_HAR.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Compatibility\\Compatibility_HAR.cs",
               "RelativeToolTip": "VisualBrutalityCorpses\\Compatibility\\Compatibility_HAR.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAA1wDIAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAewEMAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-22T11:52:41.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FurRenderPatch.cs",
               "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityCorpses\\VisualBrutalityCorpses\\Patches\\FurRenderPatch.cs",
               "RelativeDocumentMoniker": "VisualBrutalityCorpses\\Patches\\FurRenderPatch.cs",
@@ -215,8 +213,7 @@
               "RelativeToolTip": "VisualBrutalityCorpses\\Patches\\FurRenderPatch.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T01:33:24.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-10T01:33:24.061Z"
             },
             {
               "$type": "Document",
