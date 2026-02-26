@@ -17,24 +17,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
     public static class VBBodyGraphic
     {
 
-        private static bool TorsoCheck(Hediff h)
-        {
-            BodyPartRecord part = h.Part;
-            return ((part != null) ? part.def : null) == BodyPartDefOf.Torso;
-        }
-        private static bool ShouldSplitTorso(Pawn pawn)
-        {
-            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-            if (hediffs != null && hediffs.Count >= 1 && hediffs.Any(TorsoCheck))
-            {
-                float severity = hediffs.Where(TorsoCheck).MaxBy(h => h.tickAdded).Severity;
-                if (severity > (float)BodyPartDefOf.Torso.hitPoints)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+
 
         private static Rot4 GetRealRotation(Pawn pawn)
         {
@@ -43,14 +26,15 @@ namespace VisualBrutalityCorpses.VBCustomContents
 
         private static Texture2D GetGoreMask(Pawn pawn, Func<GoreMaskDef, Texture2D> getMask, Func<Texture2D> getSpecialMask = null, bool requireStory = true)
         {
-            if (pawn == null) return null;
+            Texture2D emptyTex = Texture2D.whiteTexture;
+            if (pawn == null) return emptyTex;
             var recorder = pawn.TryGetComp<CompDeathRecorder>();
-            if (recorder == null) return null;
-            if (requireStory && pawn.story == null) return null;
+            if (recorder == null) return emptyTex;
+            if (requireStory && pawn.story == null) return emptyTex;
             try
             {
-                if (recorder.Burnt) return null;
-                if (recorder.LastHitDamage == null) return null;
+                if (recorder.Burnt) return emptyTex;
+                if (recorder.LastHitDamage == null) return emptyTex;
                 if (getSpecialMask != null)
                 {
                     var special = getSpecialMask();
@@ -66,7 +50,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
             }
             catch (Exception e)
             {
-                VBLog.ErrorSevere(e.Message); return null;
+                VBLog.ErrorSevere(e.Message); return emptyTex;
             }
         }
 
@@ -76,7 +60,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
             return GetGoreMask(
                 pawn,
                 mask => mask.GetBodyMaskInRot(pawn.story.bodyType, GetRealRotation(pawn)),
-                () => ShouldSplitTorso(pawn) ? VBContentDatabase.GetSplitInHalfMask() : null);
+                () => pawn.TryGetComp<CompDeathRecorder>().TorsoDestroyed ? VBContentDatabase.GetSplitInHalfMask() : null);
         }
 
         public static Texture2D HeadGoreMaskFor(Pawn pawn)

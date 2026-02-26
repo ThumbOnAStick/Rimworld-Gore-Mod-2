@@ -20,7 +20,7 @@ namespace VisualBrutalityCorpses.Compatibility
 
         public static bool IsPawnAlien(Pawn pawn)
         {
-            return pawn?.def?.GetType().Name == "ThingDef_AlienRace";
+            return pawn.def.defName.ToLower() != "human" && pawn?.def?.GetType().Name == "ThingDef_AlienRace";
         }
 
         public static void ApplyHARBodyPrefix(ref Graphic g, PawnRenderNode_Body instance, Pawn pawn)

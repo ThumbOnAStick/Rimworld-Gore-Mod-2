@@ -1,4 +1,6 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using VEF.Weapons;
 using Verse;
@@ -11,8 +13,11 @@ namespace VisualBrutalityCorpses.Comps
         private DamageDef lastHitDamage = DamageDefOf.Blunt;
         private float lasthitDamageAmount = 0;
         private bool burnt = false;
+        private bool torsoDestroyed = false;
 
         public bool Burnt => burnt;
+
+        public bool TorsoDestroyed => torsoDestroyed;
         public Pawn SelfPawn => (Pawn)this.parent;
         public DamageDef LastHitDamage => this.lastHitDamage;
 
@@ -81,19 +86,57 @@ namespace VisualBrutalityCorpses.Comps
             Scribe_Defs.Look(ref lastHitDamage, "lastHitDamage");
             Scribe_Values.Look(ref lasthitDamageAmount, "lasthitDamageAmount");
             Scribe_Values.Look(ref burnt, "burnt");
+            Scribe_Values.Look(ref torsoDestroyed, "torsoDestroyed");
         }
 
         public void SetBurnt(bool _burnt)
         {
+            bool previous = this.Burnt;
             this.burnt = _burnt;
-            if(burnt) 
+            if(burnt && !previous) 
             this.SelfPawn?.Corpse?.TryGetComp<CompRottable>()?.RotImmediately(stage: RotStage.Dessicated);
+        }
+
+        public void SetTorsoDestroyed(bool _torsoDestroyed)
+        {
+            this.torsoDestroyed = _torsoDestroyed;
+        }
+
+        bool TorsoCheck(Hediff h)
+        {
+            BodyPartRecord part = h.Part;
+            return ((part != null) ? part.def : null) == BodyPartDefOf.Torso;
+        }
+
+
+        bool ShouldSplitTorso(Pawn pawn)
+        {
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
+            if (hediffs != null && hediffs.Count >= 1 && hediffs.Any(TorsoCheck))
+            {
+                float severity = hediffs.Where(TorsoCheck).MaxBy(h => h.tickAdded).Severity;
+                if (severity > (float)BodyPartDefOf.Torso.hitPoints)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        void ValidateTorsoSplit(Pawn pawn)
+        {
+            if (ShouldSplitTorso(pawn))
+            {
+                this.SetTorsoDestroyed(true);
+            }
         }
 
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {
             base.Notify_Killed(prevMap, dinfo);
             this.SetBurnt(false); // Reset burn status everytime pawn dies.
+            this.SetTorsoDestroyed(false); // Reset torso status everytime pawn dies.
+            ValidateTorsoSplit(this.SelfPawn);
         }
 
     }

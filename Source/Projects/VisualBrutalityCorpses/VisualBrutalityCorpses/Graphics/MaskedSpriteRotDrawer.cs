@@ -5,6 +5,7 @@ using UnityEngine;
 using Verse;
 using VisualBrutalityCorpses.Compatibility;
 using VisualBrutalityCorpses.Comps;
+using VisualBrutalityCorpses.Defs;
 using VisualBrutalityCorpses.Utils;
 using VisualBrutalityCorpses.VBCustomContents;
 
@@ -14,7 +15,6 @@ namespace VisualBrutalityCorpses.Graphics
     {
         Texture2D maskCached;
         Material materialCached;
-        protected enum EdgeDirection { North, South, East, West }
 
         public MaskedSpriteRotDrawer()
         {
@@ -43,15 +43,25 @@ namespace VisualBrutalityCorpses.Graphics
             return this.materialCached = BuildTornMaterial(baseMat, mask, pawn, apparel, isBody);
         }
 
-        protected Material BuildTornMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null, bool isBody = true)
+        private bool ShouldDrawIntestines(Pawn pawn)
+        {
+            if (!pawn.def.race.Humanlike) return false;
+            var recorder = pawn.TryGetComp<CompDeathRecorder>();
+            if (recorder == null) return false;
+            return recorder.TorsoDestroyed;
+        }
+
+        private Material BuildTornMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null, bool isBody = true)
         {
             try
             {
                 bool isHead = isBody == false && apparel == null;
-                bool shoudDrawSkull = isHead && VisualBrutalityMod.Settings.DrawSkeleton;
+                bool shouldDrawSkull = isHead && VisualBrutalityMod.Settings.DrawSkeleton;
+                bool shouldDrawIntestines = ShouldDrawIntestines(pawn) && !shouldDrawSkull;
+                bool shouldUseMixer = shouldDrawIntestines || shouldDrawSkull;
                 var newMat = new Material(baseMat)
                 {
-                    shader = shoudDrawSkull ? VBContentDatabase.TestUnlitMixerShader : VBContentDatabase.TestUnlitShader,
+                    shader = shouldUseMixer ? VBContentDatabase.TestUnlitMixerShader : VBContentDatabase.TestUnlitShader,
                     mainTextureScale = baseMat.mainTextureScale,
                     mainTextureOffset = baseMat.mainTextureOffset
                 };
@@ -61,7 +71,8 @@ namespace VisualBrutalityCorpses.Graphics
                 newMat.SetFloat("_RevealAmount", revealAmount);
                 newMat.SetColor("_DamageLayerColor", color);
                 Rot4 rot = ((pawn.GetPosture() == PawnPosture.Standing) ? pawn.Rotation : pawn.Drawer.renderer.LayingFacing());
-                if (shoudDrawSkull) newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkullTexture(rot));
+                if (shouldDrawSkull) newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkullTexture(rot));
+                if (shouldDrawIntestines) newMat.SetTexture("_TexTwo", IntestinesUtils.GetIntestinesForBodyType(pawn.story?.bodyType));
                 return newMat;
             }
             catch (Exception ex)

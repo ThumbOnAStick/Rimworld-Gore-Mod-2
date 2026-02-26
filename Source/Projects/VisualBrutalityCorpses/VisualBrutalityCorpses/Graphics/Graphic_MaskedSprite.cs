@@ -17,9 +17,9 @@ namespace VisualBrutalityCorpses.Graphics
 {
     public class Graphic_MaskedSprite : Graphic
     {
-        private readonly Graphic inner;
-        private readonly Thing targetThing;
-        private readonly bool isBody;
+        protected readonly Graphic inner;
+        protected readonly Thing targetThing;
+        protected readonly bool isBody;
         private readonly Dictionary<Rot4, MaskedSpriteRotDrawer> drawers = new Dictionary<Rot4, MaskedSpriteRotDrawer>();
         public bool IsValid => inner != null && targetThing != null;
 
@@ -46,7 +46,7 @@ namespace VisualBrutalityCorpses.Graphics
 
         public override Material MatSingle => inner?.MatSingle;
 
-        private Material EvaluateBurntMaterials(Material baseMat,
+        protected Material EvaluateBurntMaterials(Material baseMat,
             Rot4 rot,
             Thing thing)
         {
@@ -94,10 +94,10 @@ namespace VisualBrutalityCorpses.Graphics
                 if (recorder.Burnt) return EvaluateBurntMaterials(baseMat, rot, targetThing);
 
                     Texture2D texture;
-                bool isAnimal = (thing != null && thing.def.race?.Animal == true) || 
-                                (thing is Corpse corpse && corpse.InnerPawn?.def.race?.Animal == true) ||
-                                (targetThing is Pawn pawnTarget && pawnTarget.def.race?.Animal == true);
-                if (isAnimal)
+                bool isAnimalOrEntity = (thing != null && !thing.def.race.Humanlike) || 
+                                (thing is Corpse corpse && !corpse.def.race.Humanlike) ||
+                                (targetThing is Pawn pawnTarget && !pawnTarget.def.race.Humanlike);
+                if (isAnimalOrEntity)
                 {
                     texture = recorder.GetGoreMaskAnimal;
                 }

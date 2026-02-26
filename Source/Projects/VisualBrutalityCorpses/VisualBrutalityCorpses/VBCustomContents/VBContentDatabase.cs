@@ -33,6 +33,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
                 VBDefOf.CutMask.Init();
                 VBDefOf.CrushMask.Init();
                 VBDefOf.ShotMask.Init();
+                IntestinesUtils.Init(); // Initialize Intestines
                 // Initialize HAR 
                 if (Compatibility_HAR.IsHARActive())
                 {
