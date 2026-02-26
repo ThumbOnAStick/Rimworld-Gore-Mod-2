@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 using VisualBrutalityCorpses.Compatibility;
+using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityCorpses.RenderNode
@@ -27,7 +28,7 @@ namespace VisualBrutalityCorpses.RenderNode
         public override Graphic GraphicFor(Pawn pawn)
         {
             if (!pawn.Dead) return null;
-            if(pawn.Drawer.renderer.CurRotDrawMode == RotDrawMode.Dessicated) return null;
+            if(pawn.TryGetComp<CompDeathRecorder>().Burnt || pawn.Drawer.renderer.CurRotDrawMode == RotDrawMode.Dessicated) return null;
             if (!pawn.RaceProps.IsFlesh) return null;
             return GraphicDatabase.Get<Graphic_Multi>(pawn.story.bodyType.bodyDessicatedGraphicPath, ShaderDatabase.CutoutSkinOverlay, drawSize: pawn.DrawSize, color: ColorFor(pawn));
 

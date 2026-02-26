@@ -45,6 +45,7 @@ namespace VisualBrutalityCorpses.Graphics
 
         private bool ShouldDrawIntestines(Pawn pawn)
         {
+            if (!VisualBrutalityMod.Settings.DrawIntestines) return false;
             if (!pawn.def.race.Humanlike) return false;
             var recorder = pawn.TryGetComp<CompDeathRecorder>();
             if (recorder == null) return false;
@@ -57,7 +58,7 @@ namespace VisualBrutalityCorpses.Graphics
             {
                 bool isHead = isBody == false && apparel == null;
                 bool shouldDrawSkull = isHead && VisualBrutalityMod.Settings.DrawSkeleton;
-                bool shouldDrawIntestines = ShouldDrawIntestines(pawn) && !shouldDrawSkull;
+                bool shouldDrawIntestines = ShouldDrawIntestines(pawn) && isBody && apparel == null;
                 bool shouldUseMixer = shouldDrawIntestines || shouldDrawSkull;
                 var newMat = new Material(baseMat)
                 {

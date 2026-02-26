@@ -4,8 +4,11 @@
       <VBErrorSevere>A severe error has occurred! Please paste this to the developer on workshop bug report thread: {0}</VBErrorSevere>
       <VBHead>{0}'s head</VBHead>
       <VBTwist>Twist</VBTwist>
-      <DrawSkeleton>Draw skeleton</DrawSkeleton>
-      <DrawSkeleton.Explained>Destroyed pawn body reveals skeleton.</DrawSkeleton.Explained>
-      <GenerateFlesh>Generate flesh</GenerateFlesh>
-      <GenerateHeads>Generate heads</GenerateHeads>
+      <VBDrawSkeleton>Draw skeleton</VBDrawSkeleton>
+      <VBDrawSkeleton.Explained>Destroyed pawn body reveals skeleton.</VBDrawSkeleton.Explained>
+      <VBGenerateFlesh>Fragments can spawn things</VBGenerateFlesh>
+      <VBGenerateFlesh.Explained>Fragment will spawn things on the ground after their flight ended.</VBGenerateFlesh.Explained>
+      <VBGenerateHeads>Generate heads</VBGenerateHeads>
+      <VBDrawIntestines>Draw intestines</VBDrawIntestines>
+      <VBSettingsDefault>Default settings</VBSettingsDefault>
 </LanguageData>

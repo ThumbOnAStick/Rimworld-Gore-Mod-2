@@ -12,8 +12,18 @@ namespace VisualBrutalityCorpses
 
         public bool DrawSkeleton = false;
         public bool PlaySounds = false;
+        public bool DrawIntestines = false;
         public bool GenerateHeads = true;
         public bool GenerateFlesh = true;
+
+        public void Restore()
+        {
+            DrawSkeleton = false;
+            PlaySounds = false;
+            DrawIntestines = false;
+            GenerateHeads = true;
+            GenerateFlesh = true;
+        }
 
         public override void ExposeData()
         {
@@ -21,6 +31,7 @@ namespace VisualBrutalityCorpses
             Scribe_Values.Look(ref PlaySounds, "PlaySounds", false);
             Scribe_Values.Look(ref GenerateFlesh, "GenerateFlesh", true);
             Scribe_Values.Look(ref GenerateHeads, "GenerateHeads", true);
+            Scribe_Values.Look(ref DrawIntestines, "DrawIntestines", true);
             base.ExposeData();
         }
     }

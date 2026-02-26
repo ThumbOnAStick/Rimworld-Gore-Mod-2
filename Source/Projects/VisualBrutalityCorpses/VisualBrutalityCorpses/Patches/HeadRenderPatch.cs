@@ -24,14 +24,15 @@ namespace VisualBrutalityCorpses.Patches
         public static void Postfix(object[] __args, ref Graphic __result, PawnRenderNode_Head __instance)
         {
             if (__args[0] == null) return;
-            if (!(__args[0] is Pawn pawn) || !pawn.Dead) return;
-            if (pawn.Drawer?.renderer?.HeadGraphic == null) return;
+            var pawn = __instance.tree.pawn;
+            if (pawn == null || !pawn.Dead) return;
             if (Compatibility_HAR.IsHARActive() && Compatibility_HAR.IsPawnAlien(pawn))
             {
                 Compatibility_HAR.ApplyHARHeadPrefix(ref __result, __instance, pawn);
             }
             CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>();
             if (compDeathRecorder == null) return;
+            VBLog.Message("Try to apply head graphics");
             __result = new Graphic_MaskedSprite(__result, pawn, null, false);
         }
     }

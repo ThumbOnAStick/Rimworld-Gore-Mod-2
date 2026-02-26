@@ -27,6 +27,7 @@ namespace VisualBrutalityHead
                 __instance.pawn.def.race == null ||
                 !__instance.pawn.def.race.Humanlike) return;
             if (__instance.Part.def != BodyPartDefOf.Neck) return;
+            if (__instance.pawn.MapHeld == null) return;
 
             // Drop head here
             var pawn = __instance.pawn;

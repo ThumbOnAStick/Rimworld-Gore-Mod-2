@@ -78,4 +78,37 @@
         </projectile>
         <tickerType>Normal</tickerType>
     </ThingDef>
+
+    <ThingDef ParentName="FilthBlood">
+        <defName>Filth_BrainPartA</defName>
+        <label>brain part</label>
+        <graphicData>
+            <texPath>Fragments/Brains/BrainPartA</texPath>
+            <color>(225, 225, 225, 180)</color>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.9</drawSize>
+        </graphicData>
+    </ThingDef>
+
+        <ThingDef ParentName="FilthBlood">
+        <defName>Filth_BrainPartB</defName>
+        <label>brain part</label>
+        <graphicData>
+            <texPath>Fragments/Brains/BrainPartB</texPath>
+            <color>(225, 225, 225, 180)</color>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.9</drawSize>
+        </graphicData>
+    </ThingDef>
+
+        <ThingDef ParentName="FilthBlood">
+        <defName>Filth_BrainPartC</defName>
+        <label>brain part</label>
+        <graphicData>
+            <texPath>Fragments/Brains/BrainPartC</texPath>
+            <color>(225, 225, 225, 180)</color>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.9</drawSize>
+        </graphicData>
+    </ThingDef>
 </Defs>

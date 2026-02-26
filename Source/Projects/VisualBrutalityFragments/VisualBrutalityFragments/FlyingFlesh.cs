@@ -15,8 +15,11 @@ namespace VisualBrutalityFragments
         private ThingDef fleshDef;
         private Rot4 rotation;
         private float currentDegrees;
+        private float height = 0f;
+        private bool ascending = false;
 
         private float CurrentAngles => this.currentDegrees * Mathf.Deg2Rad;
+
         public ThingDef FleshDef
         {
             get => this.fleshDef;
@@ -41,7 +44,7 @@ namespace VisualBrutalityFragments
             if (VisualBrutalityMod.Settings.GenerateFlesh)
             {
                 GenSpawn.TrySpawn(this.FleshDef, this.Position, MapHeld, Rot4.Random, out Thing flesh);
-                flesh?.SetForbidden(true);
+                flesh?.TrySetForbidden(true);
             }
             base.Destroy(mode);
         }
@@ -52,6 +55,7 @@ namespace VisualBrutalityFragments
             get
             {
                 float ratio = 1 - (float)this.ticksToImpact / this.StartingTicksToImpact;
+                if(this.ascending) this.height = -(ratio - .5f) * (ratio - .5f) * 4 + 1;
                 return ratio / 11 - 1 / (ratio * 10 + 1) + 1;
             }
         }
@@ -65,7 +69,7 @@ namespace VisualBrutalityFragments
             }
         }
 
-        public override Vector2 DrawSize => fleshDef.graphicData.drawSize;
+        public override Vector2 DrawSize => fleshDef.graphicData.drawSize * (1 + height);
 
         protected override void Tick()
         {
@@ -75,13 +79,22 @@ namespace VisualBrutalityFragments
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
+            this.Graphic.drawSize = this.DrawSize;
             this.Graphic.Draw(drawLoc, this.rotation, this, this.CurrentAngles);
+            this.Graphic.drawSize = Vector2.one;
+        }
+
+        public void SetAscending(bool ascending)
+        {
+            this.ascending = ascending;
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Defs.Look(ref fleshDef, "fleshDef");
+            Scribe_Values.Look(ref ascending, "ascending");
         }
+
     }
 }
