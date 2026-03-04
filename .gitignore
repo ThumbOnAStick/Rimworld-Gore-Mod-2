@@ -3,3 +3,9 @@
 *.db-shm
 *.cache
 *.vsidx
+*.db
+*.cache
+*.vsidx
+*.vsidx
+/Source/Projects/VisualBrutalityCorpses/.vs
+/Source/Projects/VisualBrutalityCorpses/VisualBrutalityCorpses/obj
