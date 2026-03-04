@@ -79,34 +79,23 @@
     </ThingDef>
 
     <ThingDef ParentName="FilthBlood">
-        <defName>Filth_BrainPartA</defName>
+        <defName>Filth_BrainPartMeta</defName>
         <label>brain part</label>
         <graphicData>
-            <texPath>Fragments/Brains/BrainPartA</texPath>
+            <texPath>Fragments/Brains</texPath>
             <color>(225, 225, 225, 180)</color>
-            <graphicClass>Graphic_Single</graphicClass>
+            <graphicClass>Graphic_Random</graphicClass>
             <drawSize>0.9</drawSize>
         </graphicData>
     </ThingDef>
 
-        <ThingDef ParentName="FilthBlood">
-        <defName>Filth_BrainPartB</defName>
-        <label>brain part</label>
+    <ThingDef ParentName="FilthBlood">
+        <defName>Filth_GibsMeta</defName>
+        <label>gib</label>
         <graphicData>
-            <texPath>Fragments/Brains/BrainPartB</texPath>
+            <texPath>Fragments/Gibs</texPath>
             <color>(225, 225, 225, 180)</color>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>0.9</drawSize>
-        </graphicData>
-    </ThingDef>
-
-        <ThingDef ParentName="FilthBlood">
-        <defName>Filth_BrainPartC</defName>
-        <label>brain part</label>
-        <graphicData>
-            <texPath>Fragments/Brains/BrainPartC</texPath>
-            <color>(225, 225, 225, 180)</color>
-            <graphicClass>Graphic_Single</graphicClass>
+            <graphicClass>Graphic_Random</graphicClass>
             <drawSize>0.9</drawSize>
         </graphicData>
     </ThingDef>

@@ -7,5 +7,6 @@ namespace VisualBrutalityFragments
     public class VBFragmentsDefOf
     {
         public static ThingDef FlyingFlesh;
+        public static ThingDef Filth_BrainPartMeta;
     }
 }

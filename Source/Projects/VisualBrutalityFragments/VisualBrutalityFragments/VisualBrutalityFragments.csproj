@@ -60,10 +60,8 @@
     <Compile Include="DismembermentUtils.cs" />
     <Compile Include="DismemberPatch.cs" />
     <Compile Include="FlyingFlesh.cs" />
-    <Compile Include="Graphic_SingleRandom.cs" />
     <Compile Include="MetaPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VBFragmentPool.cs" />
     <Compile Include="VBFragmentsDefOf.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using VEF.Weapons;
+using UnityEngine.Events;
 using Verse;
 using VisualBrutalityCorpses.VBCustomContents;
 
@@ -10,6 +10,17 @@ namespace VisualBrutalityCorpses.Comps
 {
     public class CompDeathRecorder : ThingComp
     {
+        private static UnityEvent<CompDeathRecorder> pawnKilledEvent;
+        public static UnityEvent<CompDeathRecorder> PawnKilledEvent
+        {
+            get 
+            {
+                if(pawnKilledEvent != null) return pawnKilledEvent;
+                pawnKilledEvent = new UnityEvent<CompDeathRecorder>();
+                return pawnKilledEvent;
+            } 
+            set => pawnKilledEvent = pawnKilledEvent ?? value;
+        }
         private DamageDef lastHitDamage = DamageDefOf.Blunt;
         private float lasthitDamageAmount = 0;
         private bool burnt = false;
@@ -93,8 +104,8 @@ namespace VisualBrutalityCorpses.Comps
         {
             bool previous = this.Burnt;
             this.burnt = _burnt;
-            if(burnt && !previous) 
-            this.SelfPawn?.Corpse?.TryGetComp<CompRottable>()?.RotImmediately(stage: RotStage.Dessicated);
+            if (burnt && !previous)
+                this.SelfPawn?.Corpse?.TryGetComp<CompRottable>()?.RotImmediately(stage: RotStage.Dessicated);
         }
 
         public void SetTorsoDestroyed(bool _torsoDestroyed)
@@ -137,6 +148,7 @@ namespace VisualBrutalityCorpses.Comps
             this.SetBurnt(false); // Reset burn status everytime pawn dies.
             this.SetTorsoDestroyed(false); // Reset torso status everytime pawn dies.
             ValidateTorsoSplit(this.SelfPawn);
+            PawnKilledEvent.Invoke(this);
         }
 
     }

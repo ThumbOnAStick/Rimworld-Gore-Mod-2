@@ -10,6 +10,6 @@
       <VBGenerateFlesh.Explained>碎片在飞行结束后会在地面生成物品。</VBGenerateFlesh.Explained>
       <VBGenerateHeads>生成头部</VBGenerateHeads>
       <VBDrawIntestines>绘制内脏</VBDrawIntestines>
+      <VBOverrideCorpseTexture>覆盖尸体贴图</VBOverrideCorpseTexture>
       <VBSettingsDefault>恢复默认设置</VBSettingsDefault>
-
 </LanguageData>

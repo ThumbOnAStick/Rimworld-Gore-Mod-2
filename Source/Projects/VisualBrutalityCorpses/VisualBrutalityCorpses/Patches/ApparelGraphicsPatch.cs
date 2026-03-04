@@ -32,10 +32,11 @@ namespace VisualBrutalityCorpses.Patches
 
         public static void Postfix(Apparel apparel, BodyTypeDef bodyType, ref bool __result, ref ApparelGraphicRecord rec)
         {
+            if (!VisualBrutalityMod.Settings.OverrideCorpseTexture) return;
             if (ModsConfig.IsActive("Thumb.ADV")) return;
             if (ValidateApparel(apparel) && rec.graphic != null)
             {
-                var wrapper = new Graphic_MaskedSprite(rec.graphic, apparel.Wearer, apparel);
+                var wrapper = MaskedSpriteHelper.CreateApparelSprite(rec.graphic, apparel.Wearer, apparel);
                 if (wrapper.IsValid)
                 {
                     rec.graphic = wrapper;

@@ -33,7 +33,7 @@ namespace VisualBrutalityCorpses.Patches
             CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>();
             if (compDeathRecorder == null) return;
             VBLog.Message("Try to apply head graphics");
-            __result = new Graphic_MaskedSprite(__result, pawn, null, false);
+            __result = MaskedSpriteHelper.CreateHeadSprite(__result, pawn);
         }
     }
 }

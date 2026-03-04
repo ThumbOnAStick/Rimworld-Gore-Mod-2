@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityFragments
@@ -47,7 +48,7 @@ namespace VisualBrutalityFragments
             var head = pawn.health.hediffSet.GetBodyPartRecord(BodyPartDefOf.Head);
             if (head == null) return;
             pawn.TakeDamage(new DamageInfo(DamageDefOf.Crush, 100, hitPart: head));
-     
+
         }
 
 
@@ -60,7 +61,7 @@ namespace VisualBrutalityFragments
                 if (map == null) return;
                 for (int i = 0; i < 3; i++)
                 {
-                    SpawnFragment(pawn, map, VBFragmentPool.AllBrainParts.RandomElement(), new IntRange(2, 4).RandomInRange, 1, -1, true);
+                    SpawnFragment(pawn, map, VBFragmentsDefOf.Filth_BrainPartMeta, new IntRange(2, 4).RandomInRange, 1, -1, true);
                 }
             }
             catch (Exception ex)
@@ -71,9 +72,9 @@ namespace VisualBrutalityFragments
 
         private static void SpawnFragment(Pawn pawn, Map map, ThingDef fleshDef, int distance, int scatter, float angle = -1, bool ascending = false)
         {
-            IntVec3 pawnCell =  pawn.Position;
+            IntVec3 pawnCell = pawn.Position;
             var rad = angle * Mathf.Deg2Rad;
-            IntVec3 targetCell = angle == -1? pawnCell : pawnCell +
+            IntVec3 targetCell = angle == -1 ? pawnCell : pawnCell +
                 new IntVec3((int)(Mathf.Cos(rad) * distance),
                 0,
                 (int)(Mathf.Sin(rad) * distance));
@@ -84,6 +85,14 @@ namespace VisualBrutalityFragments
             fragment.FleshDef = fleshDef;
             fragment.SetAscending(ascending);
             fragment.Launch(pawn, dest, dest, ProjectileHitFlags.None, false, null);
+        }
+
+        public static void TrySpawnTorsoFragment(CompDeathRecorder comp)
+        {
+            if (comp == null) return;
+            if (!comp.TorsoDestroyed) return;
+            VBLog.Message("!Test Successful!");
+
         }
     }
 }

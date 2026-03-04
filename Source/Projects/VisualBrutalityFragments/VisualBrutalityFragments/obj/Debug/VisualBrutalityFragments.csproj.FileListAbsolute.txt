@@ -6,3 +6,7 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityFragments\VisualBrutalityFragments\obj\Debug\VisualBrutalityFragments.csproj.AssemblyReference.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityFragments\VisualBrutalityFragments\obj\Debug\VisualBrutalityFragments.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityFragments\VisualBrutalityFragments\obj\Debug\VisualBrutalityFragments.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\1.6\Assemblies\VisualBrutalityFragments.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityFragments\VisualBrutalityFragments\obj\Debug\VisualBrutalityFragments.csproj.AssemblyReference.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityFragments\VisualBrutalityFragments\obj\Debug\VisualBrutalityFragments.csproj.CoreCompileInputs.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityFragments\VisualBrutalityFragments\obj\Debug\VisualBrutalityFragments.dll

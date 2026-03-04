@@ -13,6 +13,7 @@ namespace VisualBrutalityCorpses
         public bool DrawSkeleton = false;
         public bool PlaySounds = false;
         public bool DrawIntestines = false;
+        public bool OverrideCorpseTexture = false;
         public bool GenerateHeads = true;
         public bool GenerateFlesh = true;
 
@@ -23,6 +24,7 @@ namespace VisualBrutalityCorpses
             DrawIntestines = false;
             GenerateHeads = true;
             GenerateFlesh = true;
+            OverrideCorpseTexture = true;
         }
 
         public override void ExposeData()
@@ -32,6 +34,8 @@ namespace VisualBrutalityCorpses
             Scribe_Values.Look(ref GenerateFlesh, "GenerateFlesh", true);
             Scribe_Values.Look(ref GenerateHeads, "GenerateHeads", true);
             Scribe_Values.Look(ref DrawIntestines, "DrawIntestines", true);
+            Scribe_Values.Look(ref OverrideCorpseTexture, "OverrideCorpseTexture", true);
+
             base.ExposeData();
         }
     }

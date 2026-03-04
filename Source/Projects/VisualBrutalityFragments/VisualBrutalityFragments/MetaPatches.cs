@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System;
 using Verse;
+using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityFragments
@@ -21,6 +22,10 @@ namespace VisualBrutalityFragments
             {
                 MetaPatches.harmony = harmony;
                 DismemberPatch.PatchHarmony();
+                // Remove all listeners first
+                CompDeathRecorder.PawnKilledEvent?.RemoveAllListeners();
+                // Add pawn death patch
+                CompDeathRecorder.PawnKilledEvent?.AddListener(DismembermentUtils.TrySpawnTorsoFragment);
             }
             catch (Exception e)
             {

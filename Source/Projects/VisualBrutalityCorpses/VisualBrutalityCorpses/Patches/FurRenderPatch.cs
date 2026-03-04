@@ -25,7 +25,7 @@ namespace VisualBrutalityCorpses.Patches
             if (!(__args[0] is Pawn pawn) || !pawn.Dead) return;
             CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>();
             if (compDeathRecorder == null) return;
-            __result = new Graphic_MaskedSprite(__result, pawn);
+            __result = MaskedSpriteHelper.CreateBodySprite(__result, pawn);
         }
     }
 }

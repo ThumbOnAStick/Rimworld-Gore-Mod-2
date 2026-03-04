@@ -1,34 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\",
+  "WorkspaceRootPath": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\dismembermentutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\dismembermentutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\dismemberpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\dismemberpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\brainpieceutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\brainpieceutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\metapatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\metapatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\metapatches.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\flyingflesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|d:\\steamlibrary\\steamapps\\common\\rimworld\\mods\\rimworld-gore-mod-2\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\dismembermentutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\dismembermentutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\dismemberpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\dismemberpatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\flyingflesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\flyingflesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\visual brutality\\source\\projects\\visualbrutalityfragments\\visualbrutalityfragments\\graphic_singlerandom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\graphic_singlerandom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\vbfragmentsdefof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\vbfragmentsdefof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\visualbrutalityfragments\\vbfragmentsdefof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7964305A-1B8E-44C2-ADA0-E98907318D0B}|VisualBrutalityFragments\\VisualBrutalityFragments.csproj|solutionrelative:visualbrutalityfragments\\vbfragmentsdefof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\BrainPieceUtility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,106 +33,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BrainPieceUtility.cs",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\BrainPieceUtility.cs",
-              "RelativeDocumentMoniker": "VisualBrutalityFragments\\BrainPieceUtility.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\BrainPieceUtility.cs",
-              "RelativeToolTip": "VisualBrutalityFragments\\BrainPieceUtility.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T10:57:16.949Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Graphic_SingleRandom.cs",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\Graphic_SingleRandom.cs",
-              "RelativeDocumentMoniker": "VisualBrutalityFragments\\Graphic_SingleRandom.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\Graphic_SingleRandom.cs",
-              "RelativeToolTip": "VisualBrutalityFragments\\Graphic_SingleRandom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T09:25:57.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "VBFragmentsDefOf.cs",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\VBFragmentsDefOf.cs",
+              "DocumentMoniker": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\VBFragmentsDefOf.cs",
               "RelativeDocumentMoniker": "VisualBrutalityFragments\\VBFragmentsDefOf.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\VBFragmentsDefOf.cs",
+              "ToolTip": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\VBFragmentsDefOf.cs",
               "RelativeToolTip": "VisualBrutalityFragments\\VBFragmentsDefOf.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T09:56:09.246Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "FlyingFlesh.cs",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\FlyingFlesh.cs",
+              "DocumentMoniker": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\FlyingFlesh.cs",
               "RelativeDocumentMoniker": "VisualBrutalityFragments\\FlyingFlesh.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\FlyingFlesh.cs",
+              "ToolTip": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\FlyingFlesh.cs",
               "RelativeToolTip": "VisualBrutalityFragments\\FlyingFlesh.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAIwDkAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T09:46:41.644Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DismembermentUtils.cs",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismembermentUtils.cs",
+              "DocumentMoniker": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismembermentUtils.cs",
               "RelativeDocumentMoniker": "VisualBrutalityFragments\\DismembermentUtils.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismembermentUtils.cs*",
-              "RelativeToolTip": "VisualBrutalityFragments\\DismembermentUtils.cs*",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowDIAAAAJAAAAAAAAAA==",
+              "ToolTip": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismembermentUtils.cs",
+              "RelativeToolTip": "VisualBrutalityFragments\\DismembermentUtils.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAcwFkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T09:43:27.597Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "MetaPatches.cs",
+              "DocumentMoniker": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\MetaPatches.cs",
+              "RelativeDocumentMoniker": "VisualBrutalityFragments\\MetaPatches.cs",
+              "ToolTip": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\MetaPatches.cs*",
+              "RelativeToolTip": "VisualBrutalityFragments\\MetaPatches.cs*",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAUwBgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T09:40:52.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "DismemberPatch.cs",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismemberPatch.cs",
+              "DocumentMoniker": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismemberPatch.cs",
               "RelativeDocumentMoniker": "VisualBrutalityFragments\\DismemberPatch.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismemberPatch.cs",
+              "ToolTip": "D:\\SteamLibrary\\steamapps\\common\\RimWorld\\Mods\\Rimworld-Gore-Mod-2\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\DismemberPatch.cs",
               "RelativeToolTip": "VisualBrutalityFragments\\DismemberPatch.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwA4AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T09:43:18.997Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MetaPatches.cs",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\MetaPatches.cs",
-              "RelativeDocumentMoniker": "VisualBrutalityFragments\\MetaPatches.cs",
-              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\MetaPatches.cs",
-              "RelativeToolTip": "VisualBrutalityFragments\\MetaPatches.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAArAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "BrainPieceUtility.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\BrainPieceUtility.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Visual Brutality\\Source\\Projects\\VisualBrutalityFragments\\VisualBrutalityFragments\\BrainPieceUtility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T09:40:52.52Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T10:57:16.949Z"
             }
           ]
         }

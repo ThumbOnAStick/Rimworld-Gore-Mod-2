@@ -14,6 +14,7 @@
         <supportedBodyTypes>
             <li>Male</li>
             <li>Thin</li>
+            <li>Female</li>
         </supportedBodyTypes>
     </VisualBrutalityCorpses.Defs.GoreMaskDef>
 

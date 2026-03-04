@@ -9,6 +9,7 @@
       <VBGenerateFlesh>Fragments can spawn things</VBGenerateFlesh>
       <VBGenerateFlesh.Explained>Fragment will spawn things on the ground after their flight ended.</VBGenerateFlesh.Explained>
       <VBGenerateHeads>Generate heads</VBGenerateHeads>
+      <VBOverrideCorpseTexture>Override corpse texture</VBOverrideCorpseTexture>
       <VBDrawIntestines>Draw intestines</VBDrawIntestines>
       <VBSettingsDefault>Default settings</VBSettingsDefault>
 </LanguageData>
