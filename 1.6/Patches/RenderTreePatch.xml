@@ -13,17 +13,4 @@
             </li>
         </value>
     </Operation>
-    <!-- <Operation Class="PatchOperationAdd">
-        <xpath>/Defs/PawnRenderTreeDef[defName="Animal"]/root/children</xpath>
-        <value>
-            <li>
-                <debugLabel>Skeleton</debugLabel>
-                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_AnimalSkeleton</nodeClass>
-                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_Skeleton</workerClass>
-                <useRottenColor>true</useRottenColor>
-                <baseLayer>-1</baseLayer>
-                <rotDrawMode>Fresh, Rotting</rotDrawMode>
-            </li>
-        </value>
-    </Operation> -->
 </Patch>
