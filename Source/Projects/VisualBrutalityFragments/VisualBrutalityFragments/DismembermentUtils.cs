@@ -60,7 +60,7 @@ namespace VisualBrutalityFragments
                 if (map == null) return;
                 for (int i = 0; i < 3; i++)
                 {
-                    SpawnFragment(pawn, map, BrainPieceUtility.RandomBrainPiece(), new IntRange(2, 4).RandomInRange, 1, -1, true);
+                    SpawnFragment(pawn, map, VBFragmentPool.AllBrainParts.RandomElement(), new IntRange(2, 4).RandomInRange, 1, -1, true);
                 }
             }
             catch (Exception ex)
