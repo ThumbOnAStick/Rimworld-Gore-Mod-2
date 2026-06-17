@@ -27,6 +27,7 @@ namespace VisualBrutalityCorpses.Patches
         {
             if (__args[0] == null) return;
             if (!(__args[0] is Pawn pawn) || !pawn.Dead) return;
+            if (!BodytypeCheck.IsSupported(pawn.RaceProps.body.defName)) return;
             if (Compatibility_HAR.IsHARActive() && Compatibility_HAR.IsPawnAlien(pawn))
             {
                 Compatibility_HAR.ApplyHARBodyPrefix(ref __result, __instance, pawn);

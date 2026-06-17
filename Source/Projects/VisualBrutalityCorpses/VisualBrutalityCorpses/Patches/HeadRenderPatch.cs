@@ -26,11 +26,12 @@ namespace VisualBrutalityCorpses.Patches
             if (__args[0] == null) return;
             var pawn = __instance.tree.pawn;
             if (pawn == null || !pawn.Dead) return;
+            if (!BodytypeCheck.IsSupported(pawn.RaceProps.body.defName)) return;
             if (Compatibility_HAR.IsHARActive() && Compatibility_HAR.IsPawnAlien(pawn))
             {
                 Compatibility_HAR.ApplyHARHeadPrefix(ref __result, __instance, pawn);
             }
-            CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>();
+            CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>(); 
             if (compDeathRecorder == null) return;
             VBLog.Message("Try to apply head graphics");
             __result = MaskedSpriteHelper.CreateHeadSprite(__result, pawn);

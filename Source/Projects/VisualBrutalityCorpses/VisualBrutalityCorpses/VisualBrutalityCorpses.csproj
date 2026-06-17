@@ -212,6 +212,7 @@
     <Compile Include="Comps\CompProperties_DeathRecorder.cs" />
     <Compile Include="Defs\GoreMaskDef.cs" />
     <Compile Include="Graphics\MaskedSpriteHelper.cs" />
+    <Compile Include="Compatibility\BodytypeCheck.cs" />
     <Compile Include="Utils\IntestinesUtils.cs" />
     <Compile Include="Graphics\Graphic_MaskedSprite.cs" />
     <Compile Include="Graphics\MaskedSpriteRotDrawer.cs" />

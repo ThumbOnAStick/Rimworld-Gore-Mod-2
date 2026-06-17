@@ -20,7 +20,8 @@ namespace VisualBrutalityCorpses.Compatibility
 
         public static bool IsPawnAlien(Pawn pawn)
         {
-            return pawn.def.defName.ToLower() != "human" && pawn?.def?.GetType().Name == "ThingDef_AlienRace";
+            if (pawn?.def == null) return false;
+            return pawn.def.defName.ToLower() != "human" && pawn.def.GetType().Name == "ThingDef_AlienRace";
         }
 
         public static void ApplyHARBodyPrefix(ref Graphic g, PawnRenderNode_Body instance, Pawn pawn)
@@ -65,7 +66,11 @@ namespace VisualBrutalityCorpses.Compatibility
 
         static void AddCompInAlienDef(ThingDef alienDef)
         {
-            if (alienDef.comps == null) return;
+            if (alienDef == null) return;
+            if (alienDef.comps == null)
+            {
+                alienDef.comps = new System.Collections.Generic.List<CompProperties>();
+            }
             if (alienDef.comps.Any(x => x is CompProperties_DeathRecorder)) return;
             alienDef.comps.Add(new CompProperties_DeathRecorder());
         }
