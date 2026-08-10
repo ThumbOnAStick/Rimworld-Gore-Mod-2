@@ -51,7 +51,10 @@ namespace VisualBrutalityFragments
 
         }
 
-
+        /// <summary>
+        /// Spawns flying head
+        /// </summary>
+        /// <param name="pawn">Target pawn</param>
         public static void MakeHeadFragments(Pawn pawn)
         {
             try
@@ -70,6 +73,16 @@ namespace VisualBrutalityFragments
             }
         }
 
+        /// <summary>
+        /// Spawns fragment from a pawn
+        /// </summary>
+        /// <param name="pawn">Target pawn</param>
+        /// <param name="map">Target map</param>
+        /// <param name="fleshDef">Def of the flesh</param>
+        /// <param name="distance">How far the fragment will fly</param>
+        /// <param name="scatter">The scatter of the fragment</param>
+        /// <param name="angle">The angle of its movement</param>
+        /// <param name="ascending">If the fragment is ascending or not</param>
         private static void SpawnFragment(Pawn pawn, Map map, ThingDef fleshDef, int distance, int scatter, float angle = -1, bool ascending = false)
         {
             IntVec3 pawnCell = pawn.Position;
@@ -84,9 +97,15 @@ namespace VisualBrutalityFragments
             FlyingFlesh fragment = (FlyingFlesh)GenSpawn.Spawn(VBFragmentsDefOf.FlyingFlesh, pawn.Position, map, WipeMode.Vanish);
             fragment.FleshDef = fleshDef;
             fragment.SetAscending(ascending);
+            fragment.SetIsAnomaly(pawn.RaceProps.IsAnomalyEntity);
             fragment.Launch(pawn, dest, dest, ProjectileHitFlags.None, false, null);
         }
-
+        
+        //TODO: Design actual torso fragment.
+        /// <summary>
+        /// Spawns fragment from torso
+        /// </summary>
+        /// <param name="comp"></param>
         public static void TrySpawnTorsoFragment(CompDeathRecorder comp)
         {
             if (comp == null) return;

@@ -13,3 +13,8 @@
 /Source/Projects/VisualBrutalityCorpses/.vs
 /Source/Projects/VisualBrutalityFragments/VisualBrutalityFragments/obj
 /Source/Projects/VisualBrutalityCorpses/VisualBrutalityCorpses/obj
+*.cache
+/Source/Projects/VisualBrutalityFragments/VisualBrutalityFragments/obj
+*.json
+/Source/Projects/VisualBrutalityFragments/.vs
+/Source/Projects/VisualBrutalityFragments/VisualBrutalityFragments/obj

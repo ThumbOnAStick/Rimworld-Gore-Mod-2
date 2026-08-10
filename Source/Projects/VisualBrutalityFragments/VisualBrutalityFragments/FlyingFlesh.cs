@@ -17,6 +17,7 @@ namespace VisualBrutalityFragments
         private float currentDegrees;
         private float height = 0f;
         private bool ascending = false;
+        private bool isAnomalyFlesh = false;
 
         private float CurrentAngles => this.currentDegrees * Mathf.Deg2Rad;
 
@@ -69,6 +70,8 @@ namespace VisualBrutalityFragments
             }
         }
 
+        public override Color DrawColor { get => isAnomalyFlesh?base.DrawColor : Color.black; set => base.DrawColor = value; }
+
         public override Vector2 DrawSize => fleshDef.graphicData.drawSize * (1 + height);
 
         protected override void Tick()
@@ -88,6 +91,12 @@ namespace VisualBrutalityFragments
         {
             this.ascending = ascending;
         }
+
+        public void SetIsAnomaly(bool anomaly)
+        {
+            this.isAnomalyFlesh = anomaly;
+        }
+
 
         public override void ExposeData()
         {
