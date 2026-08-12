@@ -11,5 +11,7 @@
       <VBGenerateHeads>Generate heads</VBGenerateHeads>
       <VBOverrideCorpseTexture>Override corpse texture</VBOverrideCorpseTexture>
       <VBDrawIntestines>Draw intestines</VBDrawIntestines>
+      <VBFilthMode>Filth Mode</VBFilthMode>
+      <VBFilthMode.Explained>Spawn filth instead of flesh after fragment landed.</VBFilthMode.Explained>
       <VBSettingsDefault>Default settings</VBSettingsDefault>
 </LanguageData>

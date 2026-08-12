@@ -11,5 +11,7 @@
       <VBGenerateHeads>生成头部</VBGenerateHeads>
       <VBDrawIntestines>绘制内脏</VBDrawIntestines>
       <VBOverrideCorpseTexture>覆盖尸体贴图</VBOverrideCorpseTexture>
+      <VBFilthMode>污渍模式</VBFilthMode>
+      <VBFilthMode.Explained>碎片落地后生成污渍。</VBFilthMode.Explained>
       <VBSettingsDefault>恢复默认设置</VBSettingsDefault>
 </LanguageData>

@@ -97,7 +97,7 @@ namespace VisualBrutalityFragments
             FlyingFlesh fragment = (FlyingFlesh)GenSpawn.Spawn(VBFragmentsDefOf.FlyingFlesh, pawn.Position, map, WipeMode.Vanish);
             fragment.FleshDef = fleshDef;
             fragment.SetAscending(ascending);
-            fragment.SetIsAnomaly(pawn.RaceProps.IsAnomalyEntity);
+            fragment.SetIsAnomaly(pawn.RaceProps.IsAnomalyEntity || pawn.IsShambler);
             fragment.Launch(pawn, dest, dest, ProjectileHitFlags.None, false, null);
         }
         
@@ -110,7 +110,6 @@ namespace VisualBrutalityFragments
         {
             if (comp == null) return;
             if (!comp.TorsoDestroyed) return;
-            VBLog.Message("!Test Successful!");
 
         }
     }

@@ -16,6 +16,7 @@ namespace VisualBrutalityCorpses
         public bool OverrideCorpseTexture = false;
         public bool GenerateHeads = true;
         public bool GenerateFlesh = true;
+        public bool FilthMode = false; // Fragments spawn filth on the ground instead
 
         public void Restore()
         {
@@ -25,6 +26,7 @@ namespace VisualBrutalityCorpses
             GenerateHeads = true;
             GenerateFlesh = true;
             OverrideCorpseTexture = true;
+            FilthMode = false;
         }
 
         public override void ExposeData()
@@ -35,6 +37,7 @@ namespace VisualBrutalityCorpses
             Scribe_Values.Look(ref GenerateHeads, "GenerateHeads", true);
             Scribe_Values.Look(ref DrawIntestines, "DrawIntestines", true);
             Scribe_Values.Look(ref OverrideCorpseTexture, "OverrideCorpseTexture", true);
+            Scribe_Values.Look(ref FilthMode, "FilthMode", false);
 
             base.ExposeData();
         }

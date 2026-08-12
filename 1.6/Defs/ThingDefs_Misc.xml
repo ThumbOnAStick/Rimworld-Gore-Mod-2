@@ -99,4 +99,17 @@
             <drawSize>0.9</drawSize>
         </graphicData>
     </ThingDef>
+
+    
+    <ThingDef ParentName="FilthBlood">
+        <defName>Filth_Flesh</defName>
+        <thingClass>VisualBrutalityFragments.FilthFlesh</thingClass>
+        <label>flesh</label>
+        <graphicData>
+            <texPath>Fragments/Gibs</texPath>
+            <color>(225, 225, 225, 180)</color>
+            <graphicClass>Graphic_Random</graphicClass>
+            <drawSize>0.9</drawSize>
+        </graphicData>
+    </ThingDef>
 </Defs>

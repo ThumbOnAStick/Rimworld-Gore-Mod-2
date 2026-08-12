@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 using VisualBrutalityCorpses;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityFragments
 {
@@ -31,7 +32,20 @@ namespace VisualBrutalityFragments
             }
         }
 
-        public override Graphic Graphic => fleshDef.graphic;
+        public override Graphic Graphic { get
+            {
+                if (!isAnomalyFlesh)
+                {
+                    return fleshDef.graphic;
+                }
+                else
+                {
+                    // Use dark red color for shamblers and other entities
+                    Color color = new Color(.3f, 0f, 0f);
+                    return fleshDef.graphic.GetColoredVersion(ShaderDatabase.Cutout, color, Color.white);
+                }
+            }
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -40,13 +54,39 @@ namespace VisualBrutalityFragments
             currentDegrees = 0;
         }
 
+        /// <summary>
+        /// Spawns filth when filth mode is enabled and it's anomly flesh
+        /// </summary>
+        /// <returns>Whether or not filth was spawned successfully</returns>
+        private bool TrytoGenerateFilth()
+        {
+            if (VisualBrutalityMod.Settings.FilthMode || this.isAnomalyFlesh)
+            {
+                GenSpawn.TrySpawn(VBFragmentsDefOf.Filth_Flesh, this.Position, MapHeld, Rot4.Random, out Thing flesh);
+                var filth = flesh as FilthFlesh;
+                filth?.SetIsAnomaly(this.isAnomalyFlesh);
+                filth?.SetFleshDef(this.fleshDef);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Spawn flesh as item
+        /// </summary>
+        private void SpawnFleshItem()
+        {
+            GenSpawn.TrySpawn(this.FleshDef, this.Position, MapHeld, Rot4.Random, out Thing flesh);
+            flesh?.TrySetForbidden(true);
+        }
+
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
-            if (VisualBrutalityMod.Settings.GenerateFlesh)
+            if (VisualBrutalityMod.Settings.GenerateFlesh && !TrytoGenerateFilth())
             {
-                GenSpawn.TrySpawn(this.FleshDef, this.Position, MapHeld, Rot4.Random, out Thing flesh);
-                flesh?.TrySetForbidden(true);
+                SpawnFleshItem();
             }
+
             base.Destroy(mode);
         }
 
@@ -70,7 +110,6 @@ namespace VisualBrutalityFragments
             }
         }
 
-        public override Color DrawColor { get => isAnomalyFlesh?base.DrawColor : Color.black; set => base.DrawColor = value; }
 
         public override Vector2 DrawSize => fleshDef.graphicData.drawSize * (1 + height);
 
@@ -94,6 +133,7 @@ namespace VisualBrutalityFragments
 
         public void SetIsAnomaly(bool anomaly)
         {
+
             this.isAnomalyFlesh = anomaly;
         }
 
