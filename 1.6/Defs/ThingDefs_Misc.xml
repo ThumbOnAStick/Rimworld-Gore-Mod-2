@@ -100,13 +100,18 @@
         </graphicData>
     </ThingDef>
 
-    
+
     <ThingDef ParentName="FilthBlood">
         <defName>Filth_Flesh</defName>
         <thingClass>VisualBrutalityFragments.FilthFlesh</thingClass>
-        <label>flesh</label>
+        <label>stain</label>
+        <comps>
+            <li>
+                <compClass>CompColorable</compClass>
+            </li>
+        </comps>
         <graphicData>
-            <texPath>Fragments/Gibs</texPath>
+            <texPath>Things/Filth/Spatter</texPath>
             <color>(225, 225, 225, 180)</color>
             <graphicClass>Graphic_Random</graphicClass>
             <drawSize>0.9</drawSize>

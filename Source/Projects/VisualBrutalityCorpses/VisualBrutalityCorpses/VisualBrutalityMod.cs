@@ -60,15 +60,22 @@ namespace VisualBrutalityCorpses
             base.DoSettingsWindowContents(inRect);
             Listing_Standard listing_Standard = new Listing_Standard();
             listing_Standard.Begin(inRect);
-            listing_Standard.CheckboxLabeled("VBDrawSkeleton".Translate(), ref settings.DrawSkeleton, tooltip: "VBDrawSkeleton.Explained".Translate());
-            listing_Standard.CheckboxLabeled("VBDrawIntestines".Translate(), ref settings.DrawIntestines);
             listing_Standard.CheckboxLabeled("VBGenerateFlesh".Translate(), ref settings.GenerateFlesh);
             if (settings.GenerateFlesh)
             {
                 listing_Standard.CheckboxLabeled("VBFilthMode".Translate(), ref settings.FilthMode, tooltip: "VBFilthMode.Explained".Translate());
             }
+
+            listing_Standard.GapLine();
             listing_Standard.CheckboxLabeled("VBGenerateHeads".Translate(), ref settings.GenerateHeads);
+
+            listing_Standard.GapLine();
             listing_Standard.CheckboxLabeled("VBOverrideCorpseTexture".Translate(), ref settings.OverrideCorpseTexture);
+            if (settings.OverrideCorpseTexture)
+            {
+                listing_Standard.CheckboxLabeled("VBDrawSkeleton".Translate(), ref settings.DrawSkeleton, tooltip: "VBDrawSkeleton.Explained".Translate());
+                listing_Standard.CheckboxLabeled("VBDrawIntestines".Translate(), ref settings.DrawIntestines);
+            }
             if (listing_Standard.ButtonText("VBSettingsDefault".Translate()))
             {
                 settings.Restore();

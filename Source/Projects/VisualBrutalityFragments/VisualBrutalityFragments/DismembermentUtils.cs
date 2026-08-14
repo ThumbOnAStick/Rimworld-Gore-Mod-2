@@ -91,12 +91,13 @@ namespace VisualBrutalityFragments
                 new IntVec3((int)(Mathf.Cos(rad) * distance),
                 0,
                 (int)(Mathf.Sin(rad) * distance));
-            bool found = CellFinder.TryFindRandomCellNear(targetCell, map, scatter, null, out IntVec3 intVec, 10);
+            bool found = CellFinder.TryRandomClosewalkCellNear(pawnCell, map, scatter, out IntVec3 intVec, (vec) => { return targetCell.DistanceTo(vec) < 5f; });
             if (!found) return;
             LocalTargetInfo dest = new LocalTargetInfo(intVec);
             FlyingFlesh fragment = (FlyingFlesh)GenSpawn.Spawn(VBFragmentsDefOf.FlyingFlesh, pawn.Position, map, WipeMode.Vanish);
             fragment.FleshDef = fleshDef;
             fragment.SetAscending(ascending);
+            fragment.SetBloodColor(ColorUtils.GetBloodColor(pawn));
             fragment.SetIsAnomaly(pawn.RaceProps.IsAnomalyEntity || pawn.IsShambler);
             fragment.Launch(pawn, dest, dest, ProjectileHitFlags.None, false, null);
         }

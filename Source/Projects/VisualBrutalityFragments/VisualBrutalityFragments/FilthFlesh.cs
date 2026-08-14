@@ -6,38 +6,39 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityFragments
 {
     public class FilthFlesh : ThingWithComps
     {
-        private ThingDef fleshDef;
         private bool isAnomaly;
+        private Color overrideColor = Color.white;
 
-        public void SetFleshDef(ThingDef fleshDef)
+        public void SetOverrideColor(Pawn pawn)
         {
-            this.fleshDef = fleshDef;
+            if (pawn == null)
+            {
+                return;
+            }
+            overrideColor = ColorUtils.GetBloodColor(pawn);
+        }
+
+        public void SetOverrideColor(Color color)
+        {
+            this.SetColor(color);
+            this.overrideColor = color;
         }
         public void SetIsAnomaly(bool isAnomaly)
         {
             this.isAnomaly = isAnomaly;
         }
 
-
-        public override Graphic Graphic
-        {
-            get
-            {
-                var graphic = this.fleshDef != null ? fleshDef.graphic : base.Graphic;
-                
-                return isAnomaly?graphic.GetColoredVersion(ShaderDatabase.Cutout, new Color(.3f,0,0), Color.white): graphic;
-            }
-        }
-
+        
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Defs.Look<ThingDef>(ref fleshDef, "fleshDef"); 
+            Scribe_Values.Look<Color>(ref overrideColor, "overrideColor"); 
             Scribe_Values.Look<bool>(ref isAnomaly, "isAnomaly");
         }
     }

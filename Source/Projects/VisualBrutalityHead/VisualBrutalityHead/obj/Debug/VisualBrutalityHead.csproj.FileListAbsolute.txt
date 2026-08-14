@@ -2,3 +2,7 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Visual Brutality\1.6
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Visual Brutality\Source\Projects\VisualBrutalityHead\VisualBrutalityHead\obj\Debug\VisualBrutalityHead.csproj.AssemblyReference.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Visual Brutality\Source\Projects\VisualBrutalityHead\VisualBrutalityHead\obj\Debug\VisualBrutalityHead.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Visual Brutality\Source\Projects\VisualBrutalityHead\VisualBrutalityHead\obj\Debug\VisualBrutalityHead.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\1.6\Assemblies\VisualBrutalityHead.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityHead\VisualBrutalityHead\obj\Debug\VisualBrutalityHead.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityHead\VisualBrutalityHead\obj\Debug\VisualBrutalityHead.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Rimworld-Gore-Mod-2\Source\Projects\VisualBrutalityHead\VisualBrutalityHead\obj\Debug\VisualBrutalityHead.dll

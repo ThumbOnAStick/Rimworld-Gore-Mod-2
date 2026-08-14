@@ -15,6 +15,8 @@ namespace VisualBrutalityFragments
     {
         private ThingDef fleshDef;
         private Rot4 rotation;
+
+        private Color bloodColor = Color.white;
         private float currentDegrees;
         private float height = 0f;
         private bool ascending = false;
@@ -65,7 +67,7 @@ namespace VisualBrutalityFragments
                 GenSpawn.TrySpawn(VBFragmentsDefOf.Filth_Flesh, this.Position, MapHeld, Rot4.Random, out Thing flesh);
                 var filth = flesh as FilthFlesh;
                 filth?.SetIsAnomaly(this.isAnomalyFlesh);
-                filth?.SetFleshDef(this.fleshDef);
+                filth?.SetOverrideColor(this.bloodColor);
                 return true;
             }
             return false;
@@ -137,12 +139,18 @@ namespace VisualBrutalityFragments
             this.isAnomalyFlesh = anomaly;
         }
 
+        public void SetBloodColor(Color color)
+        {
+
+            this.bloodColor = color;
+        }
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Defs.Look(ref fleshDef, "fleshDef");
             Scribe_Values.Look(ref ascending, "ascending");
+            Scribe_Values.Look(ref bloodColor, "bloodColor");
         }
 
     }

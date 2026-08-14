@@ -3,6 +3,7 @@ using RimWorld;
 using System;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 using VisualBrutalityCorpses.Compatibility;
 using VisualBrutalityCorpses.Utils;
 
@@ -27,9 +28,9 @@ namespace VisualBrutalityHead
             try
             {
                 IntRange intRange = new IntRange(3, 5);
-                int randomInRange = intRange.RandomInRange;
-                bool flag = !CellFinder.TryFindRandomCellNear(pawn.Position, pawn.Map, randomInRange, x => (x - pawn.Position).LengthHorizontalSquared >= 3, out IntVec3 intVec, 10);
-                if (!flag)
+                int scatter = intRange.RandomInRange;
+                bool found = CellFinder.TryRandomClosewalkCellNear(pawn.PositionHeld, pawn.MapHeld, scatter, out IntVec3 intVec);
+                if (found)
                 {
                     LocalTargetInfo localTargetInfo = new LocalTargetInfo(intVec);
                     Thing spawned = GenSpawn.Spawn(VBHeadDefOf.HeadProjectile, pawn.Position, pawn.Map, WipeMode.Vanish);
