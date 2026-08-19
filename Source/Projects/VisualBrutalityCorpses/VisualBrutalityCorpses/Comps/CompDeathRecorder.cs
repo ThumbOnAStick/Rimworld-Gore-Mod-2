@@ -30,7 +30,7 @@ namespace VisualBrutalityCorpses.Comps
         private bool burnt = false;
         private bool torsoDestroyed = false;
         private bool isGibSpilled = false;
-        private Color gibsColor = Color.white;
+        private Color gibsColor;
 
         public bool Burnt => burnt;
 
@@ -94,27 +94,6 @@ namespace VisualBrutalityCorpses.Comps
 
 
 
-        public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
-        {
-            base.PostPreApplyDamage(ref dinfo, out absorbed);
-            if (SelfPawn.Dead) return;
-            this.lastHitDamage = dinfo.Def;
-            lasthitDamageAmount = dinfo.Amount;
-        }
-
-
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
-            Scribe_Defs.Look(ref lastHitDamage, "lastHitDamage");
-            Scribe_Values.Look(ref lasthitDamageAmount, "lasthitDamageAmount");
-            Scribe_Values.Look(ref burnt, "burnt");
-            Scribe_Values.Look(ref torsoDestroyed, "torsoDestroyed");
-            Scribe_Values.Look(ref isGibSpilled, "isGibSpilled");
-            Scribe_Values.Look(ref gibsColor, "gibsColor");
-
-        }
-
         public void SetBurnt(bool _burnt)
         {
             bool previous = this.Burnt;
@@ -139,7 +118,6 @@ namespace VisualBrutalityCorpses.Comps
         {
             if (dinfo.HitPart == null || dinfo.HitPart.def != BodyPartDefOf.Torso)
             {
-                VBLog.Message("Should not split torso");
                 return false;
             }
             return dinfo.Amount > BodyPartDefOf.Torso.hitPoints;
@@ -162,7 +140,8 @@ namespace VisualBrutalityCorpses.Comps
             }
             this.gibsColor = ColorUtils.GetBloodColor(otherPawn);
             this.isGibSpilled = true;
-            SelfPawn.Drawer.renderer.EnsureGraphicsInitialized();
+            SelfPawn.Drawer.renderer.SetAllGraphicsDirty();
+
             //Task.Delay(5000).ContinueWith(t => CleanGibs());
         }
 
@@ -207,10 +186,27 @@ namespace VisualBrutalityCorpses.Comps
             }
         }
 
- 
+
+        public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
+        {
+            base.PostPreApplyDamage(ref dinfo, out absorbed);
+            if (SelfPawn.Dead) return;
+            this.lastHitDamage = dinfo.Def;
+            lasthitDamageAmount = dinfo.Amount;
+        }
 
 
- 
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Defs.Look(ref lastHitDamage, "lastHitDamage");
+            Scribe_Values.Look(ref lasthitDamageAmount, "lasthitDamageAmount");
+            Scribe_Values.Look(ref burnt, "burnt");
+            Scribe_Values.Look(ref torsoDestroyed, "torsoDestroyed");
+            Scribe_Values.Look(ref isGibSpilled, "isGibSpilled");
+            Scribe_Values.Look(ref gibsColor, "gibsColor", Color.white);
+
+        }
 
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {

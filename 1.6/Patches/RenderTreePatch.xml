@@ -46,13 +46,6 @@
                 <overlayLayer>Head</overlayLayer>
                 <baseLayer>61</baseLayer>
             </li>
-            <li>
-                <debugLabel>Gibs</debugLabel>
-                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Hair</nodeClass>
-                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
-                <overlayLayer>Head</overlayLayer>
-                <baseLayer>63</baseLayer>
-            </li>
         </value>
     </Operation>
 </Patch>

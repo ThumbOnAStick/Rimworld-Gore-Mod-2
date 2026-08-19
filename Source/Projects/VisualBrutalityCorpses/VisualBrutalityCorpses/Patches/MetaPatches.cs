@@ -30,6 +30,7 @@ namespace VisualBrutalityCorpses.Patches
                 HeadRenderPatch.PatchHarmony();
                 AnimalBodyRenderPatch.PatchHarmony();
                 CorpseBurntPatch.PatchHarmony();
+                HairRenderPatch.PatchHarmony();
             }
             catch (Exception e)
             {

@@ -12,6 +12,9 @@ namespace VisualBrutalityCorpses.RenderNode
 {
     public class PawnRenderWorker_GibsOverlay : PawnRenderNodeWorker
     {
+
+        private Color gibsColor;
+
         // TODO: Only returns true when there's gibs 
         public override bool CanDrawNow(PawnRenderNode node, PawnDrawParms parms)
         {
@@ -26,6 +29,7 @@ namespace VisualBrutalityCorpses.RenderNode
             {
                 return false;
             }
+            gibsColor = recorderComp.GibsColor;
             return recorderComp.IsGibSpilled;
         }
 

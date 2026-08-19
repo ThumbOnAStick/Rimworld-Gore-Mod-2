@@ -213,6 +213,7 @@
     <Compile Include="Defs\GoreMaskDef.cs" />
     <Compile Include="Graphics\MaskedSpriteHelper.cs" />
     <Compile Include="Compatibility\BodytypeCheck.cs" />
+    <Compile Include="Patches\HairRenderPatch.cs" />
     <Compile Include="RenderNode\PawnRenderNode_GibsOverlay_Body.cs" />
     <Compile Include="RenderNode\PawnRenderNode_GibsOverlay_Head.cs" />
     <Compile Include="RenderNode\PawnRenderWorker_GibsOverlay.cs" />

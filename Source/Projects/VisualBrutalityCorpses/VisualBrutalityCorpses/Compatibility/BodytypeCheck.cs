@@ -9,7 +9,7 @@ namespace VisualBrutalityCorpses.Compatibility
 {
     internal static class BodytypeCheck
     {
-        private static readonly List<String> bodies = new List<String>() { "PMP_PersonaMech"};
+        private static readonly List<String> bodies = new List<String>() {"PMP_PersonaMech"};
         public static bool IsSupported(string bodyType)
         {
             bool result = !bodies.Contains(bodyType);
