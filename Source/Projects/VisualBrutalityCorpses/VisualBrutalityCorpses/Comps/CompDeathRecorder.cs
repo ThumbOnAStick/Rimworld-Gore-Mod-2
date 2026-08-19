@@ -1,36 +1,46 @@
 ﻿using RimWorld;
+using RimWorld.Planet;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using Verse;
+using VisualBrutalityCorpses.Utils;
 using VisualBrutalityCorpses.VBCustomContents;
 
 namespace VisualBrutalityCorpses.Comps
 {
     public class CompDeathRecorder : ThingComp
     {
+
         private static UnityEvent<CompDeathRecorder> pawnKilledEvent;
         public static UnityEvent<CompDeathRecorder> PawnKilledEvent
         {
-            get 
+            get
             {
-                if(pawnKilledEvent != null) return pawnKilledEvent;
+                if (pawnKilledEvent != null) return pawnKilledEvent;
                 pawnKilledEvent = new UnityEvent<CompDeathRecorder>();
                 return pawnKilledEvent;
-            } 
+            }
             set => pawnKilledEvent = pawnKilledEvent ?? value;
         }
         private DamageDef lastHitDamage = DamageDefOf.Blunt;
         private float lasthitDamageAmount = 0;
         private bool burnt = false;
         private bool torsoDestroyed = false;
+        private bool isGibSpilled = false;
+        private Color gibsColor = Color.white;
 
         public bool Burnt => burnt;
 
         public bool TorsoDestroyed => torsoDestroyed;
         public Pawn SelfPawn => (Pawn)this.parent;
         public DamageDef LastHitDamage => this.lastHitDamage;
+        public Color GibsColor => this.gibsColor;
+
+        public bool IsGibSpilled => this.isGibSpilled;
+
 
         public bool HasSpecialGoreTexture
         {
@@ -82,6 +92,8 @@ namespace VisualBrutalityCorpses.Comps
             }
         }
 
+
+
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {
             base.PostPreApplyDamage(ref dinfo, out absorbed);
@@ -98,6 +110,9 @@ namespace VisualBrutalityCorpses.Comps
             Scribe_Values.Look(ref lasthitDamageAmount, "lasthitDamageAmount");
             Scribe_Values.Look(ref burnt, "burnt");
             Scribe_Values.Look(ref torsoDestroyed, "torsoDestroyed");
+            Scribe_Values.Look(ref isGibSpilled, "isGibSpilled");
+            Scribe_Values.Look(ref gibsColor, "gibsColor");
+
         }
 
         public void SetBurnt(bool _burnt)
@@ -113,41 +128,96 @@ namespace VisualBrutalityCorpses.Comps
             this.torsoDestroyed = _torsoDestroyed;
         }
 
-        bool TorsoCheck(Hediff h)
+
+        /// <summary>
+        ///  Checks if the last hit destroys pawn's torso
+        /// </summary>
+        /// <param name="pawn"></param>
+        /// <param name="dInfo"></param>
+        /// <returns></returns>
+        bool ShouldSplitTorso(DamageInfo dinfo)
         {
-            BodyPartRecord part = h.Part;
-            return ((part != null) ? part.def : null) == BodyPartDefOf.Torso;
+            if (dinfo.HitPart == null || dinfo.HitPart.def != BodyPartDefOf.Torso)
+            {
+                VBLog.Message("Should not split torso");
+                return false;
+            }
+            return dinfo.Amount > BodyPartDefOf.Torso.hitPoints;
         }
 
-
-        bool ShouldSplitTorso(Pawn pawn)
+        void CleanGibs()
         {
-            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
-            if (hediffs != null && hediffs.Count >= 1 && hediffs.Any(TorsoCheck))
+            this.isGibSpilled = false;
+        }
+
+        /// <summary>
+        /// Get gibs from other pawn spilled on this pawn
+        /// </summary>
+        /// <param name="otherPawn"></param>
+        void GetGibsSpilledBy(Pawn otherPawn)
+        {
+            if (otherPawn == null)
             {
-                float severity = hediffs.Where(TorsoCheck).MaxBy(h => h.tickAdded).Severity;
-                if (severity > (float)BodyPartDefOf.Torso.hitPoints)
+                return;
+            }
+            this.gibsColor = ColorUtils.GetBloodColor(otherPawn);
+            this.isGibSpilled = true;
+            SelfPawn.Drawer.renderer.EnsureGraphicsInitialized();
+            //Task.Delay(5000).ContinueWith(t => CleanGibs());
+        }
+
+        /// <summary>
+        /// Spill gibs on all neighbor cells when dead
+        /// </summary>
+        void SpillGibsOnNeighborPawns()
+        {
+            var map = SelfPawn.MapHeld;
+            if(map == null)
+            {
+                return;
+            }
+            float radius = 1.5f;
+            int num = GenRadial.NumCellsInRadius(radius);
+            for (int i = 0; i < num; i++)
+            {
+                IntVec3 intVec = GenRadial.RadialPattern[i] + SelfPawn.PositionHeld;
+                Pawn pawn = intVec.GetFirstPawn(map);
+                if (pawn != null && !pawn.Dead && pawn.TryGetComp<CompDeathRecorder>() != null)
                 {
-                    return true;
+                    pawn.TryGetComp<CompDeathRecorder>().GetGibsSpilledBy(SelfPawn);
                 }
             }
-            return false;
+
         }
 
-        void ValidateTorsoSplit(Pawn pawn)
+        /// <summary>
+        /// Validate if torso is destroyed to perform torso destoryed VFX.
+        /// </summary>
+        /// <param name="dinfo"></param>
+        void ValidateTorsoSplit(DamageInfo? dinfo = null)
         {
-            if (ShouldSplitTorso(pawn))
+            if (dinfo == null)
             {
-                this.SetTorsoDestroyed(true);
+                return;
+            }
+            if (ShouldSplitTorso(dinfo.Value))
+            {
+                SetTorsoDestroyed(true);
+                SpillGibsOnNeighborPawns();
             }
         }
+
+ 
+
+
+ 
 
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
         {
             base.Notify_Killed(prevMap, dinfo);
             this.SetBurnt(false); // Reset burn status everytime pawn dies.
             this.SetTorsoDestroyed(false); // Reset torso status everytime pawn dies.
-            ValidateTorsoSplit(this.SelfPawn);
+            ValidateTorsoSplit(dinfo);
             PawnKilledEvent.Invoke(this);
         }
 

@@ -4,12 +4,54 @@
         <xpath>/Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children</xpath>
         <value>
             <li>
+                <debugLabel>Gibs</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Body</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
+                <overlayLayer>Body</overlayLayer>
+                <baseLayer>40</baseLayer>
+            </li>
+            <li>
                 <debugLabel>Skeleton</debugLabel>
                 <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_HumanSkeleton</nodeClass>
                 <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_Skeleton</workerClass>
                 <useRottenColor>true</useRottenColor>
                 <baseLayer>-1</baseLayer>
                 <rotDrawMode>Fresh, Rotting</rotDrawMode>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>
+            /Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[debugLabel="Head"]/children</xpath>
+        <value>
+            <li>
+                <debugLabel>Gibs</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Head</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
+                <overlayLayer>Head</overlayLayer>
+                <baseLayer>61</baseLayer>
+            </li>
+        </value>
+
+    </Operation>
+        <Operation Class="PatchOperationAdd">
+        <xpath>
+            /Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[debugLabel="Head"]/children</xpath>
+        <value>
+            <li>
+                <debugLabel>Gibs</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Head</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
+                <overlayLayer>Head</overlayLayer>
+                <baseLayer>61</baseLayer>
+            </li>
+            <li>
+                <debugLabel>Gibs</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Hair</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
+                <overlayLayer>Head</overlayLayer>
+                <baseLayer>63</baseLayer>
             </li>
         </value>
     </Operation>

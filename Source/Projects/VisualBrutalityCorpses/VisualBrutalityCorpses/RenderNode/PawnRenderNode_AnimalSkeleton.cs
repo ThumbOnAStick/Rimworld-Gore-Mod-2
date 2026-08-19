@@ -71,7 +71,6 @@ namespace VisualBrutalityCorpses.RenderNode
                 graphic3.colorTwo, 
                 null, 
                 pawn.Graphic.path);
-            //Texture2D tex = graphic3.MatEast.mainTexture;
             return graphic3;
         }
     }

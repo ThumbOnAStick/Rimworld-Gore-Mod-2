@@ -41,6 +41,10 @@ namespace VisualBrutalityFragments
             }
         }
 
+        /// <summary>
+        /// Try to destroy target's head
+        /// </summary>
+        /// <param name="pawn">Target pawn</param>
         [DebugAction("VB", "DestroyPawnHead", false, false, false, false, false, 0, false, actionType = DebugActionType.ToolMapForPawns)]
         public static void TryDestroyHead(Pawn pawn)
         {
@@ -48,7 +52,19 @@ namespace VisualBrutalityFragments
             var head = pawn.health.hediffSet.GetBodyPartRecord(BodyPartDefOf.Head);
             if (head == null) return;
             pawn.TakeDamage(new DamageInfo(DamageDefOf.Crush, 100, hitPart: head));
+        }
 
+        /// <summary>
+        /// Try to destroy target's torso
+        /// </summary>
+        /// <param name="pawn">Target pawn</param>
+        [DebugAction("VB", "DestroyPawnTorso", false, false, false, false, false, 0, false, actionType = DebugActionType.ToolMapForPawns)]
+        public static void TryDestroyTorso(Pawn pawn)
+        {
+            if (!pawn.def.race.Humanlike) return;
+            var torso = pawn.health.hediffSet.GetBodyPartRecord(BodyPartDefOf.Torso);
+            if (torso == null) return;
+            pawn.TakeDamage(new DamageInfo(DamageDefOf.Crush, 999, hitPart: torso));
         }
 
         /// <summary>
