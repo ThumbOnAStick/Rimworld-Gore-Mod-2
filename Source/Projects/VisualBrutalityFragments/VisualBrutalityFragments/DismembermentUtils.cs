@@ -61,8 +61,9 @@ namespace VisualBrutalityFragments
         [DebugAction("VB", "DestroyPawnTorso", false, false, false, false, false, 0, false, actionType = DebugActionType.ToolMapForPawns)]
         public static void TryDestroyTorso(Pawn pawn)
         {
-            if (!pawn.def.race.Humanlike) return;
-            var torso = pawn.health.hediffSet.GetBodyPartRecord(BodyPartDefOf.Torso);
+            BodyPartRecord corePart = pawn.health.hediffSet.GetNotMissingParts().First(x => x.IsCorePart);
+            if (corePart == null) return;
+            var torso = pawn.health.hediffSet.GetBodyPartRecord(corePart.def);
             if (torso == null) return;
             pawn.TakeDamage(new DamageInfo(DamageDefOf.Crush, 999, hitPart: torso));
         }

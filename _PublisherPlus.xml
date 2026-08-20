@@ -2,6 +2,10 @@
 <Configuration>
   <Excluded>
     <exclude>.git</exclude>
+    <exclude>About\PreviewImageProject.kra</exclude>
     <exclude>Source</exclude>
+    <exclude>Textures\Fragments.kra</exclude>
+    <exclude>Textures\Gibs_Overlay.kra</exclude>
+    <exclude>Textures\Masks.kra</exclude>
   </Excluded>
 </Configuration>

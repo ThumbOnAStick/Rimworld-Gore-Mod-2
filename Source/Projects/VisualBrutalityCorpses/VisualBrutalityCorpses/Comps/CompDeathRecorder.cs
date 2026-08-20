@@ -30,6 +30,7 @@ namespace VisualBrutalityCorpses.Comps
         private bool burnt = false;
         private bool torsoDestroyed = false;
         private bool isGibSpilled = false;
+        private bool isGibFromWest = false;
         private Color gibsColor;
 
         public bool Burnt => burnt;
@@ -38,6 +39,7 @@ namespace VisualBrutalityCorpses.Comps
         public Pawn SelfPawn => (Pawn)this.parent;
         public DamageDef LastHitDamage => this.lastHitDamage;
         public Color GibsColor => this.gibsColor;
+        public bool IsGibsFromWest => this.isGibFromWest;
 
         public bool IsGibSpilled => this.isGibSpilled;
 
@@ -116,11 +118,14 @@ namespace VisualBrutalityCorpses.Comps
         /// <returns></returns>
         bool ShouldSplitTorso(DamageInfo dinfo)
         {
-            if (dinfo.HitPart == null || dinfo.HitPart.def != BodyPartDefOf.Torso)
+            if (SelfPawn == null || SelfPawn.health == null || SelfPawn.health.hediffSet == null) return false;
+            BodyPartRecord corePart = SelfPawn.health.hediffSet.GetNotMissingParts().First(x => x.IsCorePart);
+            if (corePart == null) return false;
+            if (dinfo.HitPart == null || dinfo.HitPart.def != corePart.def)
             {
                 return false;
             }
-            return dinfo.Amount > BodyPartDefOf.Torso.hitPoints;
+            return dinfo.Amount > corePart.def.hitPoints;
         }
 
         void CleanGibs()
@@ -132,7 +137,7 @@ namespace VisualBrutalityCorpses.Comps
         /// Get gibs from other pawn spilled on this pawn
         /// </summary>
         /// <param name="otherPawn"></param>
-        void GetGibsSpilledBy(Pawn otherPawn)
+        void GetGibsSpilledBy(Pawn otherPawn, IntVec3 dir)
         {
             if (otherPawn == null)
             {
@@ -140,6 +145,7 @@ namespace VisualBrutalityCorpses.Comps
             }
             this.gibsColor = ColorUtils.GetBloodColor(otherPawn);
             this.isGibSpilled = true;
+            this.isGibFromWest = dir.x > 0;
             SelfPawn.Drawer.renderer.SetAllGraphicsDirty();
 
             //Task.Delay(5000).ContinueWith(t => CleanGibs());
@@ -163,7 +169,7 @@ namespace VisualBrutalityCorpses.Comps
                 Pawn pawn = intVec.GetFirstPawn(map);
                 if (pawn != null && !pawn.Dead && pawn.TryGetComp<CompDeathRecorder>() != null)
                 {
-                    pawn.TryGetComp<CompDeathRecorder>().GetGibsSpilledBy(SelfPawn);
+                    pawn.TryGetComp<CompDeathRecorder>().GetGibsSpilledBy(SelfPawn, GenRadial.RadialPattern[i]);
                 }
             }
 
@@ -204,6 +210,7 @@ namespace VisualBrutalityCorpses.Comps
             Scribe_Values.Look(ref burnt, "burnt");
             Scribe_Values.Look(ref torsoDestroyed, "torsoDestroyed");
             Scribe_Values.Look(ref isGibSpilled, "isGibSpilled");
+            Scribe_Values.Look(ref isGibFromWest, "isGibFromWest");
             Scribe_Values.Look(ref gibsColor, "gibsColor", Color.white);
 
         }

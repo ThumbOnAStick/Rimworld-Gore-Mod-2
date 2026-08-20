@@ -11,28 +11,28 @@ using VisualBrutalityCorpses.Utils;
 namespace VisualBrutalityCorpses.RenderNode
 {
 
-    internal class PawnRenderNode_GibsOverlay_Head : PawnRenderNode
+    internal class PawnRenderNode_GibsOverlay_Head : PawnRenderNode_GibsOverlay_Body
     {
-        const string gibsOverlayPath = "VBOverlays/Gibs/Head/GibsOverlay";
+
+        protected override string GibsOverlayPath => "VBOverlays/Gibs/Head/GibsOverlay";
+        protected override string GraphicPath
+        {
+            get
+            {
+                if (this.tree.pawn == null || this.tree.pawn.story == null || this.tree.pawn.story.bodyType == null)
+                {
+                    return "";
+                }
+                return this.tree.pawn.story.headType.graphicPath;
+            }
+
+        }
 
         public PawnRenderNode_GibsOverlay_Head(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
             : base(pawn, props, tree)
         {
         }
-
-        public override Graphic GraphicFor(Pawn pawn)
-        {
-            var deathRecorder = pawn.TryGetComp<CompDeathRecorder>();
-            if (deathRecorder == null) return null;   
-            string headGraphicPath = pawn.story.headType.graphicPath;
-            if (headGraphicPath == null) return null;
-            if (!deathRecorder.IsGibSpilled)
-            {
-                return null;
-            }
-            return GraphicDatabase.Get<Graphic_Multi>(gibsOverlayPath, ShaderDatabase.CutoutSkinOverlay, drawSize: pawn.DrawSize, deathRecorder.GibsColor, Color.white, null, headGraphicPath);
-
-        }
     }
 
 }
+    
