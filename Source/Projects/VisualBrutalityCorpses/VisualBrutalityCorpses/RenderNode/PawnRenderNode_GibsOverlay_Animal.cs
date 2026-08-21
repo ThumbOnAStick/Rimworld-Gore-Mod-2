@@ -14,9 +14,11 @@ namespace VisualBrutalityCorpses.RenderNode
 {
     internal class PawnRenderNode_GibsOverlay_Animal : PawnRenderNode_GibsOverlay_Body
     {
-
+        private Vector2 drawsizeCached;
+        protected override string GibsOverlayPath => "VBOverlays/Gibs/Animal/GibsOverlay";
         protected override string GraphicPath { get
             {
+                if (!this.graphicPathCached.NullOrEmpty()) return this.graphicPathCached;
                 if (this.tree.pawn == null) return "";
                 if (!this.tree.pawn.IsAnimal) return "";
                 PawnKindLifeStage curKindLifeStage = tree.pawn.ageTracker.CurKindLifeStage;
@@ -24,16 +26,38 @@ namespace VisualBrutalityCorpses.RenderNode
                 if (tree.pawn.gender != Gender.Female || curKindLifeStage.femaleGraphicData == null)
                 {
                     text = curKindLifeStage.bodyGraphicData.texPath;
+                    drawsizeCached = curKindLifeStage.bodyGraphicData.drawSize;
                 }
                 else
                 {
                     text = curKindLifeStage.femaleGraphicData.texPath;
+                    drawsizeCached = curKindLifeStage.femaleGraphicData.drawSize;
                 }
+                this.graphicPathCached = text;
                 return text;
             }
         }
 
+        public override GraphicMeshSet MeshSetFor(Pawn pawn)
+        {
+            PawnKindLifeStage curKindLifeStage = tree.pawn.ageTracker.CurKindLifeStage;
+            if (tree.pawn.gender != Gender.Female || curKindLifeStage.femaleGraphicData == null)
+            {
+                drawsizeCached = curKindLifeStage.bodyGraphicData.drawSize;
+            }
+            else
+            {
+                drawsizeCached = curKindLifeStage.femaleGraphicData.drawSize;
+            }
+            return MeshPool.GetMeshSetForSize(drawsizeCached.x, drawsizeCached.y);
+        }
 
+        public override Color ColorFor(Pawn pawn)
+        {
+            if (deathRecorder == null)
+                return base.ColorFor(pawn);
+            return deathRecorder.GibsColor;
+        }
 
         public PawnRenderNode_GibsOverlay_Animal(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
             : base(pawn, props, tree)
@@ -41,24 +65,12 @@ namespace VisualBrutalityCorpses.RenderNode
 
         }
 
+
         public override Graphic GraphicFor(Pawn pawn)
         {
             if (deathRecorder == null) return null;
-            //if (GraphicPath.NullOrEmpty()) return null;
-            PawnKindLifeStage curKindLifeStage = pawn.ageTracker.CurKindLifeStage;
-            Graphic graphic;
-            if (pawn.gender != Gender.Female || curKindLifeStage.femaleGraphicData == null)
-            {
-                graphic = curKindLifeStage.bodyGraphicData.Graphic;
-            }
-            else
-            {
-                graphic = curKindLifeStage.femaleGraphicData.Graphic;
-            }
-
-            VBLog.Message($"Draw size: {graphic.drawSize}");
-
-            return GraphicDatabase.Get<Graphic_Multi>(GibsOverlayPath, ShaderDatabase.Cutout, drawSize: graphic.drawSize, deathRecorder.GibsColor, Color.white, null, GraphicPath);
+            if (GraphicPath.NullOrEmpty()) return null;
+            return GraphicDatabase.Get<Graphic_Multi>(GibsOverlayPath, ShaderDatabase.CutoutSkinOverlay, drawSize: drawsizeCached, deathRecorder.GibsColorSolid, Color.white, null, GraphicPath);
 
         }
 

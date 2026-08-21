@@ -39,6 +39,7 @@ namespace VisualBrutalityCorpses.Comps
         public Pawn SelfPawn => (Pawn)this.parent;
         public DamageDef LastHitDamage => this.lastHitDamage;
         public Color GibsColor => this.gibsColor;
+        public Color GibsColorSolid => new Color(this.gibsColor.r, this.gibsColor.g, this.gibsColor.b);
         public bool IsGibsFromWest => this.isGibFromWest;
 
         public bool IsGibSpilled => this.isGibSpilled;
@@ -158,8 +159,7 @@ namespace VisualBrutalityCorpses.Comps
             this.isGibSpilled = true;
             this.isGibFromWest = dir.x > 0;
             SelfPawn.Drawer.renderer.SetAllGraphicsDirty();
-            TickTimer t = new TickTimer();
-            t.Start(GenTicks.TicksGame, 5000, CleanGibs);
+           
         }
 
         /// <summary>
@@ -186,17 +186,6 @@ namespace VisualBrutalityCorpses.Comps
 
         }
 
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            if (isGibSpilled)
-            {
-                TickTimer t = new TickTimer();
-                t.Start(GenTicks.TicksGame, 5000, CleanGibs);
-
-            }
-        }
-
         /// <summary>
         /// Validate if torso is destroyed to perform torso destoryed VFX.
         /// </summary>
@@ -213,6 +202,18 @@ namespace VisualBrutalityCorpses.Comps
                 SpillGibsOnNeighborPawns();
             }
         }
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            if (isGibSpilled)
+            {
+                TickTimer t = new TickTimer();
+                t.Start(GenTicks.TicksGame, 5000, CleanGibs);
+
+            }
+        }
+
 
 
         public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)

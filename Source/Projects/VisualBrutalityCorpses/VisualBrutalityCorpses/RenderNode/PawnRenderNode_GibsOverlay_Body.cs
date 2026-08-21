@@ -107,8 +107,8 @@ namespace VisualBrutalityCorpses.RenderNode
 
         public override Graphic GraphicFor(Pawn pawn)
         {
-            if (deathRecorder == null) return null;
-            if (GraphicPath.NullOrEmpty()) return null;
+            if (deathRecorder == null) return base.GraphicFor(pawn);
+            if (GraphicPath.NullOrEmpty()) return base.GraphicFor(pawn);
             return GraphicDatabase.Get<Graphic_Multi>(GibsOverlayPath, ShaderDatabase.CutoutSkinOverlay, drawSize: GetDrawSize(pawn), deathRecorder.GibsColor, Color.white, null, GraphicPath);
         }
 

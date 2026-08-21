@@ -58,7 +58,7 @@
                 <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Animal</nodeClass>
                 <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
                 <overlayLayer>Body</overlayLayer>
-                <baseLayer>61</baseLayer>
+                <baseLayer>11</baseLayer>
             </li>
         </value>
     </Operation>
