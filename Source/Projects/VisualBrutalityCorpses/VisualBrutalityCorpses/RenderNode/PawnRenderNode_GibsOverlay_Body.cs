@@ -16,6 +16,7 @@ namespace VisualBrutalityCorpses.RenderNode
     {
         protected Apparel apperalCached;
         protected string graphicPathCached;
+        protected readonly CompDeathRecorder deathRecorder;
 
         protected virtual string GibsOverlayPath => "VBOverlays/Gibs/Body/GibsOverlay";
         protected virtual string GraphicPath
@@ -72,7 +73,6 @@ namespace VisualBrutalityCorpses.RenderNode
 
 
 
-        private readonly CompDeathRecorder deathRecorder;
 
         public PawnRenderNode_GibsOverlay_Body(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
             : base(pawn, props, tree)

@@ -95,7 +95,10 @@ namespace VisualBrutalityCorpses.Comps
         }
 
 
-
+        /// <summary>
+        /// Set death recorder burnt
+        /// </summary>
+        /// <param name="_burnt">value</param>
         public void SetBurnt(bool _burnt)
         {
             bool previous = this.Burnt;
@@ -104,6 +107,10 @@ namespace VisualBrutalityCorpses.Comps
                 this.SelfPawn?.Corpse?.TryGetComp<CompRottable>()?.RotImmediately(stage: RotStage.Dessicated);
         }
 
+        /// <summary>
+        /// Set torso destroyed to "true" inside death recorder
+        /// </summary>
+        /// <param name="_torsoDestroyed">value</param>
         public void SetTorsoDestroyed(bool _torsoDestroyed)
         {
             this.torsoDestroyed = _torsoDestroyed;
@@ -113,8 +120,8 @@ namespace VisualBrutalityCorpses.Comps
         /// <summary>
         ///  Checks if the last hit destroys pawn's torso
         /// </summary>
-        /// <param name="pawn"></param>
-        /// <param name="dInfo"></param>
+        /// <param name="pawn">Target pawn</param>
+        /// <param name="dInfo">Damage info</param>
         /// <returns></returns>
         bool ShouldSplitTorso(DamageInfo dinfo)
         {
@@ -128,9 +135,13 @@ namespace VisualBrutalityCorpses.Comps
             return dinfo.Amount > corePart.def.hitPoints;
         }
 
+        /// <summary>
+        /// Clean gibs and set pawn renderer dirty
+        /// </summary>
         void CleanGibs()
         {
             this.isGibSpilled = false;
+            SelfPawn?.Drawer?.renderer?.SetAllGraphicsDirty();
         }
 
         /// <summary>
@@ -147,8 +158,8 @@ namespace VisualBrutalityCorpses.Comps
             this.isGibSpilled = true;
             this.isGibFromWest = dir.x > 0;
             SelfPawn.Drawer.renderer.SetAllGraphicsDirty();
-
-            //Task.Delay(5000).ContinueWith(t => CleanGibs());
+            TickTimer t = new TickTimer();
+            t.Start(GenTicks.TicksGame, 5000, CleanGibs);
         }
 
         /// <summary>
@@ -173,6 +184,17 @@ namespace VisualBrutalityCorpses.Comps
                 }
             }
 
+        }
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            if (isGibSpilled)
+            {
+                TickTimer t = new TickTimer();
+                t.Start(GenTicks.TicksGame, 5000, CleanGibs);
+
+            }
         }
 
         /// <summary>

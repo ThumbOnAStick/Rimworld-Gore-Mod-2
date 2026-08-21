@@ -38,7 +38,7 @@ namespace VisualBrutalityCorpses.Patches
                 Find.WindowStack.Add(box);
             }
 
-            VBLog.Message("Harmony patches were successful");
+            VBLog.Message("VBCorpses harmony patches were successful");
         }
     }
 

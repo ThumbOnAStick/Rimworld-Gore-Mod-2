@@ -33,9 +33,9 @@
                 <baseLayer>61</baseLayer>
             </li>
         </value>
-
     </Operation>
-        <Operation Class="PatchOperationAdd">
+
+    <Operation Class="PatchOperationAdd">
         <xpath>
             /Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[debugLabel="Head"]/children</xpath>
         <value>
@@ -44,6 +44,20 @@
                 <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Head</nodeClass>
                 <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
                 <overlayLayer>Head</overlayLayer>
+                <baseLayer>61</baseLayer>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>
+            /Defs/PawnRenderTreeDef[defName="Animal"]/root/children/li[debugLabel="Body"]/children</xpath>
+        <value>
+            <li>
+                <debugLabel>Gibs</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Animal</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
+                <overlayLayer>Body</overlayLayer>
                 <baseLayer>61</baseLayer>
             </li>
         </value>
