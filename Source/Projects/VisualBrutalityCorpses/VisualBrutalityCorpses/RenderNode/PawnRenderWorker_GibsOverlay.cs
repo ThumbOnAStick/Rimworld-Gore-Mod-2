@@ -22,7 +22,7 @@ namespace VisualBrutalityCorpses.RenderNode
             {
                 return false;
             }
-            var recorderComp = pawn.TryGetComp<CompDeathRecorder>();
+            var recorderComp = pawn.TryGetComp<CompGibsOverlay>();
             if (recorderComp == null)
             {
                 return false;

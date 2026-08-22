@@ -4,8 +4,10 @@
 		<xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
 		<value>
 			<li>
-				<compClass>CompGibsOverlay</compClass>
-				<compClass>CompDeathRecorder</compClass>
+				<compClass>VisualBrutalityCorpses.Comps.CompDeathRecorder</compClass>
+			</li>
+			<li>
+				<compClass>VisualBrutalityCorpses.Comps.CompGibsOverlay</compClass>
 			</li>
 		</value>
 	</Operation>

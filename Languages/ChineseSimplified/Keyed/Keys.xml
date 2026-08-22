@@ -14,4 +14,10 @@
       <VBFilthMode>污渍模式</VBFilthMode>
       <VBFilthMode.Explained>碎片落地后生成污渍。</VBFilthMode.Explained>
       <VBSettingsDefault>恢复默认设置</VBSettingsDefault>
+      <VBTorsoSplitThreshold>躯干破坏特效阈值</VBTorsoSplitThreshold>
+      <VBTorsoSplitThreshold.Explained>造成躯干破坏特效的对躯干伤害比例阈值: {0}%</VBTorsoSplitThreshold.Explained>
+      <VBEnableGibsOverlay>（实验性）开启尸块污渍</VBEnableGibsOverlay>
+      <VBEnableGibsOverlay.Explained>（实验性）当一个生物的躯干被破坏时，旁边的生物会沾染污渍</VBEnableGibsOverlay.Explained>
+      <VBGibsOverlayDuration>（实验性）尸块污渍的持续时间: {0} 秒</VBGibsOverlayDuration>
+      <VBGibsOverlayDuration.Explained>（实验性）在一段时间后，身上的污渍会自动清楚</VBGibsOverlayDuration.Explained>
 </LanguageData>

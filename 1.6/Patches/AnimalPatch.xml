@@ -4,8 +4,12 @@
 		<xpath>/Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
 		<value>
             <comps>
-                <li Class="VisualBrutalityCorpses.Comps.CompProperties_DeathRecorder">
+                <li>
+					<compClass>VisualBrutalityCorpses.Comps.CompDeathRecorder</compClass>
                 </li>
+				<li>
+					<compClass>VisualBrutalityCorpses.Comps.CompGibsOverlay</compClass>
+				</li>
             </comps>
 		</value>
 	</Operation>

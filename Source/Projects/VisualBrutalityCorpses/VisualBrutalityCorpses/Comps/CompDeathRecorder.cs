@@ -28,7 +28,6 @@ namespace VisualBrutalityCorpses.Comps
         }
         private DamageDef lastHitDamage = DamageDefOf.Blunt;
 
-        private TickTimer removeGibsTimer = new TickTimer();
 
         private float lasthitDamageAmount = 0;
         private bool burnt = false;
@@ -40,11 +39,7 @@ namespace VisualBrutalityCorpses.Comps
         public bool TorsoDestroyed => torsoDestroyed;
         public Pawn SelfPawn => (Pawn)this.parent;
         public DamageDef LastHitDamage => this.lastHitDamage;
-        public Color GibsColor => this.gibsColor;
-        public Color GibsColorSolid => new Color(this.gibsColor.r, this.gibsColor.g, this.gibsColor.b);
-        public bool IsGibsFromWest => this.isGibFromWest;
 
-        public bool IsGibSpilled => this.isGibSpilled;
 
 
         public bool HasSpecialGoreTexture
@@ -135,40 +130,22 @@ namespace VisualBrutalityCorpses.Comps
             {
                 return false;
             }
-            return dinfo.Amount > corePart.def.hitPoints;
+            return dinfo.Amount > corePart.def.hitPoints * VisualBrutalityMod.Settings.TorsoSplitThreshold;
         }
 
-        /// <summary>
-        /// Clean gibs and set pawn renderer dirty
-        /// </summary>
-        void CleanGibs()
-        {
-            this.isGibSpilled = false;
-            SelfPawn?.Drawer?.renderer?.SetAllGraphicsDirty();
-        }
 
-        /// <summary>
-        /// Get gibs from other pawn spilled on this pawn
-        /// </summary>
-        /// <param name="otherPawn"></param>
-        void GetGibsSpilledBy(Pawn otherPawn, IntVec3 dir)
-        {
-            if (otherPawn == null)
-            {
-                return;
-            }
-            this.gibsColor = ColorUtils.GetBloodColor(otherPawn);
-            this.isGibSpilled = true;
-            this.isGibFromWest = dir.x > 0;
-            SelfPawn?.Drawer?.renderer.SetAllGraphicsDirty();
-            removeGibsTimer?.Start(GenTicks.TicksGame, 60 * 5, CleanGibs);
-        }
+
+
 
         /// <summary>
         /// Spill gibs on all neighbor cells when dead
         /// </summary>
         void SpillGibsOnNeighborPawns()
         {
+            if (!VisualBrutalityMod.Settings.EnableGibsOverlay)
+            {
+                return;
+            }
             var map = SelfPawn.MapHeld;
             if(map == null)
             {
@@ -180,9 +157,9 @@ namespace VisualBrutalityCorpses.Comps
             {
                 IntVec3 intVec = GenRadial.RadialPattern[i] + SelfPawn.PositionHeld;
                 Pawn pawn = intVec.GetFirstPawn(map);
-                if (pawn != null && !pawn.Dead && pawn.TryGetComp<CompDeathRecorder>() != null)
+                if (pawn != null && !pawn.Dead && pawn.TryGetComp<CompGibsOverlay>() != null)
                 {
-                    pawn.TryGetComp<CompDeathRecorder>().GetGibsSpilledBy(SelfPawn, GenRadial.RadialPattern[i]);
+                    pawn.TryGetComp<CompGibsOverlay>().GetGibsSpilledBy(SelfPawn, GenRadial.RadialPattern[i]);
                 }
             }
 
@@ -205,23 +182,6 @@ namespace VisualBrutalityCorpses.Comps
             }
         }
 
-        /// <summary>
-        /// Decrease gibs color's alpha
-        /// </summary>
-        /// <param name="amount">Fade amount</param>
-        public void FadeColor(float amount)
-        {
-            gibsColor.a -= amount;
-        }
-
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            if (isGibSpilled)
-            {
-                removeGibsTimer.Start(GenTicks.TicksGame, 60 * 5, CleanGibs);
-            }
-        }
 
 
 
@@ -233,14 +193,7 @@ namespace VisualBrutalityCorpses.Comps
             lasthitDamageAmount = dinfo.Amount;
         }
 
-        public override void CompTickInterval(int delta)
-        {
-            if (isGibSpilled)
-            {
-                gibsColor.a -= delta/5;
-                removeGibsTimer.TickIntervalDelta();
-            }
-        }
+
         public override void PostExposeData()
         {
             base.PostExposeData();
@@ -248,17 +201,6 @@ namespace VisualBrutalityCorpses.Comps
             Scribe_Values.Look(ref lasthitDamageAmount, "lasthitDamageAmount");
             Scribe_Values.Look(ref burnt, "burnt");
             Scribe_Values.Look(ref torsoDestroyed, "torsoDestroyed");
-            Scribe_Values.Look(ref isGibSpilled, "isGibSpilled");
-            Scribe_Values.Look(ref isGibFromWest, "isGibFromWest");
-            Scribe_Values.Look(ref gibsColor, "gibsColor", Color.white);
-            Scribe_Deep.Look<TickTimer>(ref this.removeGibsTimer, "removeGibsTimer");
-            if (Scribe.mode == LoadSaveMode.PostLoadInit)
-            {
-                if (this.removeGibsTimer != null)
-                    this.removeGibsTimer.OnFinish = new Action(this.CleanGibs);
-                else
-                    removeGibsTimer = new TickTimer();
-            }
         }
 
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)

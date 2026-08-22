@@ -27,11 +27,11 @@ namespace VisualBrutalityCorpses.Patches
         {
             if (__args[0] == null) return;
             if (!(__args[0] is Pawn pawn)) return;
-            CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>();
-            if (compDeathRecorder == null) return;
-            if (compDeathRecorder.IsGibSpilled)
+            CompGibsOverlay compOverlay = pawn.TryGetComp<CompGibsOverlay>();
+            if (compOverlay == null) return;
+            if (compOverlay.IsGibSpilled)
             {
-                var color = compDeathRecorder.GibsColor;
+                var color = compOverlay.GibsColor;
                 var not_trasparent = new Color(color.r, color.g, color.b, 1.0f);
                 __result = __result.GetColoredVersion(ShaderDatabase.CutoutHair, not_trasparent, Color.white);
             }

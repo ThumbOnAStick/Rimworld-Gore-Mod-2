@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.Windows;
 using Verse;
 using VisualBrutalityCorpses.Utils;
 namespace VisualBrutalityCorpses
@@ -11,7 +13,8 @@ namespace VisualBrutalityCorpses
 
         public static VisualBrutalityMod Instance { get; private set; }
 
-        public AssetBundle MainBundle{
+        public AssetBundle MainBundle
+        {
             get
             {
                 string text = "";
@@ -74,8 +77,18 @@ namespace VisualBrutalityCorpses
             if (settings.OverrideCorpseTexture)
             {
                 listing_Standard.CheckboxLabeled("VBDrawSkeleton".Translate(), ref settings.DrawSkeleton, tooltip: "VBDrawSkeleton.Explained".Translate());
-                listing_Standard.CheckboxLabeled("VBDrawIntestines".Translate(), ref settings.DrawIntestines);
+                listing_Standard.CheckboxLabeled("VBDrawIntestines".Translate(), ref settings.DrawIntestines, tooltip: "VBDrawIntestines.Explained".Translate());
+                float raw = listing_Standard.SliderLabeled("VBTorsoSplitThreshold".Translate(settings.TorsoSplitThreshold * 100), settings.TorsoSplitThreshold, 0.5f, 2.0f, tooltip: "VBTorsoSplitThreshold.Explained".Translate());
+                settings.TorsoSplitThreshold = (float)(Math.Round(raw * 4f, MidpointRounding.AwayFromZero) / 4f);
+                
             }
+            listing_Standard.GapLine();
+
+            listing_Standard.CheckboxLabeled("VBEnableGibsOverlay".Translate(), ref settings.EnableGibsOverlay, tooltip: "VBEnableGibsOverlay.Explained".Translate());
+            if (settings.EnableGibsOverlay)
+                settings.GibsOverlayDuration = (int)listing_Standard.SliderLabeled("VBGibsOverlayDuration".Translate(settings.GibsOverlayDuration), settings.GibsOverlayDuration, 1, 1000, tooltip: "VBGibsOverlayDuration.Explained".Translate());
+            listing_Standard.GapLine();
+
             if (listing_Standard.ButtonText("VBSettingsDefault".Translate()))
             {
                 settings.Restore();

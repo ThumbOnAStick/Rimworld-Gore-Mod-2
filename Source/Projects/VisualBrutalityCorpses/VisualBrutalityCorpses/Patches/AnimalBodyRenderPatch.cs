@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Verse;
 using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Graphics;
+using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityCorpses.Patches
 {
@@ -25,6 +26,7 @@ namespace VisualBrutalityCorpses.Patches
             if (!(__args[0] is Pawn pawn) || !pawn.Dead) return;
             CompDeathRecorder compDeathRecorder = pawn.TryGetComp<CompDeathRecorder>();
             if (compDeathRecorder == null) return;
+            VBLog.Message("Found animal gore graphic");
             __result = MaskedSpriteHelper.CreateBodySprite(__result, pawn);
         }
     }

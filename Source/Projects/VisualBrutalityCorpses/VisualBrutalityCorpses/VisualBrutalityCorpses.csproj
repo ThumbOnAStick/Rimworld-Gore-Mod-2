@@ -218,6 +218,7 @@
     <Compile Include="RenderNode\PawnRenderNode_GibsOverlay_Body.cs" />
     <Compile Include="RenderNode\PawnRenderNode_GibsOverlay_HeadGear.cs" />
     <Compile Include="RenderNode\PawnRenderNode_GibsOverlay_Head.cs" />
+    <Compile Include="RenderNode\PawnRenderNode_GibsOverlay_Mechanoid.cs" />
     <Compile Include="RenderNode\PawnRenderWorker_GibsOverlay.cs" />
     <Compile Include="Utils\IntestinesUtils.cs" />
     <Compile Include="Graphics\Graphic_MaskedSprite.cs" />

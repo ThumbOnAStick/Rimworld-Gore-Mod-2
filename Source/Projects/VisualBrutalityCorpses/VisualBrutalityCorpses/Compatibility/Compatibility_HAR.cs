@@ -71,8 +71,8 @@ namespace VisualBrutalityCorpses.Compatibility
             {
                 alienDef.comps = new System.Collections.Generic.List<CompProperties>();
             }
-            if (alienDef.comps.Any(x => x is CompProperties_DeathRecorder)) return;
-            alienDef.comps.Add(new CompProperties_DeathRecorder());
+            if (alienDef.comps.Any(x => x.compClass.Name == nameof(CompDeathRecorder))) return;
+            alienDef.comps.Add(new CompProperties(compClass:typeof(CompDeathRecorder)));
         }
     }
 }

@@ -16,7 +16,7 @@ namespace VisualBrutalityCorpses.RenderNode
     {
         protected Apparel apperalCached;
         protected string graphicPathCached;
-        protected readonly CompDeathRecorder deathRecorder;
+        protected readonly CompGibsOverlay deathRecorder;
 
         protected virtual string GibsOverlayPath => "VBOverlays/Gibs/Body/GibsOverlay";
         protected virtual string GraphicPath
@@ -77,7 +77,7 @@ namespace VisualBrutalityCorpses.RenderNode
         public PawnRenderNode_GibsOverlay_Body(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
             : base(pawn, props, tree)
         {
-            deathRecorder = pawn.TryGetComp<CompDeathRecorder>();
+            deathRecorder = pawn.TryGetComp<CompGibsOverlay>();
             graphicPathCached = "";
         }
 
@@ -107,6 +107,7 @@ namespace VisualBrutalityCorpses.RenderNode
 
         public override Graphic GraphicFor(Pawn pawn)
         {
+            if (!VisualBrutalityMod.Settings.EnableGibsOverlay) return null;
             if (deathRecorder == null) return base.GraphicFor(pawn);
             if (GraphicPath.NullOrEmpty()) return base.GraphicFor(pawn);
             return GraphicDatabase.Get<Graphic_Multi>(GibsOverlayPath, ShaderDatabase.CutoutSkinOverlay, drawSize: GetDrawSize(pawn), deathRecorder.GibsColor, Color.white, null, GraphicPath);

@@ -69,4 +69,18 @@
             </li>
         </value>
     </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>
+            /Defs/PawnRenderTreeDef[defName="Misc"]/root/children/li[debugLabel="Body"]/children</xpath>
+        <value>
+            <li>
+                <debugLabel>Gibs</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Mechanoid</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
+                <overlayLayer>Body</overlayLayer>
+                <baseLayer>11</baseLayer>
+            </li>
+        </value>
+    </Operation>
 </Patch>

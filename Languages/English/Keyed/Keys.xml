@@ -14,4 +14,11 @@
       <VBFilthMode>Filth Mode</VBFilthMode>
       <VBFilthMode.Explained>Spawn filth instead of flesh after fragment landed.</VBFilthMode.Explained>
       <VBSettingsDefault>Default settings</VBSettingsDefault>
+      <VBTorsoSplitThreshold>Torso split threshold: {0}%</VBTorsoSplitThreshold>
+      <VBTorsoSplitThreshold.Explained>Least fraction of damaged dealt to torso needed to trigger "torso spilt" VFX</VBTorsoSplitThreshold.Explained>
+      <VBEnableGibsOverlay>(Experimental) Enable gibs overlay</VBEnableGibsOverlay>
+      <VBEnableGibsOverlay.Explained>(Experimental) When a creature's torso is destroyed, pawns next to them will have gibs overlay</VBEnableGibsOverlay.Explained>
+      <VBGibsOverlayDuration>(Experimental) Gibs overlay duration: {0} secs</VBGibsOverlayDuration>
+      <VBGibsOverlayDuration.Explained>(Experimental) After a while gibs overlay will be removed</VBGibsOverlayDuration.Explained>
+
 </LanguageData>

@@ -68,6 +68,7 @@ namespace VisualBrutalityCorpses.RenderNode
 
         public override Graphic GraphicFor(Pawn pawn)
         {
+            if (!VisualBrutalityMod.Settings.EnableGibsOverlay) return null;
             if (deathRecorder == null) return null;
             if (GraphicPath.NullOrEmpty()) return null;
             return GraphicDatabase.Get<Graphic_Multi>(GibsOverlayPath, ShaderDatabase.CutoutSkinOverlay, drawSize: drawsizeCached, deathRecorder.GibsColorSolid, Color.white, null, GraphicPath);
