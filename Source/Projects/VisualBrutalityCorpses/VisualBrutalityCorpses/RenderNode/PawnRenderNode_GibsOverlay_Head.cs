@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +14,25 @@ namespace VisualBrutalityCorpses.RenderNode
 
     internal class PawnRenderNode_GibsOverlay_Head : PawnRenderNode_GibsOverlay_Body
     {
-
-        protected override string GibsOverlayPath => "VBOverlays/Gibs/Head/GibsOverlay";
         protected override string GraphicPath
         {
             get
             {
-                if (this.tree.pawn == null || this.tree.pawn.story == null || this.tree.pawn.story.bodyType == null)
+                if (!graphicPathCached.NullOrEmpty())
+                {
+                    return graphicPathCached;
+                }
+                if (this.tree.pawn == null || this.tree.pawn.story == null || this.tree.pawn.story.headType == null)
                 {
                     return "";
                 }
+                graphicPathCached = this.tree.pawn.story.headType.graphicPath;
                 return this.tree.pawn.story.headType.graphicPath;
             }
 
         }
+        protected override string GibsOverlayPath => "VBOverlays/Gibs/Head/GibsOverlay";
+
 
         public PawnRenderNode_GibsOverlay_Head(Pawn pawn, PawnRenderNodeProperties props, PawnRenderTree tree)
             : base(pawn, props, tree)

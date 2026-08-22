@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,12 +27,13 @@ namespace VisualBrutalityCorpses.Comps
             set => pawnKilledEvent = pawnKilledEvent ?? value;
         }
         private DamageDef lastHitDamage = DamageDefOf.Blunt;
+
+        private TickTimer removeGibsTimer = new TickTimer();
+
         private float lasthitDamageAmount = 0;
         private bool burnt = false;
         private bool torsoDestroyed = false;
-        private bool isGibSpilled = false;
-        private bool isGibFromWest = false;
-        private Color gibsColor;
+
 
         public bool Burnt => burnt;
 
@@ -158,8 +160,8 @@ namespace VisualBrutalityCorpses.Comps
             this.gibsColor = ColorUtils.GetBloodColor(otherPawn);
             this.isGibSpilled = true;
             this.isGibFromWest = dir.x > 0;
-            SelfPawn.Drawer.renderer.SetAllGraphicsDirty();
-           
+            SelfPawn?.Drawer?.renderer.SetAllGraphicsDirty();
+            removeGibsTimer?.Start(GenTicks.TicksGame, 60 * 5, CleanGibs);
         }
 
         /// <summary>
@@ -203,14 +205,21 @@ namespace VisualBrutalityCorpses.Comps
             }
         }
 
+        /// <summary>
+        /// Decrease gibs color's alpha
+        /// </summary>
+        /// <param name="amount">Fade amount</param>
+        public void FadeColor(float amount)
+        {
+            gibsColor.a -= amount;
+        }
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
             if (isGibSpilled)
             {
-                TickTimer t = new TickTimer();
-                t.Start(GenTicks.TicksGame, 5000, CleanGibs);
-
+                removeGibsTimer.Start(GenTicks.TicksGame, 60 * 5, CleanGibs);
             }
         }
 
@@ -224,7 +233,14 @@ namespace VisualBrutalityCorpses.Comps
             lasthitDamageAmount = dinfo.Amount;
         }
 
-
+        public override void CompTickInterval(int delta)
+        {
+            if (isGibSpilled)
+            {
+                gibsColor.a -= delta/5;
+                removeGibsTimer.TickIntervalDelta();
+            }
+        }
         public override void PostExposeData()
         {
             base.PostExposeData();
@@ -235,7 +251,14 @@ namespace VisualBrutalityCorpses.Comps
             Scribe_Values.Look(ref isGibSpilled, "isGibSpilled");
             Scribe_Values.Look(ref isGibFromWest, "isGibFromWest");
             Scribe_Values.Look(ref gibsColor, "gibsColor", Color.white);
-
+            Scribe_Deep.Look<TickTimer>(ref this.removeGibsTimer, "removeGibsTimer");
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                if (this.removeGibsTimer != null)
+                    this.removeGibsTimer.OnFinish = new Action(this.CleanGibs);
+                else
+                    removeGibsTimer = new TickTimer();
+            }
         }
 
         public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)

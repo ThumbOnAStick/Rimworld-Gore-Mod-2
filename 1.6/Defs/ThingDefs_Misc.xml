@@ -116,5 +116,16 @@
             <graphicClass>Graphic_Random</graphicClass>
             <drawSize>0.9</drawSize>
         </graphicData>
+
+        <filth>
+            <placementMask>
+                <li>Terrain</li>
+            </placementMask>
+            <disappearsInDays>45~50</disappearsInDays>
+            <rainWashes>true</rainWashes>
+            <cleaningWorkToReduceThickness>35</cleaningWorkToReduceThickness>
+            <canFilthAttach>true</canFilthAttach>
+            <cleaningSound>Interact_CleanFilth_Dirt</cleaningSound>
+        </filth>
     </ThingDef>
 </Defs>

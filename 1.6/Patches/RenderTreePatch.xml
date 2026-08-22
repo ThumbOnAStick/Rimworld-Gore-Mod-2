@@ -30,7 +30,14 @@
                 <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_Head</nodeClass>
                 <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
                 <overlayLayer>Head</overlayLayer>
-                <baseLayer>61</baseLayer>
+                <baseLayer>53</baseLayer>
+            </li>
+            <li>
+                <debugLabel>Gibs</debugLabel>
+                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_GibsOverlay_HeadGear</nodeClass>
+                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
+                <overlayLayer>Head</overlayLayer>
+                <baseLayer>71</baseLayer>
             </li>
         </value>
     </Operation>

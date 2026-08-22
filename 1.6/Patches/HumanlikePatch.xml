@@ -3,7 +3,9 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
 		<value>
-			<li Class="VisualBrutalityCorpses.Comps.CompProperties_DeathRecorder">
+			<li>
+				<compClass>CompGibsOverlay</compClass>
+				<compClass>CompDeathRecorder</compClass>
 			</li>
 		</value>
 	</Operation>

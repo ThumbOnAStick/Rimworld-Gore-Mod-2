@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace VisualBrutalityCorpses.Comps
 {
-    public class CompProperties_DeathRecorder : CompProperties
+    internal class CompGibsOverlay : ThingComp
     {
-        public CompProperties_DeathRecorder() 
-        {
-            this.compClass = typeof(CompDeathRecorder);
-        }
+        private bool isGibSpilled = false;
+        private bool isGibFromWest = false;
+        private Color gibsColor;
     }
 }

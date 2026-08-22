@@ -13,12 +13,12 @@ namespace VisualBrutalityCorpses.RenderNode
     public class PawnRenderWorker_GibsOverlay : PawnRenderNodeWorker
     {
 
-        // TODO: Only returns true when there's gibs 
+
         public override bool CanDrawNow(PawnRenderNode node, PawnDrawParms parms)
         {
 
             Pawn pawn = parms.pawn;
-            if(pawn == null || pawn.Dead)
+            if (pawn == null || pawn.Dead)
             {
                 return false;
             }
@@ -30,11 +30,10 @@ namespace VisualBrutalityCorpses.RenderNode
             return recorderComp.IsGibSpilled;
         }
 
-        public override void PreDraw(PawnRenderNode node, Material mat, PawnDrawParms parms)
+        public override float LayerFor(PawnRenderNode node, PawnDrawParms parms)
         {
-            base.PreDraw(node, mat, parms);
+            return base.LayerFor(node, parms);
         }
-
 
         public override Vector3 OffsetFor(PawnRenderNode node, PawnDrawParms parms, out Vector3 pivot)
         {
