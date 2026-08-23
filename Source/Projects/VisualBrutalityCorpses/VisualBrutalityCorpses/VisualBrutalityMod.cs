@@ -9,6 +9,8 @@ namespace VisualBrutalityCorpses
 {
     public class VisualBrutalityMod : Mod
     {
+        const string packageName = "visualbrutality";
+
         private readonly VBSettings settings;
 
         public static VisualBrutalityMod Instance { get; private set; }
@@ -32,7 +34,7 @@ namespace VisualBrutalityCorpses
                     text = "StandaloneLinux64";
                 }
 
-                string bundlePath = Path.Combine(base.Content.RootDir, "Materials\\Bundles\\" + text + "\\testunlit");
+                string bundlePath = Path.Combine(base.Content.RootDir, "Materials\\Bundles\\" + text + $"\\{packageName}");
                 AssetBundle bundle = AssetBundle.LoadFromFile(bundlePath);
 
                 if (bundle == null)

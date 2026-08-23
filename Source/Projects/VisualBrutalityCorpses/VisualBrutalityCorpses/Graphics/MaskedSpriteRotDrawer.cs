@@ -67,9 +67,9 @@ namespace VisualBrutalityCorpses.Graphics
                     mainTextureOffset = baseMat.mainTextureOffset
                 };
                 newMat.SetTexture("_Mask", mask);
-                float revealAmount = apparel != null? 1f : 0.9f;
                 Color color = apparel != null? Color.grey : ColorUtils.GetBloodColor(pawn);
-                newMat.SetFloat("_RevealAmount", revealAmount);
+                newMat.SetFloat("_FadeStrength", 5.0f);
+                newMat.SetFloat("_MixStrength", 10.0f);
                 newMat.SetColor("_DamageLayerColor", color);
                 Rot4 rot = ((pawn.GetPosture() == PawnPosture.Standing) ? pawn.Rotation : pawn.Drawer.renderer.LayingFacing());
                 if (shouldDrawSkull) newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkullTexture(rot));

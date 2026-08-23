@@ -8,7 +8,7 @@ using Verse;
 using VisualBrutalityCorpses.Compatibility;
 using VisualBrutalityCorpses.Defs;
 using VisualBrutalityCorpses.Utils;
-
+            
 namespace VisualBrutalityCorpses.VBCustomContents
 {
     [StaticConstructorOnStartup]
