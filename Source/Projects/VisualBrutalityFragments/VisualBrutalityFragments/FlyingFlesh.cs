@@ -18,9 +18,10 @@ namespace VisualBrutalityFragments
 
         private Color bloodColor = Color.white;
         private float currentDegrees;
-        private float height = 0f;
         private bool ascending = false;
         private bool isAnomalyFlesh = false;
+
+        private Graphic graphicCached;
 
         private float CurrentAngles => this.currentDegrees * Mathf.Deg2Rad;
 
@@ -36,15 +37,19 @@ namespace VisualBrutalityFragments
 
         public override Graphic Graphic { get
             {
+                if (graphicCached == null)
+                {
+                    graphicCached = fleshDef.graphic;
+                }
                 if (!isAnomalyFlesh)
                 {
-                    return fleshDef.graphic;
+                    return graphicCached;
                 }
                 else
                 {
                     // Use dark red color for shamblers and other entities
                     Color color = new Color(.3f, 0f, 0f);
-                    return fleshDef.graphic.GetColoredVersion(ShaderDatabase.Cutout, color, Color.white);
+                    return graphicCached.GetColoredVersion(ShaderDatabase.Cutout, color, Color.white);
                 }
             }
         }
@@ -97,9 +102,8 @@ namespace VisualBrutalityFragments
         {
             get
             {
-                float ratio = 1 - (float)this.ticksToImpact / this.StartingTicksToImpact;
-                if(this.ascending) this.height = -(ratio - .5f) * (ratio - .5f) * 4 + 1;
-                return ratio / 11 - 1 / (ratio * 10 + 1) + 1;
+                float fraction = DistanceCoveredFraction;
+                return fraction / 11 - 1 / (fraction * 10 + 1) + 1;
             }
         }
 
@@ -112,20 +116,28 @@ namespace VisualBrutalityFragments
             }
         }
 
-
-        public override Vector2 DrawSize => fleshDef.graphicData.drawSize * (1 + height);
-
         protected override void Tick()
         {
             base.Tick();
             this.currentDegrees += Time.deltaTime * 3600;
+
+        }
+
+        float GetSizeMultiplier()
+        {
+            float distanceFrom05 = Mathf.Abs(0.5f - this.DistanceCoveredFraction);
+            return Mathf.Max(1, 5f - (distanceFrom05 * 5f));
         }
 
         protected override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            this.Graphic.drawSize = this.DrawSize;
-            this.Graphic.Draw(drawLoc, this.rotation, this, this.CurrentAngles);
-            this.Graphic.drawSize = Vector2.one;
+            //if (this.ascending && graphicCached != null)
+            //{
+            //   var drawSize = Vector2.one * GetSizeMultiplier();
+            //}
+            
+            Graphic g = this.Graphic;
+            g.Draw(drawLoc, this.rotation, this, this.CurrentAngles);
         }
 
         public void SetAscending(bool ascending)

@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
+    <!-- Sub worker patches -->
+    <Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[nodeClass="PawnRenderNode_Body"]/subworkerClasses</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[nodeClass="PawnRenderNode_Body"]</xpath>
+			<value>
+				<subworkerClasses>
+					<li>VisualBrutalityCorpses.RenderNode.PawnRenderSubWorker_Various</li>
+				</subworkerClasses>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[nodeClass="PawnRenderNode_Body"]/subworkerClasses</xpath>
+			<value>
+				<li>VisualBrutalityCorpses.RenderNode.PawnRenderSubWorker_Various</li>
+			</value>
+		</match>
+	</Operation>
+
+    <Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[nodeClass="PawnRenderNode_Head"]/subworkerClasses</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[nodeClass="PawnRenderNode_Head"]</xpath>
+			<value>
+				<subworkerClasses>
+					<li>VisualBrutalityCorpses.RenderNode.PawnRenderSubWorker_Various</li>
+				</subworkerClasses>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children/li[nodeClass="PawnRenderNode_Head"]/subworkerClasses</xpath>
+			<value>
+				<li>VisualBrutalityCorpses.RenderNode.PawnRenderSubWorker_Various</li>
+			</value>
+		</match>
+	</Operation>
+
+
+    <!-- Gibs overlay patches -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/PawnRenderTreeDef[defName="Humanlike"]/root/children</xpath>
         <value>
@@ -9,14 +48,6 @@
                 <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_GibsOverlay</workerClass>
                 <overlayLayer>Body</overlayLayer>
                 <baseLayer>40</baseLayer>
-            </li>
-            <li>
-                <debugLabel>Skeleton</debugLabel>
-                <nodeClass>VisualBrutalityCorpses.RenderNode.PawnRenderNode_HumanSkeleton</nodeClass>
-                <workerClass>VisualBrutalityCorpses.RenderNode.PawnRenderWorker_Skeleton</workerClass>
-                <useRottenColor>true</useRottenColor>
-                <baseLayer>-1</baseLayer>
-                <rotDrawMode>Fresh, Rotting</rotDrawMode>
             </li>
         </value>
     </Operation>
@@ -41,6 +72,8 @@
             </li>
         </value>
     </Operation>
+    
+
 
     <Operation Class="PatchOperationAdd">
         <xpath>

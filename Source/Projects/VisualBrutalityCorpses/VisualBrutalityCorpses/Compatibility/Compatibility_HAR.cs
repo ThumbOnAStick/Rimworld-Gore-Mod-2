@@ -4,9 +4,6 @@ using System.Reflection;
 using UnityEngine;
 using Verse;
 using VisualBrutalityCorpses.Comps;
-using VisualBrutalityCorpses.Graphics;
-using VisualBrutalityCorpses.Patches;
-using VisualBrutalityCorpses.Utils;
 
 namespace VisualBrutalityCorpses.Compatibility
 {

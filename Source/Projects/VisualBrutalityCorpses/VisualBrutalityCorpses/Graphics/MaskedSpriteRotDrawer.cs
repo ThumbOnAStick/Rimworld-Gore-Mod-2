@@ -26,6 +26,7 @@ namespace VisualBrutalityCorpses.Graphics
         {
             if (mask == null)
             {
+                VBLog.Error($"No gore mask found for ${pawn.ThingID}");
                 return baseMat;
             }
 
@@ -34,13 +35,8 @@ namespace VisualBrutalityCorpses.Graphics
                 return this.materialCached;
             }
 
-            if (!UnityData.IsInMainThread)
-            {
-                return baseMat;
-            }
-
             this.maskCached = mask;
-            return this.materialCached = BuildTornMaterial(baseMat, mask, pawn, apparel, isBody);
+            return this.materialCached = BuildSpecialMaterial(baseMat, mask, pawn, apparel, isBody);
         }
 
         private bool ShouldDrawIntestines(Pawn pawn)
@@ -52,7 +48,16 @@ namespace VisualBrutalityCorpses.Graphics
             return recorder.TorsoDestroyed;
         }
 
-        private Material BuildTornMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null, bool isBody = true)
+        /// <summary>
+        /// Build special material based on base mat
+        /// </summary>
+        /// <param name="baseMat">The base material</param>
+        /// <param name="mask">Material mask</param>
+        /// <param name="pawn">Target pawn</param>
+        /// <param name="apparel">Target apparel</param>
+        /// <param name="isBody">Is drawing body or not</param>
+        /// <returns>The modified material</returns>
+        private Material BuildSpecialMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null, bool isBody = true)
         {
             try
             {

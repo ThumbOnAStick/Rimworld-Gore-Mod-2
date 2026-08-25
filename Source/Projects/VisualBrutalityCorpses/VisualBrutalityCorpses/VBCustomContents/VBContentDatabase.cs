@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using VEF.Weapons;
 using Verse;
 using VisualBrutalityCorpses.Compatibility;
+using VisualBrutalityCorpses.Comps;
 using VisualBrutalityCorpses.Defs;
 using VisualBrutalityCorpses.Utils;
             
@@ -38,6 +40,15 @@ namespace VisualBrutalityCorpses.VBCustomContents
                 if (Compatibility_HAR.IsHARActive())
                 {
                     Compatibility_HAR.AddCompInAlienDefs();
+                }
+                // Add Gibs overlay to all buildings
+                var bulidingDefs = DefDatabase<ThingDef>.AllDefs.Where(x => x.IsBuildingArtificial && x.building!=null && x.building.canBeDamagedByAttacks);
+                foreach (var def in bulidingDefs)
+                {
+                    def.comps?.Add(new CompProperties()
+                    {
+                        compClass = typeof(CompGibsOverlay)
+                    });
                 }
             }
             catch (Exception e)

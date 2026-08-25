@@ -24,13 +24,8 @@ namespace VisualBrutalityCorpses.Patches
             try
             {
                 MetaPatches.harmony = harmony;
-                ApparelGraphicsPatch.PatchHarmony();
-                BodyRenderPatch.PatchHarmony();
-                FurRenderPatch.PatchHarmony();  
-                HeadRenderPatch.PatchHarmony();
-                AnimalBodyRenderPatch.PatchHarmony();
                 CorpseBurntPatch.PatchHarmony();
-                HairRenderPatch.PatchHarmony();
+                ApparelRenderNodePatch.PatchHarmony();
             }
             catch (Exception e)
             {
