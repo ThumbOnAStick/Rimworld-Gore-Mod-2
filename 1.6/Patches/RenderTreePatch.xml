@@ -37,6 +37,23 @@
 		</match>
 	</Operation>
 
+    <Operation Class="PatchOperationConditional">
+		<xpath>Defs/PawnRenderTreeDef[defName="Animal"]/root/children/li[nodeClass="PawnRenderNode_AnimalPart_Body"]/subworkerClasses</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/PawnRenderTreeDef[defName="Animal"]/root/children/li[nodeClass="PawnRenderNode_AnimalPart_Body"]</xpath>
+			<value>
+				<subworkerClasses>
+					<li>VisualBrutalityCorpses.RenderNode.PawnRenderSubWorker_Various</li>
+				</subworkerClasses>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/PawnRenderTreeDef[defName="Animal"]/root/children/li[nodeClass="PawnRenderNode_AnimalPart_Body"]/subworkerClasses</xpath>
+			<value>
+				<li>VisualBrutalityCorpses.RenderNode.PawnRenderSubWorker_Various</li>
+			</value>
+		</match>
+	</Operation>
 
     <!-- Gibs overlay patches -->
     <Operation Class="PatchOperationAdd">

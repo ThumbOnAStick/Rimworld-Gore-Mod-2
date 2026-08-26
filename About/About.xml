@@ -14,7 +14,7 @@
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
 		</li>
 	</modDependencies>
-	<incompatibleWith>
+	<!-- <incompatibleWith>
 		<li>tiagocc0.FemaleBodyVariants</li>
-	</incompatibleWith>
+	</incompatibleWith> -->
 </ModMetaData>

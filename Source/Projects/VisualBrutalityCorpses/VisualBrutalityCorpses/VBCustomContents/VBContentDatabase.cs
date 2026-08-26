@@ -26,6 +26,7 @@ namespace VisualBrutalityCorpses.VBCustomContents
         public static readonly Shader TestUnlitMixerShader = LoadShader(Path.Combine("Assets", "testunlitmixer.shader"));
         public static readonly List<Texture2D> TorsoDestroyedMasks = LoadAllTexturesFromFolder(torsoDestroyedMasks);
         public static readonly List<Texture2D> Skulls = LoadSkullTextures();
+        public static readonly Dictionary<BodyTypeDef, List<Texture2D>> Skeletons = LoadSkeletonTextures();
         //public static readonly Texture2D BurnedOverlay = LoadBurnedOverlay();
 
         static VBContentDatabase()
@@ -97,7 +98,27 @@ namespace VisualBrutalityCorpses.VBCustomContents
             };
             return result;
         }
-
+        private static Dictionary<BodyTypeDef, List<Texture2D>> LoadSkeletonTextures()
+        {
+            var result = new Dictionary<BodyTypeDef, List<Texture2D>>();
+            var allBodyTypes = DefDatabase<BodyTypeDef>.AllDefs;
+            foreach (var item in allBodyTypes)
+            {
+                string path = item.bodyDessicatedGraphicPath;
+                if (path.NullOrEmpty())
+                {
+                    continue;
+                }
+                List<Texture2D> lst = new List<Texture2D>
+                {
+                    ContentFinder<Texture2D>.Get(path + SouthSuffix),
+                    ContentFinder<Texture2D>.Get(path + NorthSuffix),
+                    ContentFinder<Texture2D>.Get(path + EastSuffix),
+                };
+                result.SetOrAdd(item, lst);
+            }
+            return result;
+        }
         public static Texture2D GetSkullTexture(Rot4 rot)
         {
             if(rot == Rot4.South)
@@ -110,6 +131,30 @@ namespace VisualBrutalityCorpses.VBCustomContents
             }
             return Skulls[2];
         }
+
+
+        public static Texture2D GetSkeletonTexture(BodyTypeDef def, Rot4 rot)
+        {
+            List<Texture2D> textureLst;
+            if (!Skeletons.ContainsKey(def))
+            {
+                textureLst = Skeletons.ElementAt(0).Value;
+            }
+            else
+            {
+                textureLst = Skeletons[def];
+            }
+            if (rot == Rot4.South)
+            {
+                return textureLst[0];
+            }
+            if (rot == Rot4.North)
+            {
+                return textureLst[1];
+            }
+            return textureLst[2];
+        }
+
 
         private static Shader LoadShader(string shaderName)
         {

@@ -79,7 +79,7 @@ namespace VisualBrutalityCorpses
             if (settings.OverrideCorpseTexture)
             {
                 listing_Standard.CheckboxLabeled("VBDrawSkeleton".Translate(), ref settings.DrawSkeleton, tooltip: "VBDrawSkeleton.Explained".Translate());
-                listing_Standard.CheckboxLabeled("VBDrawIntestines".Translate(), ref settings.DrawIntestines, tooltip: "VBDrawIntestines.Explained".Translate());
+                //listing_Standard.CheckboxLabeled("VBDrawIntestines".Translate(), ref settings.DrawIntestines, tooltip: "VBDrawIntestines.Explained".Translate());
                 float raw = listing_Standard.SliderLabeled("VBTorsoSplitThreshold".Translate(settings.TorsoSplitThreshold * 100), settings.TorsoSplitThreshold, 0.5f, 2.0f, tooltip: "VBTorsoSplitThreshold.Explained".Translate());
                 settings.TorsoSplitThreshold = (float)(Math.Round(raw * 4f, MidpointRounding.AwayFromZero) / 4f);
                 

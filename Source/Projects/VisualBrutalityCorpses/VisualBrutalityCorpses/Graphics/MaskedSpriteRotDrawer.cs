@@ -13,15 +13,6 @@ namespace VisualBrutalityCorpses.Graphics
 {
     internal class MaskedSpriteRotDrawer
     {
-        Texture2D maskCached;
-        Material materialCached;
-
-        public MaskedSpriteRotDrawer()
-        {
-            maskCached = null;
-        }
-
-
         public Material GetMaterial(Material baseMat, Texture2D mask, Pawn pawn, Thing apparel = null, bool isBody = true)
         {
             if (mask == null)
@@ -30,22 +21,17 @@ namespace VisualBrutalityCorpses.Graphics
                 return baseMat;
             }
 
-            if (this.materialCached != null && mask.Equals(maskCached))
-            {
-                return this.materialCached;
-            }
-
-            this.maskCached = mask;
-            return this.materialCached = BuildSpecialMaterial(baseMat, mask, pawn, apparel, isBody);
+            return BuildSpecialMaterial(baseMat, mask, pawn, apparel, isBody);
         }
 
         private bool ShouldDrawIntestines(Pawn pawn)
         {
-            if (!VisualBrutalityMod.Settings.DrawIntestines) return false;
-            if (!pawn.def.race.Humanlike) return false;
-            var recorder = pawn.TryGetComp<CompDeathRecorder>();
-            if (recorder == null) return false;
-            return recorder.TorsoDestroyed;
+            return false;
+            //if (!VisualBrutalityMod.Settings.DrawIntestines) return false;
+            //if (!pawn.def.race.Humanlike) return false;
+            //var recorder = pawn.TryGetComp<CompDeathRecorder>();
+            //if (recorder == null) return false;
+            //return recorder.TorsoDestroyed;
         }
 
         /// <summary>
@@ -61,12 +47,15 @@ namespace VisualBrutalityCorpses.Graphics
         {
             try
             {
+
                 bool isHead = isBody == false && apparel == null;
-                bool shouldDrawSkull = isHead && VisualBrutalityMod.Settings.DrawSkeleton;
+                bool shouldDrawSkull = apparel == null && isHead && VisualBrutalityMod.Settings.DrawSkeleton;
+                bool shouldDrawSkeleton = apparel == null && isBody && VisualBrutalityMod.Settings.DrawSkeleton;
                 bool shouldDrawIntestines = ShouldDrawIntestines(pawn) && isBody && apparel == null;
-                bool shouldUseMixer = shouldDrawIntestines || shouldDrawSkull;
+                bool shouldUseMixer = !pawn.IsAnimal && (shouldDrawIntestines || shouldDrawSkull || shouldDrawSkeleton) ;
                 var newMat = new Material(baseMat)
                 {
+                    color = baseMat.color,
                     shader = shouldUseMixer ? VBContentDatabase.TestUnlitMixerShader : VBContentDatabase.TestUnlitShader,
                     mainTextureScale = baseMat.mainTextureScale,
                     mainTextureOffset = baseMat.mainTextureOffset
@@ -76,9 +65,24 @@ namespace VisualBrutalityCorpses.Graphics
                 newMat.SetFloat("_FadeStrength", 5.0f);
                 newMat.SetFloat("_MixStrength", 10.0f);
                 newMat.SetColor("_DamageLayerColor", color);
+                newMat.SetColor("_MixColor", color);
+                if (pawn.IsAnimal)
+                {
+                    return newMat;
+                }
+
                 Rot4 rot = ((pawn.GetPosture() == PawnPosture.Standing) ? pawn.Rotation : pawn.Drawer.renderer.LayingFacing());
-                if (shouldDrawSkull) newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkullTexture(rot));
-                if (shouldDrawIntestines) newMat.SetTexture("_TexTwo", IntestinesUtils.GetIntestinesForBodyType(pawn.story?.bodyType));
+                if (shouldDrawSkull)
+                {
+                    newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkullTexture(rot));
+                }
+                else if (shouldDrawSkeleton && pawn.story.bodyType != null)
+                {
+                    //VBLog.Message();
+                    newMat.SetTexture("_TexTwo", VBContentDatabase.GetSkeletonTexture(pawn.story.bodyType, rot));
+                }
+                //if (shouldDrawIntestines) newMat.SetTexture("_TexTwo", IntestinesUtils.GetIntestinesForBodyType(pawn.story?.bodyType));
+
                 return newMat;
             }
             catch (Exception ex)
